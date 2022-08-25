@@ -1200,7 +1200,7 @@
                                 <img src="{{ asset($country->photo) }}" alt="Location">
                             </a>
                         </div>
-                        <span>{{ $country->jobPosts->count() }} Open Job</span>
+                        <span>{{ $country->jobPosts->count() }} {{ __('locale.Open Job') }}</span>
                         <h3>
                             <a href="#">{{ $locale == 'ar' ? $country->name_ar : $country->name }}</a>
                         </h3>

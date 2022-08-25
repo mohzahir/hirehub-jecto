@@ -81,5 +81,6 @@ return [
     "years" => "years",
     "Duration" => "Duration",
     "Featured" => "Featured",
+    "Open Job" => "Open Job",
 
 ];

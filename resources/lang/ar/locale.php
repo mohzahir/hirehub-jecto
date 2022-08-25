@@ -81,7 +81,7 @@ return [
     "years" => "سنوات",
     "Duration" => "مدة التعاقد",
     "Featured" => "مميز",
-
+    "Open Job" => "وظائف متاحة",
 
 
 
