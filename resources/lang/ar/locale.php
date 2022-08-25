@@ -19,7 +19,7 @@ return [
     "Over" => "أكثر من",
     "supporter all over the world" => "داعم حول العالم",
     "Employers Offering Job" => "وظائف الشركات",
-    "Most Featured Jobs" => "أكثر الوظائف تمييزا لدينا",
+    "Most Featured Jobs" => " إعلانات الوظائف المميزة لدينا",
     "Explore New Life" => "إكتشف حياتك الجديدة",
     "Be Found Put Your Cv In Front Of Great Employers" => "ضع سيرتك الذاتية بين يدي افضل خبراء التوظيف",
     "CEO Message" => "رسالة المدير العام",
@@ -31,7 +31,7 @@ return [
     "Working Process" => "الية العمل",
     "See How It Works" => "إتبع خطوات الية العمل",
     "Register An Account" => "قم بتسجيل حسابك",
-    "Search Your Job" => "إبحث عن الوظيفة التي تناسبك",
+    "Search Your Job" => "إبحث عن وظيفة",
     "Apply For Job" => "قم بالتفديم لهذه الوظيفة",
     "Our Candidates" => "أميز المتقدمين لدينا",
     "Our Blogs" => "المدونة",
@@ -79,6 +79,8 @@ return [
     "Newsletter" => "النشرة البريدية",
     "Useful Links" => "روابط مهمة",
     "years" => "سنوات",
+    "Duration" => "مدة التعاقد",
+    "Featured" => "مميز",
 
 
 

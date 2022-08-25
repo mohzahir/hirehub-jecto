@@ -18,10 +18,12 @@ class CountrySeeder extends Seeder
             [
                 'name' => 'Sudan',
                 'name_ar' => 'السودان',
+                'photo' => 'jecto/default/assets/img/home-one/location1.jpg',
             ],
             [
                 'name' => 'Qatar',
                 'name_ar' => 'قطر',
+                'photo' => 'jecto/default/assets/img/home-one/location4.jpg',
             ],
         ]);
     }

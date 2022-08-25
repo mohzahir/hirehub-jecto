@@ -23,6 +23,7 @@ class JobPost extends Model
         'salary_from',
         'salary_to',
         'experience',
+        'duration',
         'job_type',
         'is_featured',
         'status',

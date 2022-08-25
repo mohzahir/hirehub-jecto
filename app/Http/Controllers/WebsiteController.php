@@ -15,27 +15,34 @@ class WebsiteController extends Controller
 {
     public function index()
     {
-        return view('website.home');
+        return view('website.home', [
+            'locale' => app()->getLocale(),
+            'featured_job_posts' => JobPost::where('status', 'active')->where('is_featured', 1)->get(),
+            'categories' => Category::where('status', 'active')->orderBy('id', 'Desc')->get(),
+            'countries' => Country::orderBy('id', 'Desc')->get(),
+            'countries_has_jobs' => Country::has('jobPosts')->take(4)->get(),
+        ]);
     }
     public function jobs(Request $request)
     {
+        // dd($request->all());
         return view('website.jobs', [
             'locale' => app()->getLocale(),
             'jobs' => JobPost::query()
                 ->when($request->search_text, function ($q) use ($request) {
                     $q->where('title', 'like', '%' . $request->search_text . '%')->orWhere('title_ar', 'like', '%' . $request->search_text . '%');
                 })
-                ->when(count($request->category_id ?? []) > 0, function ($q) use ($request) {
+                ->when($request->category_id[0] ?? null, function ($q) use ($request) {
                     $q->whereIn('category_id', $request->category_id);
                 })
-                ->when(count($request->country_id ?? []) > 0, function ($q) use ($request) {
+                ->when($request->country_id[0] ?? null, function ($q) use ($request) {
                     $q->whereIn('country_id', $request->country_id);
                 })
-                ->when(count($request->job_type ?? []) > 0, function ($q) use ($request) {
+                ->when($request->job_type[0] ?? null, function ($q) use ($request) {
                     $q->whereIn('job_type', $request->job_type);
                 })
                 ->orderBy('id', 'Desc')->paginate(20),
-            'categories' => Category::orderBy('id', 'Desc')->get(),
+            'categories' => Category::where('status', 'active')->orderBy('id', 'Desc')->get(),
             'countries' => Country::orderBy('id', 'Desc')->get(),
         ]);
     }

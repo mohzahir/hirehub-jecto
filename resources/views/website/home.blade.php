@@ -15,23 +15,23 @@
                                 <p>{{ __('locale.We have') }} 280,000+ {{ __('locale.live jobs') }}</p>
                                 <h1>{{ __('locale.Next Future Job Waiting For You Hold It!') }}</h1>
                                 <div class="banner-form-area">
-                                    <form>
+                                    <form action="{{ route('jobs') }}" method="get">
                                         <div class="row">
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label>
                                                         <i class='bx bx-search'></i>
                                                     </label>
-                                                    <input type="text" class="form-control" placeholder="{{ __('locale.Search Your Job') }}">
+                                                    <input type="text" name="search_text" class="form-control" placeholder="{{ __('locale.Search Your Job') }}">
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
-                                                    <select>
-                                                        <option>{{ __('locale.All Categories') }}</option>
-                                                        <option>Another option</option>
-                                                        <option>A option</option>
-                                                        <option>Potato</option>
+                                                    <select name="category_id[]">
+                                                        <option value="">{{ __('locale.All Categories') }}</option>
+                                                        @foreach($categories as $category)
+                                                        <option value="{{ $category->id }}">{{ $locale == 'ar' ? $category->title_ar : $category->title}}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>
@@ -40,7 +40,13 @@
                                                     <label>
                                                         <i class='bx bx-location-plus'></i>
                                                     </label>
-                                                    <input type="text" class="form-control" placeholder="{{ __('locale.location') }}">
+                                                    <select name="country_id[]">
+                                                        <option value="">{{ __('locale.Location') }}</option>
+                                                        @foreach($countries as $country)
+                                                        <option value="{{ $country->id }}">{{ $locale == 'ar' ? $country->name_ar : $country->name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    <!-- <input type="text" name="search_text" class="form-control" placeholder="{{ __('locale.location') }}"> -->
                                                 </div>
                                             </div>
                                         </div>
@@ -133,246 +139,44 @@
                 <h2>{{ __('locale.Most Featured Jobs') }}</h2>
             </div>
             <div dir="ltr" class="company-slider owl-theme owl-carousel">
+                @foreach($featured_job_posts as $featured_job_post)
                 <div @if(app()->getLocale() == 'ar') dir="rtl" @endif class="company-item two">
                     <div class="feature-top-right">
-                        <span>Featured</span>
+                        <span>{{ __('locale.Featured') }}</span>
                     </div>
                     <div class="top">
-                        <a href="employer-details.html">
+                        <a href="{{ route('job.details', ['job_post' => $featured_job_post->id]) }}">
                             <img src="{{ asset('jecto/default/assets/img/home-one/company1.png') }}" alt="Brand">
                         </a>
                         <h3>
-                            <a href="employer-details.html">Pi Agency</a>
+                            <a href="{{ route('job.details', ['job_post' => $featured_job_post->id]) }}">{{ $locale == 'ar' ? $featured_job_post->title_ar : $featured_job_post->title }}</a>
                         </h3>
-                        <span>Part Time Job</span>
+                        <span>{{ __("locale.$featured_job_post->job_type") }}</span>
                         <p>
                             <i class="flaticon-appointment"></i>
-                            10 min ago / Austria, Vienna
+                            @php 
+                                $dt = \Carbon\Carbon::now();
+                                $dt2 = new \Carbon\Carbon($featured_job_post->created_at);
+                                $time = $dt2->diffForHumans($dt)
+                            @endphp 
+                            {{ $time }}/ {{ $locale == 'ar' ? $featured_job_post->country->name_ar : $featured_job_post->country->name }}, {{ $locale == 'ar' ? $featured_job_post->city->name_ar : $featured_job_post->city->name }}
                         </p>
                     </div>
                     <div class="bottom">
                         <ul>
-                            <li>Pay Relocation Free</li>
-                            <li>Remote Work</li>
-                            <li>Duration: 5 Years</li>
+                            <!-- <li>Pay Relocation Free</li> -->
+                            <!-- <li>Remote Work</li> -->
+                            <li>{{ __('locale.Experience') }}: {{ $featured_job_post->experience }} {{ __('locale.years') }}</li>
+                            <li>{{ __('locale.Duration') }}: {{ $featured_job_post->duration }} {{ __('locale.years') }}</li>
                         </ul>
-                        <span>Annual Salary</span>
-                        <h4>50K</h4>
+                        <span>{{ __('locale.Salary') }}</span>
+                        <h4>${{ $featured_job_post->salary_from }} - ${{ $featured_job_post->salary_to }}</h4>
                         <a href="employer-details.html">
                             <i class="flaticon-right-arrow"></i>
                         </a>
                     </div>
                 </div>
-                <div @if(app()->getLocale() == 'ar') dir="rtl" @endif class="company-item two">
-                    <div class="feature-top-right">
-                        <span>Featured</span>
-                    </div>
-                    <div class="top">
-                        <a href="employer-details.html">
-                            <img src="{{ asset('jecto/default/assets/img/home-one/company2.png') }}" alt="Brand">
-                        </a>
-                        <h3>
-                            <a href="employer-details.html">Kn It</a>
-                        </h3>
-                        <span>Permanent Job</span>
-                        <p>
-                            <i class="flaticon-appointment"></i>
-                            9 min ago / Tirana, Albania
-                        </p>
-                    </div>
-                    <div class="bottom">
-                        <ul>
-                            <li>Graphic Designer</li>
-                            <li>Remote Work</li>
-                            <li>Duration: 2 Years</li>
-                        </ul>
-                        <span>Annual Salary</span>
-                        <h4>56K</h4>
-                        <a href="employer-details.html">
-                            <i class="flaticon-right-arrow"></i>
-                        </a>
-                    </div>
-                </div>
-                <div @if(app()->getLocale() == 'ar') dir="rtl" @endif class="company-item two">
-                    <div class="feature-top-right">
-                        <span>Featured</span>
-                    </div>
-                    <div class="top">
-                        <a href="employer-details.html">
-                            <img src="{{ asset('jecto/default/assets/img/home-one/company3.png') }}" alt="Brand">
-                        </a>
-                        <h3>
-                            <a href="employer-details.html">Orbit Inc.</a>
-                        </h3>
-                        <span>Part Time Job</span>
-                        <p>
-                            <i class="flaticon-appointment"></i>
-                            8 min ago / Doha, Qatar
-                        </p>
-                    </div>
-                    <div class="bottom">
-                        <ul>
-                            <li>Product Manager</li>
-                            <li>Remote Work</li>
-                            <li>Duration: 5 Years</li>
-                        </ul>
-                        <span>Annual Salary</span>
-                        <h4>70K</h4>
-                        <a href="employer-details.html">
-                            <i class="flaticon-right-arrow"></i>
-                        </a>
-                    </div>
-                </div>
-                <div @if(app()->getLocale() == 'ar') dir="rtl" @endif class="company-item two">
-                    <div class="feature-top-right">
-                        <span>Featured</span>
-                    </div>
-                    <div class="top">
-                        <a href="employer-details.html">
-                            <img src="{{ asset('jecto/default/assets/img/home-one/company4.png') }}" alt="Brand">
-                        </a>
-                        <h3>
-                            <a href="employer-details.html">Dev Roside</a>
-                        </h3>
-                        <span>Full Time Job</span>
-                        <p>
-                            <i class="flaticon-appointment"></i>
-                            15 min ago / UK, England
-                        </p>
-                    </div>
-                    <div class="bottom">
-                        <ul>
-                            <li>Design & Developer</li>
-                            <li>Remote Work</li>
-                            <li>Duration: 2 Years</li>
-                        </ul>
-                        <span>Annual Salary</span>
-                        <h4>89K</h4>
-                        <a href="employer-details.html">
-                            <i class="flaticon-right-arrow"></i>
-                        </a>
-                    </div>
-                </div>
-                <div @if(app()->getLocale() == 'ar') dir="rtl" @endif class="company-item two">
-                    <div class="feature-top-right">
-                        <span>Featured</span>
-                    </div>
-                    <div class="top">
-                        <a href="employer-details.html">
-                            <img src="{{ asset('jecto/default/assets/img/home-one/company5.png') }}" alt="Brand">
-                        </a>
-                        <h3>
-                            <a href="employer-details.html">Roshu.co</a>
-                        </h3>
-                        <span>Part Time Job</span>
-                        <p>
-                            <i class="flaticon-appointment"></i>
-                            10 min ago / Cardiff, England
-                        </p>
-                    </div>
-                    <div class="bottom">
-                        <ul>
-                            <li>Internet Operator</li>
-                            <li>Remote Work</li>
-                            <li>Duration: 2 Years</li>
-                        </ul>
-                        <span>Annual Salary</span>
-                        <h4>66K</h4>
-                        <a href="employer-details.html">
-                            <i class="flaticon-right-arrow"></i>
-                        </a>
-                    </div>
-                </div>
-                <div @if(app()->getLocale() == 'ar') dir="rtl" @endif class="company-item two">
-                    <div class="feature-top-right">
-                        <span>Featured</span>
-                    </div>
-                    <div class="top">
-                        <a href="employer-details.html">
-                            <img src="{{ asset('jecto/default/assets/img/home-one/company6.png') }}" alt="Brand">
-                        </a>
-                        <h3>
-                            <a href="employer-details.html">Omti. Med</a>
-                        </h3>
-                        <span>Part Time Job</span>
-                        <p>
-                            <i class="flaticon-appointment"></i>
-                            40 min ago / Tokyo, Japan
-                        </p>
-                    </div>
-                    <div class="bottom">
-                        <ul>
-                            <li>Caring Officer</li>
-                            <li>Remote Work</li>
-                            <li>Duration: 2 Years</li>
-                        </ul>
-                        <span>Annual Salary</span>
-                        <h4>50K</h4>
-                        <a href="employer-details.html">
-                            <i class="flaticon-right-arrow"></i>
-                        </a>
-                    </div>
-                </div>
-                <div @if(app()->getLocale() == 'ar') dir="rtl" @endif class="company-item two">
-                    <div class="feature-top-right">
-                        <span>Featured</span>
-                    </div>
-                    <div class="top">
-                        <a href="employer-details.html">
-                            <img src="{{ asset('jecto/default/assets/img/home-one/company7.png') }}" alt="Brand">
-                        </a>
-                        <h3>
-                            <a href="employer-details.html">Rahbar</a>
-                        </h3>
-                        <span>Full Time Job</span>
-                        <p>
-                            <i class="flaticon-appointment"></i>
-                            7 min ago / Washington, US
-                        </p>
-                    </div>
-                    <div class="bottom">
-                        <ul>
-                            <li>Media Connector</li>
-                            <li>Remote Work</li>
-                            <li>Duration: 3 Years</li>
-                        </ul>
-                        <span>Annual Salary</span>
-                        <h4>87K</h4>
-                        <a href="employer-details.html">
-                            <i class="flaticon-right-arrow"></i>
-                        </a>
-                    </div>
-                </div>
-                <div @if(app()->getLocale() == 'ar') dir="rtl" @endif class="company-item two">
-                    <div class="feature-top-right">
-                        <span>Featured</span>
-                    </div>
-                    <div class="top">
-                        <a href="employer-details.html">
-                            <img src="{{ asset('jecto/default/assets/img/home-one/company8.png') }}" alt="Brand">
-                        </a>
-                        <h3>
-                            <a href="employer-details.html">Doblin. Fo</a>
-                        </h3>
-                        <span>Part Time Job</span>
-                        <p>
-                            <i class="flaticon-appointment"></i>
-                            12 min ago / California, US
-                        </p>
-                    </div>
-                    <div class="bottom">
-                        <ul>
-                            <li>Private Officer</li>
-                            <li>Remote Work</li>
-                            <li>Duration: 1 Year</li>
-                        </ul>
-                        <span>Annual Salary</span>
-                        <h4>50K</h4>
-                        <a href="employer-details.html">
-                            <i class="flaticon-right-arrow"></i>
-                        </a>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -1388,58 +1192,21 @@
     <section class="location-area pb-70">
         <div class="container-fluid">
             <div class="row">
+                @foreach($countries_has_jobs as $country)
                 <div class="col-sm-6 col-lg-3">
                     <div class="location-item">
                         <div class="top">
                             <a href="#">
-                                <img src="{{ asset('jecto/default/assets/img/home-one/location1.jpg') }}" alt="Location">
+                                <img src="{{ asset($country->photo) }}" alt="Location">
                             </a>
                         </div>
-                        <span>8 Open Job</span>
+                        <span>{{ $country->jobPosts->count() }} Open Job</span>
                         <h3>
-                            <a href="#">New York</a>
+                            <a href="#">{{ $locale == 'ar' ? $country->name_ar : $country->name }}</a>
                         </h3>
                     </div>
                 </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="location-item">
-                        <div class="top">
-                            <a href="#">
-                                <img src="{{ asset('jecto/default/assets/img/home-one/location2.jpg') }}" alt="Location">
-                            </a>
-                        </div>
-                        <span>6 Open Job</span>
-                        <h3>
-                            <a href="#">Austria, Vienna</a>
-                        </h3>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="location-item">
-                        <div class="top">
-                            <a href="#">
-                                <img src="{{ asset('jecto/default/assets/img/home-one/location3.jpg') }}" alt="Location">
-                            </a>
-                        </div>
-                        <span>2 Open Job</span>
-                        <h3>
-                            <a href="#">Tirana, Albania</a>
-                        </h3>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="location-item">
-                        <div class="top">
-                            <a href="#">
-                                <img src="{{ asset('jecto/default/assets/img/home-one/location4.jpg') }}" alt="Location">
-                            </a>
-                        </div>
-                        <span>4 Open Job</span>
-                        <h3>
-                            <a href="#">Kabul, Afghanistan</a>
-                        </h3>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

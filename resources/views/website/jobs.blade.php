@@ -62,7 +62,12 @@
                                     <i class="flaticon-send"></i>
                                     {{ $locale == 'ar' ? $job->city->country->name_ar : $job->city->country->name }}, {{ $locale == 'ar' ? $job->city->name_ar : $job->city->name }}
                                 </li>
-                                <li>{{ $job->created_at }}</li>
+                                @php 
+                                    $dt = \Carbon\Carbon::now();
+                                    $dt2 = new \Carbon\Carbon($job->created_at);
+                                    $time = $dt2->diffForHumans($dt)
+                                @endphp 
+                                <li>{{ $time }}</li>
                             </ul>
                             <p>{{ $locale == 'ar' ? $job->short_descr_ar : $job->short_descr }}</p>
                             <span class="span-one">{{ $locale == 'ar' ? $job->job->category->title_ar : $job->job->category->title }}</span>

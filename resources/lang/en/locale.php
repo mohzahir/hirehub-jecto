@@ -79,5 +79,7 @@ return [
     "Newsletter" => "Newsletter",
     "Useful Links" => "Useful Links",
     "years" => "years",
+    "Duration" => "Duration",
+    "Featured" => "Featured",
 
 ];
