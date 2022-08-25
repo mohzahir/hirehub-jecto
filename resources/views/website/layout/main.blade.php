@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html @if(app()->getLocale() == "ar") lang='ar' dir='rtl' @else lang='en' dir='ltr' @endif>
 
 <head>
     <meta charset="UTF-8">
@@ -11,9 +11,11 @@
 
     <link rel="stylesheet" href="{{ asset('jecto/default/assets/css/nice-select.min.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('jecto/default/assets/css/boxicons.min.css') }}">
+    <!-- <link rel="stylesheet" href="{{ asset('jecto/default/assets/css/boxicons.min.css') }}"> -->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 
-    <link rel="stylesheet" href="{{ asset('jecto/default/assets/fonts/flaticon.css') }}">
+    <!-- <link rel="stylesheet" href="{{ asset('jecto/default/assets/fonts/flaticon.css') }}"> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/flaticon@0.1.0/main.min.js"></script> -->
 
     <link rel="stylesheet" href="{{ asset('jecto/default/assets/css/magnific-popup.min.css') }}">
 
@@ -29,8 +31,22 @@
     <link rel="stylesheet" href="{{ asset('jecto/default/assets/css/responsive.css') }}">
 
     <link rel="stylesheet" href="{{ asset('jecto/default/assets/css/theme-dark.css') }}">
+
+    @if(app()->getLocale() == 'ar')
+    <link rel="stylesheet" href="{{ asset('jecto/default/assets/css/rtl.css') }}">
+    @endif
     <title>Jecto - Job Board Bootstrap 5 Template</title>
     <link rel="icon" type="image/png" href="{{ asset('jecto/default/assets/img/favicon.png') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo&family=Quicksand:wght@600&display=swap" rel="stylesheet">
+    <style>
+        body, h1, h2, h3, h4, h5, h6, span, div, i, a, p{
+            font-family: 'Cairo', sans-serif;
+            /* font-family: 'Quicksand', sans-serif; */
+        }
+    </style>
 </head>
 
 <body>

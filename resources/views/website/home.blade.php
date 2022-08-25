@@ -12,8 +12,8 @@
                     <div class="banner-content two">
                         <div class="d-table">
                             <div class="d-table-cell">
-                                <p>We have 280,000+ live jobs</p>
-                                <h1>Next Future Job Waiting For You Hold It!</h1>
+                                <p>{{ __('locale.We have') }} 280,000+ {{ __('locale.live jobs') }}</p>
+                                <h1>{{ __('locale.Next Future Job Waiting For You Hold It!') }}</h1>
                                 <div class="banner-form-area">
                                     <form>
                                         <div class="row">
@@ -22,13 +22,13 @@
                                                     <label>
                                                         <i class='bx bx-search'></i>
                                                     </label>
-                                                    <input type="text" class="form-control" placeholder="Search Your Job">
+                                                    <input type="text" class="form-control" placeholder="{{ __('locale.Search Your Job') }}">
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <select>
-                                                        <option>All Categories</option>
+                                                        <option>{{ __('locale.All Categories') }}</option>
                                                         <option>Another option</option>
                                                         <option>A option</option>
                                                         <option>Potato</option>
@@ -40,12 +40,12 @@
                                                     <label>
                                                         <i class='bx bx-location-plus'></i>
                                                     </label>
-                                                    <input type="text" class="form-control" placeholder="Location">
+                                                    <input type="text" class="form-control" placeholder="{{ __('locale.location') }}">
                                                 </div>
                                             </div>
                                         </div>
                                         <button type="submit" class="btn">
-                                            Search Job
+                                            {{ __('locale.Search Job') }}
                                             <i class='bx bx-search'></i>
                                         </button>
                                     </form>
@@ -53,7 +53,7 @@
                                 <div class="banner-key">
                                     <ul>
                                         <li>
-                                            <span>Trending Keywords</span>
+                                            <span>{{ __('locale.Trending Keywords') }}</span>
                                         </li>
                                         <li>
                                             <a href="#">Account Manager,</a>
@@ -91,33 +91,33 @@
 
     <div class="support-area pb-100">
         <div class="container">
-            <p>Over <span>1500.000</span> supporter all over the world</p>
-            <div class="support-slider owl-theme owl-carousel">
-                <div class="support-item">
+            <p>{{ __('locale.Over') }} <span>1500.000</span> {{ __('locale.supporter all over the world') }}</p>
+            <div dir="ltr" class="support-slider owl-theme owl-carousel">
+                <div @if(app()->getLocale() == 'ar') dir="rtl" @endif class="support-item">
                     <img src="{{ asset('jecto/default/assets/img/home-two/support1.png') }}" class="support-item-logo1" alt="Support">
                     <img src="{{ asset('jecto/default/assets/img/home-two/support-style1.png') }}" class="support-item-logo2" alt="Support">
                 </div>
-                <div class="support-item">
+                <div @if(app()->getLocale() == 'ar') dir="rtl" @endif class="support-item">
                     <img src="{{ asset('jecto/default/assets/img/home-two/support2.png') }}" class="support-item-logo1" alt="Support">
                     <img src="{{ asset('jecto/default/assets/img/home-two/support-style2.png') }}" class="support-item-logo2" alt="Support">
                 </div>
-                <div class="support-item">
+                <div @if(app()->getLocale() == 'ar') dir="rtl" @endif class="support-item">
                     <img src="{{ asset('jecto/default/assets/img/home-two/support3.png') }}" class="support-item-logo1" alt="Support">
                     <img src="{{ asset('jecto/default/assets/img/home-two/support-style3.png') }}" class="support-item-logo2" alt="Support">
                 </div>
-                <div class="support-item">
+                <div @if(app()->getLocale() == 'ar') dir="rtl" @endif class="support-item">
                     <img src="{{ asset('jecto/default/assets/img/home-two/support4.png') }}" class="support-item-logo1" alt="Support">
                     <img src="{{ asset('jecto/default/assets/img/home-two/support-style4.png') }}" class="support-item-logo2" alt="Support">
                 </div>
-                <div class="support-item">
+                <div @if(app()->getLocale() == 'ar') dir="rtl" @endif class="support-item">
                     <img src="{{ asset('jecto/default/assets/img/home-two/support5.png') }}" class="support-item-logo1" alt="Support">
                     <img src="{{ asset('jecto/default/assets/img/home-two/support-style5.png') }}" class="support-item-logo2" alt="Support">
                 </div>
-                <div class="support-item">
+                <div @if(app()->getLocale() == 'ar') dir="rtl" @endif class="support-item">
                     <img src="{{ asset('jecto/default/assets/img/home-two/support6.png') }}" class="support-item-logo1" alt="Support">
                     <img src="{{ asset('jecto/default/assets/img/home-two/support-style6.png') }}" class="support-item-logo2" alt="Support">
                 </div>
-                <div class="support-item">
+                <div @if(app()->getLocale() == 'ar') dir="rtl" @endif class="support-item">
                     <img src="{{ asset('jecto/default/assets/img/home-two/support1.png') }}" class="support-item-logo1" alt="Support">
                     <img src="{{ asset('jecto/default/assets/img/home-two/support-style1.png') }}" class="support-item-logo2" alt="Support">
                 </div>
@@ -129,11 +129,11 @@
     <section class="company-area two pb-100">
         <div class="container-fluid">
             <div class="section-title two">
-                <span class="sub-title">Employers Offering Job</span>
-                <h2>Company Offering Job</h2>
+                <span class="sub-title">{{ __('locale.Employers Offering Job') }}</span>
+                <h2>{{ __('locale.Most Featured Jobs') }}</h2>
             </div>
-            <div class="company-slider owl-theme owl-carousel">
-                <div class="company-item two">
+            <div dir="ltr" class="company-slider owl-theme owl-carousel">
+                <div @if(app()->getLocale() == 'ar') dir="rtl" @endif class="company-item two">
                     <div class="feature-top-right">
                         <span>Featured</span>
                     </div>
@@ -163,7 +163,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="company-item two">
+                <div @if(app()->getLocale() == 'ar') dir="rtl" @endif class="company-item two">
                     <div class="feature-top-right">
                         <span>Featured</span>
                     </div>
@@ -193,7 +193,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="company-item two">
+                <div @if(app()->getLocale() == 'ar') dir="rtl" @endif class="company-item two">
                     <div class="feature-top-right">
                         <span>Featured</span>
                     </div>
@@ -223,7 +223,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="company-item two">
+                <div @if(app()->getLocale() == 'ar') dir="rtl" @endif class="company-item two">
                     <div class="feature-top-right">
                         <span>Featured</span>
                     </div>
@@ -253,7 +253,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="company-item two">
+                <div @if(app()->getLocale() == 'ar') dir="rtl" @endif class="company-item two">
                     <div class="feature-top-right">
                         <span>Featured</span>
                     </div>
@@ -283,7 +283,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="company-item two">
+                <div @if(app()->getLocale() == 'ar') dir="rtl" @endif class="company-item two">
                     <div class="feature-top-right">
                         <span>Featured</span>
                     </div>
@@ -313,7 +313,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="company-item two">
+                <div @if(app()->getLocale() == 'ar') dir="rtl" @endif class="company-item two">
                     <div class="feature-top-right">
                         <span>Featured</span>
                     </div>
@@ -343,7 +343,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="company-item two">
+                <div @if(app()->getLocale() == 'ar') dir="rtl" @endif class="company-item two">
                     <div class="feature-top-right">
                         <span>Featured</span>
                     </div>
@@ -377,24 +377,148 @@
         </div>
     </section>
 
+    <!-- <section id="job" class="employer-area pb-100">
+        <div class="container">
+            <div class="section-title three">
+                <div class="sub-title-wrap">
+                    <img src="assets/img/home-three/title-img.png" alt="Icon">
+                    <span class="sub-title">Employers Offering Job</span>
+                </div>
+                <h2>Company Offering Job</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="employer-item">
+                        <a href="job-details.html">
+                            <img src="assets/img/home-one/job1.png" alt="Employer">
+                            <h3>Product Designer</h3>
+                            <ul>
+                                <li>
+                                    <i class="flaticon-send"></i>
+                                    Los Angeles, CS, USA
+                                </li>
+                                <li>5 months ago</li>
+                            </ul>
+                            <p>We are Looking for a skilled Ul/UX designer amet conscu adiing elitsed do eusmod tempor</p>
+                            <span class="span-one">Accounting</span>
+                            <span class="span-two">FULL TIME</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="employer-item">
+                        <a href="blog-details.html">
+                            <img src="assets/img/home-one/job2.png" alt="Employer">
+                            <h3>Sr. Shopify Developer</h3>
+                            <ul>
+                                <li>
+                                    <i class="flaticon-send"></i>
+                                    Houston, TX, USA
+                                </li>
+                                <li>4 months ago</li>
+                            </ul>
+                            <p>Responsible for managing skilled Ul/UX designer amet conscu adiing elitsed do eusmod</p>
+                            <span class="span-one">Accounting</span>
+                            <span class="span-two two">FULL TIME</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <a href="job-details.html">
+                        <div class="employer-item">
+                            <img src="assets/img/home-one/job3.png" alt="Employer">
+                            <h3>Tax Manager</h3>
+                            <ul>
+                                <li>
+                                    <i class="flaticon-send"></i>
+                                    Ho Chi Minh City, Vietnam
+                                </li>
+                                <li>6 months ago</li>
+                            </ul>
+                            <p>International collaborative a skilled Ul/UX designer amet conscu adiing elitsed do eusmod</p>
+                            <span class="span-one two">Broardcasting</span>
+                            <span class="span-two three">FREELANCER</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="employer-item">
+                        <a href="job-details.html">
+                            <img src="assets/img/home-one/job4.png" alt="Employer">
+                            <h3>Senior Data Engineer</h3>
+                            <ul>
+                                <li>
+                                    <i class="flaticon-send"></i>
+                                    Cardiss, UK
+                                </li>
+                                <li>9 months ago</li>
+                            </ul>
+                            <p>International collaborative designer amet conscu adiing elitsed do eusmod tempor</p>
+                            <span class="span-one three">Web & Software Dev</span>
+                            <span class="span-two four">REMOTE</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="employer-item">
+                        <a href="job-details.html">
+                            <img src="assets/img/home-one/job5.png" alt="Employer">
+                            <h3>Construction Worker</h3>
+                            <ul>
+                                <li>
+                                    <i class="flaticon-send"></i>
+                                    Adelaide SA, Australia
+                                </li>
+                                <li>10 months ago</li>
+                            </ul>
+                            <p>We are Looking for a skilled Ul/UX designer amet conscu adiing elitsed do eusmod tempor</p>
+                            <span class="span-one">Accounting</span>
+                            <span class="span-two">FULL TIME</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="employer-item">
+                        <a href="job-details.html">
+                            <img src="assets/img/home-one/job6.png" alt="Employer">
+                            <h3>Product Manager</h3>
+                            <ul>
+                                <li>
+                                    <i class="flaticon-send"></i>
+                                    Warangal, Telangana, India
+                                </li>
+                                <li>2 months ago</li>
+                            </ul>
+                            <p>Wind Power Engineering Manager amet conscu adiing elitsed do eusmod tempor</p>
+                            <span class="span-one four">Customer Service</span>
+                            <span class="span-two">FULL TIME</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="job-browse">
+                <p>A tons of top tech jobs are waiting for you. <a href="jobs.html">Browse all jobs</a></p>
+            </div>
+        </div>
+    </section> -->
 
     <section class="explore-area two ptb-100">
         <div class="container">
             <div class="explore-item">
                 <div class="section-title">
-                    <span class="sub-title">Explore New Life</span>
-                    <h2>Be Found Put Your Cv In Front Of Great Employers</h2>
+                    <span class="sub-title">{{ __('locale.Explore New Life') }}</span>
+                    <h2>{{ __('locale.Be Found Put Your Cv In Front Of Great Employers') }}</h2>
                 </div>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut tur incidunt laborequaerat voluptatem.</p>
                 <ul>
                     <li>
                         <a class="left-btn" href="#">
-                            Upload Your Resume
+                            {{ __('locale.Upload Your Resume') }}
                             <i class="flaticon-upload"></i>
                         </a>
                     </li>
                     <li>
-                        <span>CEO Message</span>
+                        <span>{{ __('locale.CEO Message') }}</span>
                         <a class="right-btn popup-youtube" href="https://www.youtube.com/watch?v=07d2dXHYb94&t=88s">
                             <i class='bx bx-play'></i>
                         </a>
@@ -415,17 +539,17 @@
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                         <a class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
                             <i class="flaticon-placeholder"></i>
-                            Job By Location
+                            {{ __('locale.Job By Location') }}
                             <i class="flaticon-right-arrow two"></i>
                         </a>
                         <a class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
                             <i class="flaticon-resume"></i>
-                            Jobs By Roles
+                            {{ __('locale.Jobs By Roles') }}
                             <i class="flaticon-right-arrow two"></i>
                         </a>
                         <a class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
                             <i class="flaticon-pencil"></i>
-                            Jobs BySkills
+                            {{ __('locale.Jobs By Skills') }}
                             <i class="flaticon-right-arrow two"></i>
                         </a>
                     </div>
@@ -774,32 +898,132 @@
         </div>
     </div>
 
+    <section class="feature-area pt-100 pb-70">
+        <div class="container-fluid">
+            <div class="section-title three">
+                <div class="sub-title-wrap">
+                    <img src="{{ asset('jecto/default/assets/img/home-three/title-img.png') }}" alt="Icon">
+                    <span class="sub-title">{{ __('locale.Employers Offering Job') }}</span>
+                </div>
+                <h2>{{ __('locale.Here are Features Categories') }}</h2>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-lg-2">
+                    <div class="feature-item">
+                        <a href="job-details.html">
+                            <img src="{{ asset('jecto/default/assets/img/home-three/feature1.png') }}" alt="Feature">
+                        </a>
+                        <div class="bottom">
+                            <h3>
+                                <a href="job-details.html">Accounting</a>
+                            </h3>
+                            <span>5 Jobs</span>
+                            <i class="flaticon-verify"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-2">
+                    <div class="feature-item">
+                        <a href="job-details.html">
+                            <img src="{{ asset('jecto/default/assets/img/home-three/feature2.png') }}" alt="Feature">
+                        </a>
+                        <div class="bottom">
+                            <h3>
+                                <a href="job-details.html">Digital Marketing</a>
+                            </h3>
+                            <span>2 Jobs</span>
+                            <i class="flaticon-verify"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-2">
+                    <div class="feature-item">
+                        <a href="job-details.html">
+                            <img src="{{ asset('jecto/default/assets/img/home-three/feature3.png') }}" alt="Feature">
+                        </a>
+                        <div class="bottom">
+                            <h3>
+                                <a href="job-details.html">Customer Service</a>
+                            </h3>
+                            <span>4 Jobs</span>
+                            <i class="flaticon-verify"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-2">
+                    <div class="feature-item">
+                        <a href="job-details.html">
+                            <img src="{{ asset('jecto/default/assets/img/home-three/feature4.png') }}" alt="Feature">
+                        </a>
+                        <div class="bottom">
+                            <h3>
+                                <a href="job-details.html">Broadcasting</a>
+                            </h3>
+                            <span>1 Job</span>
+                            <i class="flaticon-verify"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-2">
+                    <div class="feature-item">
+                        <a href="job-details.html">
+                            <img src="{{ asset('jecto/default/assets/img/home-three/feature5.png') }}" alt="Feature">
+                        </a>
+                        <div class="bottom">
+                            <h3>
+                                <a href="job-details.html">Sale Assistance</a>
+                            </h3>
+                            <span>5 Jobs</span>
+                            <i class="flaticon-verify"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-2">
+                    <div class="feature-item">
+                        <a href="job-details.html">
+                            <img src="{{ asset('jecto/default/assets/img/home-three/feature6.png') }}" alt="Feature">
+                        </a>
+                        <div class="bottom">
+                            <h3>
+                                <a href="job-details.html">Teachers</a>
+                            </h3>
+                            <span>2 Job</span>
+                            <i class="flaticon-verify"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="job-browse">
+                <p>Jobs are waiting for you <a href="jobs.html">Browse all Categories</a></p>
+            </div>
+        </div>
+    </section>
 
     <section class="work-area two pb-70">
         <div class="container">
             <div class="section-title two">
-                <span class="sub-title">Working Process</span>
-                <h2>See How It Works</h2>
+                <span class="sub-title">{{ __('locale.Working Process') }}</span>
+                <h2>{{ __('locale.See How It Works') }}</h2>
             </div>
             <div class="row">
                 <div class="col-sm-6 col-lg-4">
                     <div class="work-item two">
                         <i class="flaticon-accounting"></i>
-                        <h3>Register An Account</h3>
+                        <h3>{{ __('locale.Register An Account') }}</h3>
                         <p>Lorem ipsum dolor sit amet conscu adiing elitsed do eusmod tempor incidunt utinto elit sed doe</p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-4">
                     <div class="work-item two">
                         <i class="flaticon-file"></i>
-                        <h3>Search Your Job</h3>
+                        <h3>{{ __('locale.Search Your Job') }}</h3>
                         <p>Lorem ipsum dolor sit amet conscu adiing elitsed do eusmod tempor incidunt utinto elit sed doe</p>
                     </div>
                 </div>
                 <div class="col-sm-6 offset-sm-3 offset-lg-0 col-lg-4">
                     <div class="work-item two work-border">
                         <i class="flaticon-businessman-paper-of-the-application-for-a-job"></i>
-                        <h3>Apply For Job</h3>
+                        <h3>{{ __('locale.Apply For Job') }}</h3>
                         <p>Lorem ipsum dolor sit amet conscu adiing elitsed do eusmod tempor incidunt utinto elit sed doe</p>
                     </div>
                 </div>
@@ -1068,7 +1292,7 @@
                 </div>
             </div>
             <div class="job-browse">
-                <p>A tons of top tech jobs are waiting for you. <a href="jobs.html">Browse all jobs</a></p>
+                <p>{{ __('locale.A tons of top tech jobs are waiting for you.') }} <a href="jobs.html">{{ __('locale.Browse all jobs') }}</a></p>
             </div>
         </div>
     </section>
@@ -1077,11 +1301,11 @@
     <section class="candidate-area pb-100">
         <div class="container">
             <div class="section-title two">
-                <span class="sub-title">Working Process</span>
-                <h2>Our Candidates</h2>
+                <span class="sub-title">{{ __('locale.Working Process') }}</span>
+                <h2>{{ __('locale.Our Candidates') }}</h2>
             </div>
-            <div class="candidate-slider owl-theme owl-carousel">
-                <div class="candidate-item">
+            <div dir="ltr" class="candidate-slider owl-theme owl-carousel">
+                <div @if(app()->getLocale() == 'ar') dir="rtl" @endif class="candidate-item">
                     <div class="left">
                         <h3>
                             <a href="candidate-details.html">Arielle Terry</a>
@@ -1105,7 +1329,7 @@
                     </div>
                     <img src="{{ asset('jecto/default/assets/img/home-two/candidate1.jpg') }}" alt="Candidate">
                 </div>
-                <div class="candidate-item">
+                <div @if(app()->getLocale() == 'ar') dir="rtl" @endif class="candidate-item">
                     <div class="left">
                         <h3>
                             <a href="candidate-details.html">Alexander Max</a>
@@ -1129,7 +1353,7 @@
                     </div>
                     <img src="{{ asset('jecto/default/assets/img/home-two/candidate2.jpg') }}" alt="Candidate">
                 </div>
-                <div class="candidate-item">
+                <div @if(app()->getLocale() == 'ar') dir="rtl" @endif class="candidate-item">
                     <div class="left">
                         <h3>
                             <a href="candidate-details.html">Tom Henry</a>
@@ -1155,7 +1379,7 @@
                 </div>
             </div>
             <div class="candidate-browse">
-                <p>Browse all talent <a href="candidates.html">Candidates</a></p>
+                <p>{{ __('locale.Browse all talent') }} <a href="candidates.html">{{ __('locale.Candidates') }}</a></p>
             </div>
         </div>
     </section>
@@ -1224,17 +1448,17 @@
     <section class="testimonial-area pb-100">
         <div class="container">
             <div class="section-title two">
-                <span class="sub-title">Testimonials</span>
-                <h2>What Our Customers Say About Us</h2>
+                <span class="sub-title">{{ __('locale.Testimonials') }}</span>
+                <h2>{{ __('locale.What Our Customers Say About Us') }}</h2>
             </div>
-            <div class="testimonial-slider owl-theme owl-carousel">
-                <div class="testimonial-item">
+            <div dir="ltr" class="testimonial-slider owl-theme owl-carousel">
+                <div @if(app()->getLocale() == 'ar') dir="rtl" @endif class="testimonial-item">
                     <img src="{{ asset('jecto/default/assets/img/home-two/testimonial1.jpg') }}" alt="Testimonial">
                     <p>Awesome dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud</p>
                     <h3>Devit M.Kolin</h3>
                     <span>CEO & Founder</span>
                 </div>
-                <div class="testimonial-item">
+                <div @if(app()->getLocale() == 'ar') dir="rtl" @endif class="testimonial-item">
                     <img src="{{ asset('jecto/default/assets/img/home-two/testimonial2.jpg') }}" alt="Testimonial">
                     <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
                     <h3>Tom Henry</h3>
@@ -1250,15 +1474,15 @@
             <div class="row align-items-center">
                 <div class="col-lg-8">
                     <div class="section-title two">
-                        <span class="sub-title">Our Blogs</span>
-                        <h2>Recent News Post</h2>
+                        <span class="sub-title">{{ __('locale.Our Blogs') }}</span>
+                        <h2>{{ __('locale.Recent News Post') }}</h2>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="cmn-link">
                         <a href="blog.html">
                             <i class="flaticon-right-arrow one"></i>
-                            Browse All Blogs
+                            {{ __('locale.Browse All Blogs') }}
                             <i class="flaticon-right-arrow two"></i>
                         </a>
                     </div>
@@ -1279,7 +1503,7 @@
                         <div class="cmn-link">
                             <a href="blog-details.html">
                                 <i class="flaticon-right-arrow one"></i>
-                                Learn More
+                                {{ __('locale.Learn More') }}
                                 <i class="flaticon-right-arrow two"></i>
                             </a>
                         </div>
@@ -1338,7 +1562,7 @@
                         <h3>
                             <span class="odometer" data-count="6,789,990">00</span>
                         </h3>
-                        <p>Registered Users</p>
+                        <p>{{ __('locale.Registered Users') }}</p>
                     </div>
                 </div>
                 <div class="col-6 col-sm-4 col-lg-4">
@@ -1346,7 +1570,7 @@
                         <h3>
                             <span class="odometer" data-count="8,098,234">00</span>
                         </h3>
-                        <p>Global Employers</p>
+                        <p>{{ __('locale.Global Employers') }}</p>
                     </div>
                 </div>
                 <div class="col-6 offset-4 offset-sm-0 col-sm-4 col-lg-4">
@@ -1354,7 +1578,7 @@
                         <h3>
                             <span class="odometer" data-count="3,678,890">00</span>
                         </h3>
-                        <p>Available Jobs</p>
+                        <p>{{ __('locale.Available Jobs') }}</p>
                     </div>
                 </div>
             </div>
