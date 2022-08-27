@@ -1468,7 +1468,7 @@
     color: #fff;
   }
   .side-nav.two .job-right:hover {
-    background-color: #fe4a55;
+    background-color: #21a212;
   }
   /*-- End Banner --*/
   /*-- Support --*/
@@ -2165,7 +2165,7 @@
     top: -10px;
   }
   .mobile-nav.mean-container .mean-nav ul li a.active {
-    color: #fe4a55;
+    color: #21a212;
   }
   .tooltip-span {
     display: none;

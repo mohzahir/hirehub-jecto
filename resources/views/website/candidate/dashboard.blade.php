@@ -31,7 +31,7 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="profile-item">
-                        <img src="{{ asset('jecto/default/assets/img/dashboard1.jpg') }}" alt="Dashboard">
+                        <img style="width: 296px; height: 296px;" src="{{ asset($candidate->photo ?? 'jecto/default/assets/img/dashboard1.jpg') }}" alt="Dashboard">
                         <h2>{{ $candidate->name }}</h2>
                         <span>{{ $candidate->job_title ?? '----' }}</span>
                     </div>
@@ -182,54 +182,35 @@
                             </div>
                         </div>
                         <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                            @if(count($applied_jobs) > 0)
+                            @foreach($applied_jobs as $job_application)
                             <div class="employer-item">
-                                <a href="job-details.html">
+                                <a href="{{ route('job.details', ['job_post' => $job_application->jobPost->id]) }}">
                                     <img src="{{ asset('jecto/default/assets/img/home-one/job1.png') }}" alt="Employer">
-                                    <h3>Product Designer</h3>
+                                    <h3>{{ $locale == 'ar' ? $job_application->jobPost->title_ar : $job_application->jobPost->title }}</h3>
                                     <ul>
                                         <li>
                                             <i class="flaticon-send"></i>
-                                            Los Angeles, CS, USA
+                                            {{ $locale == 'ar' ? $job_application->jobPost->country->name_ar : $job_application->jobPost->country->name }}, {{ $locale == 'ar' ? $job_application->jobPost->city->name_ar : $job_application->jobPost->city->name }}
                                         </li>
-                                        <li>5 months ago</li>
+                                        @php 
+                                            $dt = \Carbon\Carbon::now();
+                                            $dt2 = new \Carbon\Carbon($job_application->jobPost->created_at);
+                                            $time = $dt2->diffForHumans($dt)
+                                        @endphp 
+                                        <li>{{ $time }}</li>
                                     </ul>
-                                    <p>We are Looking for a skilled Ul/UX designer amet conscu adiing elitsed do eusmod tempor</p>
-                                    <span class="span-one">Accounting</span>
-                                    <span class="span-two">FULL TIME</span>
+                                    <p>{{ $locale == 'ar' ? $job_application->jobPost->short_descr_ar : $job_application->jobPost->short_descr }}</p>
+                                    <span class="span-one">{{ $locale == 'ar' ? $job_application->jobPost->category->title_ar : $job_application->jobPost->category->title }}</span>
+                                    <span class="span-two">{{ __("locale." . $job_application->jobPost->job_type) }}</span>
                                 </a>
                             </div>
-                            <div class="employer-item">
-                                <a href="job-details.html">
-                                    <img src="{{ asset('jecto/default/assets/img/home-one/job2.png') }}" alt="Employer">
-                                    <h3>Sr. Shopify Developer</h3>
-                                    <ul>
-                                        <li>
-                                            <i class="flaticon-send"></i>
-                                            Houston, TX, USA
-                                        </li>
-                                        <li>4 months ago</li>
-                                    </ul>
-                                    <p>Responsible for managing skilled Ul/UX designer amet conscu adiing elitsed do eusmod</p>
-                                    <span class="span-one">Accounting</span>
-                                    <span class="span-two two">FULL TIME</span>
-                                </a>
+                            @endforeach
+                            @else
+                            <div class="text-center text-danger alert alert-warning">
+                                <p class="">No Jobs Applied to</p>
                             </div>
-                            <div class="employer-item">
-                                <a href="job-details.html">
-                                    <img src="{{ asset('jecto/default/assets/img/home-one/job3.png') }}" alt="Employer">
-                                    <h3>Tax Manager</h3>
-                                    <ul>
-                                        <li>
-                                            <i class="flaticon-send"></i>
-                                            Ho Chi Minh City, Vietnam
-                                        </li>
-                                        <li>6 months ago</li>
-                                    </ul>
-                                    <p>International collaborative a skilled Ul/UX designer amet conscu adiing elitsed do eusmod</p>
-                                    <span class="span-one two">Broardcasting</span>
-                                    <span class="span-two three">FREELANCER</span>
-                                </a>
-                            </div>
+                            @endif
                         </div>
                     </div>
                 </div>

@@ -32,7 +32,7 @@ class RedirectIfAuthenticated
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
                 if ($guard === 'candidate') {
-                    return redirect(route('home'));
+                    return redirect(route('candidate.dashboard'));
                 }
                 return redirect(RouteServiceProvider::HOME);
             }

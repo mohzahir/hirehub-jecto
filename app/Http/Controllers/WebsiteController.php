@@ -103,6 +103,8 @@ class WebsiteController extends Controller
     {
         return view('website.candidate.dashboard', [
             'candidate' => auth()->guard('candidate')->user(),
+            'applied_jobs' => JobApplication::where('candidate_id', auth()->guard('candidate')->user()->id)->get(),
+            'locale' => app()->getLocale(),
         ]);
     }
 

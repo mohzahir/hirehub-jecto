@@ -11,7 +11,7 @@ class JobApplication extends Model
 
     protected $fillable = [
         'job_post_id',
-        'user_id',
+        'candidate_id',
         'name',
         'phone',
         'email',
@@ -19,4 +19,9 @@ class JobApplication extends Model
         'cover_letter',
         'is_replied_to',
     ];
+
+    public function jobPost()
+    {
+        return $this->belongsTo(JobPost::class);
+    }
 }

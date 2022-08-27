@@ -31,7 +31,7 @@ Route::get('language/{locale}', function ($locale) {
 
 Route::get('/candidate/login', [AuthController::class, 'showCandidateLoginForm'])->name('candidate.login.form');
 Route::post('/candidate/login', [AuthController::class, 'submitCandidateLoginForm'])->name('candidate.login.submit');
-Route::prefix('candidate')->as('candidate.')->group(function () {
+Route::prefix('candidate')->as('candidate.')->middleware('auth:candidate')->group(function () {
     Route::get('/', [WebsiteController::class, 'showCandidateDashboard'])->name('dashboard');
     Route::post('/', [WebsiteController::class, 'submitCandidateInfo'])->name('submit.info');
     Route::get('/logout', [AuthController::class, 'candidateLogout'])->name('logout');

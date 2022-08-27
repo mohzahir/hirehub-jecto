@@ -106,6 +106,9 @@ return [
     "My Profile" => "My Profile",
     "Applied Jobs" => "Applied Jobs",
     "Logout" => "Logout",
+    "Save" => "Save",
+    "Share" => "Share",
+    "Report" => "Report",
 
 
 ];

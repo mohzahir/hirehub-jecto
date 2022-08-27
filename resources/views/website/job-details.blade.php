@@ -1,7 +1,7 @@
 <x-website-layout>
 
 
-    <div class="page-title-area">
+    <!-- <div class="page-title-area">
         <div class="d-table">
             <div class="d-table-cell">
                 <div class="container">
@@ -29,6 +29,65 @@
                 </div>
             </div>
         </div>
+    </div> -->
+    <div class="page-title-area two">
+        <div class="d-table">
+            <div class="d-table-cell">
+                <div class="container">
+                    <div class="row align-items-end">
+                        <div class="col-lg-8">
+                            <div class="left">
+                                <img src="{{ asset('jecto/default/assets/img/job-details1.png') }}" alt="Details">
+                                <h2>{{ $locale == 'ar' ? $job_post->title_ar : $job_post->title }}</h2>
+                                <ul>
+                                    <li>
+                                        <i class='bx bx-pie-chart-alt-2'></i>
+                                        {{ $locale == 'ar' ? $job_post->category->title_ar : $job_post->category->title }}
+                                    </li>
+                                    <li>
+                                        <i class='bx bx-time'></i>
+                                        @php
+                                        $dt = \Carbon\Carbon::now();
+                                        $dt2 = new \Carbon\Carbon($job_post->created_at);
+                                        $time = $dt2->diffForHumans($dt)
+                                        @endphp
+                                        {{ __('locale.Posted Date') }}: {{ $time }}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="right">
+                                <a class="cmn-btn" href="#apply">
+                                    {{ __('locale.Apply Now') }}
+                                    <i class='bx bx-plus'></i>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <i class='bx bx-heart'></i>
+                                            {{ __('locale.Save') }}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class='bx bx-share-alt'></i>
+                                            {{ __('locale.Share') }}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class='bx bxs-report'></i>
+                                            {{ __('locale.Report') }}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 
@@ -39,7 +98,7 @@
                     <div class="details-item">
                         {!! $locale == 'ar' ? html_entity_decode($job_post->descr_ar) : html_entity_decode($job_post->descr) !!}
                     </div>
-                    <div class="post-job-area ptb-100">
+                    <div id="apply" class="post-job-area ptb-100">
                         <div class="container">
                             @include('flash-message')
                             <form action="{{ route('submit.job.application', ['job_post' => $job_post->id]) }}" method="post" enctype="multipart/form-data">
@@ -92,7 +151,7 @@
                                                 <textarea rows="6" name="cover_latter" class="form-control" placeholder="{{ __('locale.Cover Latter') }}">{{ old('cover_latter') }}</textarea>
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                     <button type="submit" class="btn">{{ __('locale.Submit Application') }}</button>
                                 </div>
@@ -130,11 +189,6 @@
                                 <li>
                                     <img src="{{ asset('jecto/default/assets/img/job-details-icon.png') }}" alt="Details">
                                     <h4>{{ __('locale.Posted Date') }}</h4>
-                                    @php 
-                                        $dt = \Carbon\Carbon::now();
-                                        $dt2 = new \Carbon\Carbon($job_post->created_at);
-                                        $time = $dt2->diffForHumans($dt)
-                                    @endphp 
                                     <span>{{ $time }}</span>
                                 </li>
                                 <li>
@@ -234,7 +288,7 @@
                             </div>
                         </div> -->
 
-                        
+
 
                     </div>
                 </div>
@@ -269,8 +323,8 @@
         </div>
     </div>
 
-    
-    
+
+
 
 
 </x-website-layout>
