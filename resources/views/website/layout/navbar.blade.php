@@ -34,10 +34,17 @@
                     @endif
                 </ul>
                 <div class="side-nav two">
+                    @if(auth()->guard('candidate')->check())
+                    <a class="login-left" href="{{ route('candidate.dashboard') }}">
+                        <i class="flaticon-enter"></i>
+                        {{ __('locale.Dashboard') }}
+                    </a>
+                    @else
                     <a class="login-left" href="{{ route('candidate.login.form') }}">
                         <i class="flaticon-enter"></i>
                         {{ __('locale.Login') }}/{{ __('locale.Register') }}
                     </a>
+                    @endif
                     <!-- <a class="job-right" href="post-a-job.html">
                         Post A Job
                         <i class='bx bx-plus'></i>

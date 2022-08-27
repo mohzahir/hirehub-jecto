@@ -52,7 +52,7 @@
                                 My Resume
                             </div>
                         </a>
-                        <a href="login.html">
+                        <a href="{{ route('candidate.logout') }}">
                             <div class="profile-list">
                                 <i class='bx bx-log-out'></i>
                                 {{ __('locale.Logout') }}

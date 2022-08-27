@@ -34,6 +34,7 @@ Route::post('/candidate/login', [AuthController::class, 'submitCandidateLoginFor
 Route::prefix('candidate')->as('candidate.')->group(function () {
     Route::get('/', [WebsiteController::class, 'showCandidateDashboard'])->name('dashboard');
     Route::post('/', [WebsiteController::class, 'submitCandidateInfo'])->name('submit.info');
+    Route::get('/logout', [AuthController::class, 'candidateLogout'])->name('logout');
 });
 Route::get('/', [WebsiteController::class, 'index'])->name('home');
 Route::get('/jobs', [WebsiteController::class, 'jobs'])->name('jobs');
