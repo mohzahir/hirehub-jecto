@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\WebsiteController;
+use App\Models\Candidate;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +27,14 @@ Route::get('language/{locale}', function ($locale) {
     return redirect()->back();
 })->name('set.locale');
 
+
+
+Route::get('/candidate/login', [AuthController::class, 'showCandidateLoginForm'])->name('candidate.login.form');
+Route::post('/candidate/login', [AuthController::class, 'submitCandidateLoginForm'])->name('candidate.login.submit');
+Route::prefix('candidate')->as('candidate.')->group(function () {
+    Route::get('/', [WebsiteController::class, 'showCandidateDashboard'])->name('dashboard');
+    Route::post('/', [WebsiteController::class, 'submitCandidateInfo'])->name('submit.info');
+});
 Route::get('/', [WebsiteController::class, 'index'])->name('home');
 Route::get('/jobs', [WebsiteController::class, 'jobs'])->name('jobs');
 Route::get('/jobs/{job_post}/job-details', [WebsiteController::class, 'jobDetails'])->name('job.details');

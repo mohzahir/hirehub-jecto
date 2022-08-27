@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SubmitJobApplicationRequest;
+use App\Models\Candidate;
 use App\Models\Category;
 use App\Models\Country;
 use App\Models\Job;
@@ -96,5 +97,44 @@ class WebsiteController extends Controller
         ]);
 
         return redirect()->back()->with('success', 'Job Application has been done successfully!');
+    }
+
+    public function showCandidateDashboard()
+    {
+        return view('website.candidate.dashboard', [
+            'candidate' => auth()->guard('candidate')->user(),
+        ]);
+    }
+
+    public function submitCandidateInfo(Request $request)
+    {
+        // dd($request);
+        $candidate = Candidate::findOrFail(auth()->guard('candidate')->user()->id);
+
+        $photo = null;
+        if ($request->hasFile('photo')) {
+            $photo = $request->file('photo')->store('files', 'public_folder');
+        }
+
+        $candidate->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'date_of_birth' => $request->date_of_birth,
+            'job_title' => $request->job_title,
+            'position' => $request->position,
+            'salary' => $request->salary,
+            'photo' => $photo,
+            'education_field' => $request->education_field,
+            'education_degree' => $request->education_degree,
+            'education_institute' => $request->education_institute,
+            'education_year' => $request->education_year,
+            'facebook_link' => $request->facebook_link,
+            'twitter_link' => $request->twitter_link,
+            'instagram_link' => $request->instagram_link,
+            'linkedin_link' => $request->linkedin_link,
+        ]);
+
+        return redirect()->back()->with(['success' => 'Data Saved Successfully!']);
     }
 }

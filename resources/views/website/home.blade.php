@@ -1196,13 +1196,13 @@
                 <div class="col-sm-6 col-lg-3">
                     <div class="location-item">
                         <div class="top">
-                            <a href="#">
+                            <a href="{{ route('jobs', ['country_id' => [$country->id]]) }}">
                                 <img src="{{ asset($country->photo) }}" alt="Location">
                             </a>
                         </div>
                         <span>{{ $country->jobPosts->count() }} {{ __('locale.Open Job') }}</span>
                         <h3>
-                            <a href="#">{{ $locale == 'ar' ? $country->name_ar : $country->name }}</a>
+                            <a href="{{ route('jobs', ['country_id' => [$country->id]]) }}">{{ $locale == 'ar' ? $country->name_ar : $country->name }}</a>
                         </h3>
                     </div>
                 </div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html @if(app()->getLocale() == "ar") lang='ar' dir='rtl' @else lang='en' dir='ltr' @endif>
+<html lang="ar" dir="rtl">
 
 <head>
     <meta charset="UTF-8">
@@ -42,12 +42,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo&family=Quicksand:wght@600&display=swap" rel="stylesheet">
     <style>
-        body, h1, h2, h3, h4, h5, h6, span, div, i, a, p{
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        span,
+        div,
+        i,
+        a,
+        p {
             font-family: 'Cairo', sans-serif;
             /* font-family: 'Quicksand', sans-serif; */
         }
     </style>
-</head>
 
 <body>
 
@@ -60,21 +70,7 @@
     </div>
 
 
-    <div class="navbar-area fixed-top">
-        @include('website.layout.navbar')
-    </div>
-
-
     {{ $slot }}
-
-    <footer class="pt-100 pb-70">
-        @include('website.layout.footer')
-    </footer>
-    
-    
-    <div class="copyright-area two">
-        @include('website.layout.copyright')
-    </div>
 
 
     <script src="{{ asset('jecto/default/assets/js/jquery.min.js') }}"></script>

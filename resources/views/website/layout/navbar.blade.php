@@ -34,7 +34,7 @@
                     @endif
                 </ul>
                 <div class="side-nav two">
-                    <a class="login-left" href="register.html">
+                    <a class="login-left" href="{{ route('candidate.login.form') }}">
                         <i class="flaticon-enter"></i>
                         {{ __('locale.Login') }}/{{ __('locale.Register') }}
                     </a>
