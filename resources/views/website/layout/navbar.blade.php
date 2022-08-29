@@ -20,6 +20,9 @@
                     <li class="nav-item">
                         <a href="{{ route('jobs') }}" class="nav-link dropdown-toggle {{ request()->routeIs('jobs') || request()->routeIs('job.details') ? 'active' : '' }}">{{ __('locale.Jobs') }}</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ route('workshops') }}" class="nav-link dropdown-toggle {{ request()->routeIs('workshops') || request()->routeIs('job.details') ? 'active' : '' }}">{{ __('locale.Workshops') }}</a>
+                    </li>
                     @if(app()->getLocale() == 'en')
                     <li class="nav-item">
                         <a href="{{ route('set.locale', ['locale' => 'ar']) }}" class="nav-link">
@@ -37,12 +40,15 @@
                 <div class="side-nav two">
                     @if(auth()->guard('candidate')->check())
                     <a class="login-left" href="{{ route('candidate.dashboard') }}">
-                        <i class="flaticon-enter"></i>
+                        <!-- <i class="flaticon-enter"></i> -->
+                        <i class='bx bxs-dashboard'></i>
                         {{ __('locale.Dashboard') }}
                     </a>
                     @else
                     <a class="login-left" href="{{ route('candidate.login.form') }}">
-                        <i class="flaticon-enter"></i>
+                        <!-- <i class="flaticon-enter"></i> -->
+                        <!-- <i class='bx bxs-door-open'></i> -->
+                        <i class="fa-solid fa-door-open"></i>
                         {{ __('locale.Login') }}/{{ __('locale.Register') }}
                     </a>
                     @endif
@@ -78,6 +84,9 @@
                         <li class="nav-item">
                             <a href="{{ route('jobs') }}" class="nav-link dropdown-toggle {{ request()->routeIs('jobs') || request()->routeIs('job.details') ? 'active' : '' }}">{{ __('locale.Jobs') }}</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('workshops') }}" class="nav-link dropdown-toggle {{ request()->routeIs('workshops') || request()->routeIs('job.details') ? 'active' : '' }}">{{ __('locale.Workshops') }}</a>
+                        </li>
                         @if(app()->getLocale() == 'en')
                         <li class="nav-item">
                             <a href="{{ route('set.locale', ['locale' => 'ar']) }}" class="nav-link">
@@ -95,12 +104,15 @@
                     <div class="side-nav three">
                         @if(auth()->guard('candidate')->check())
                         <a class="login-left" href="{{ route('candidate.dashboard') }}">
-                            <i class="flaticon-enter"></i>
+                            <!-- <i class="flaticon-enter"></i> -->
+                            <i class='bx bxs-dashboard'></i>
                             {{ __('locale.Dashboard') }}
                         </a>
                         @else
                         <a class="login-left" href="{{ route('candidate.login.form') }}">
-                            <i class="flaticon-enter"></i>
+                            <!-- <i class="flaticon-enter"></i> -->
+                            <!-- <i class='bx bxs-door-open'></i> -->
+                            <i class="fa-solid fa-door-open"></i>
                             {{ __('locale.Login') }}/{{ __('locale.Register') }}
                         </a>
                         @endif

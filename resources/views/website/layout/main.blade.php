@@ -16,7 +16,9 @@
 
     <!-- <link rel="stylesheet" href="{{ asset('jecto/default/assets/fonts/flaticon.css') }}"> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/flaticon@0.1.0/main.min.js"></script> -->
-
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css" integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" crossorigin="anonymous"> -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.css" rel="stylesheet" media="all">
+    
     <link rel="stylesheet" href="{{ asset('jecto/default/assets/css/magnific-popup.min.css') }}">
 
     <link rel="stylesheet" href="{{ asset('jecto/default/assets/css/odometer.min.css') }}">
@@ -37,6 +39,8 @@
     @endif
     <title>{{ env('APP_NAME') }}</title>
     <link rel="icon" type="image/png" href="{{ asset('jecto/default/assets/img/favicon.png') }}">
+
+    @stack('styles')
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -102,6 +106,7 @@
     <script src="{{ asset('jecto/default/assets/js/progressbar.min.js') }}"></script>
 
     <script src="{{ asset('jecto/default/assets/js/custom.js') }}"></script>
+    @stack('scripts')
 </body>
 
 </html>

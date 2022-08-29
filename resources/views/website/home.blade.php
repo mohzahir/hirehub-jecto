@@ -153,7 +153,8 @@
                         </h3>
                         <span>{{ __("locale.$featured_job_post->job_type") }}</span>
                         <p>
-                            <i class="flaticon-appointment"></i>
+                            <!-- <i class="flaticon-appointment"></i> -->
+                            <i class="fa-solid fa-calendar-check"></i>
                             @php 
                                 $dt = \Carbon\Carbon::now();
                                 $dt2 = new \Carbon\Carbon($featured_job_post->created_at);
@@ -172,7 +173,8 @@
                         <span>{{ __('locale.Salary') }}</span>
                         <h4>${{ $featured_job_post->salary_from }} - ${{ $featured_job_post->salary_to }}</h4>
                         <a href="employer-details.html">
-                            <i class="flaticon-right-arrow"></i>
+                            <!-- <i class="flaticon-right-arrow"></i> -->
+                            <i class="fa-solid fa-arrow-right-long"></i>
                         </a>
                     </div>
                 </div>
@@ -318,7 +320,8 @@
                     <li>
                         <a class="left-btn" href="#">
                             {{ __('locale.Upload Your Resume') }}
-                            <i class="flaticon-upload"></i>
+                            <!-- <i class="flaticon-upload"></i> -->
+                            <i class="fa-solid fa-upload"></i>
                         </a>
                     </li>
                     <li>
@@ -344,17 +347,20 @@
                         <a class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
                             <i class="flaticon-placeholder"></i>
                             {{ __('locale.Job By Location') }}
-                            <i class="flaticon-right-arrow two"></i>
+                            <!-- <i class="flaticon-right-arrow two"></i> -->
+                            <i class="fa-solid fa-arrow-right-long"></i>
                         </a>
                         <a class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
                             <i class="flaticon-resume"></i>
                             {{ __('locale.Jobs By Roles') }}
-                            <i class="flaticon-right-arrow two"></i>
+                            <!-- <i class="flaticon-right-arrow two"></i> -->
+                            <i class="fa-solid fa-arrow-right-long"></i>
                         </a>
                         <a class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
                             <i class="flaticon-pencil"></i>
                             {{ __('locale.Jobs By Skills') }}
-                            <i class="flaticon-right-arrow two"></i>
+                            <!-- <i class="flaticon-right-arrow two"></i> -->
+                            <i class="fa-solid fa-arrow-right-long"></i>
                         </a>
                     </div>
                 </div>
@@ -370,7 +376,8 @@
                                         </h3>
                                         <span>2 Job</span>
                                         <a class="link" href="#">
-                                            <i class="flaticon-right-arrow"></i>
+                                            <!-- <i class="flaticon-right-arrow"></i> -->
+                                            <i class="fa-solid fa-arrow-right-long"></i>
                                         </a>
                                     </div>
                                 </div>
@@ -382,7 +389,8 @@
                                         </h3>
                                         <span>1 Job</span>
                                         <a class="link" href="#">
-                                            <i class="flaticon-right-arrow"></i>
+                                            <!-- <i class="flaticon-right-arrow"></i> -->
+                                            <i class="fa-solid fa-arrow-right-long"></i>
                                         </a>
                                     </div>
                                 </div>
@@ -875,7 +883,8 @@
                                             <li>$500 - $1,000 /</li>
                                             <li>month /</li>
                                             <li>
-                                                <i class="flaticon-appointment"></i>
+                                                <!-- <i class="flaticon-appointment"></i> -->
+                                                <i class="fa-solid fa-calendar-check"></i>
                                                 8 months ago
                                             </li>
                                             <li>
@@ -922,7 +931,8 @@
                                             <li>$600 - $2,000 /</li>
                                             <li>month /</li>
                                             <li>
-                                                <i class="flaticon-appointment"></i>
+                                                <!-- <i class="flaticon-appointment"></i> -->
+                                                <i class="fa-solid fa-calendar-check"></i>
                                                 6 months ago
                                             </li>
                                             <li>
@@ -969,7 +979,8 @@
                                             <li>$400 - $1,500 /</li>
                                             <li>month /</li>
                                             <li>
-                                                <i class="flaticon-appointment"></i>
+                                                <!-- <i class="flaticon-appointment"></i> -->
+                                                <i class="fa-solid fa-calendar-check"></i>
                                                 1 months ago
                                             </li>
                                             <li>
@@ -1125,9 +1136,11 @@
                         </ul>
                         <div class="cmn-link">
                             <a href="single-resume.html">
-                                <i class="flaticon-right-arrow one"></i>
+                                <!-- <i class="flaticon-right-arrow one"></i> -->
+                                <i class="fa-solid fa-arrow-right-long one"></i>
                                 View Resume
-                                <i class="flaticon-right-arrow two"></i>
+                                <!-- <i class="flaticon-right-arrow two"></i> -->
+                                <i class="fa-solid fa-arrow-right-long one"></i>
                             </a>
                         </div>
                     </div>
@@ -1248,9 +1261,11 @@
                 <div class="col-lg-4">
                     <div class="cmn-link">
                         <a href="blog.html">
-                            <i class="flaticon-right-arrow one"></i>
+                            <!-- <i class="flaticon-right-arrow one"></i> -->
+                            <i class="fa-solid fa-arrow-right-long"></i>
                             {{ __('locale.Browse All Blogs') }}
-                            <i class="flaticon-right-arrow two"></i>
+                            <!-- <i class="flaticon-right-arrow two"></i> -->
+                            <i class="fa-solid fa-arrow-right-long"></i>
                         </a>
                     </div>
                 </div>
@@ -1269,9 +1284,11 @@
                         </h3>
                         <div class="cmn-link">
                             <a href="blog-details.html">
-                                <i class="flaticon-right-arrow one"></i>
+                                <!-- <i class="flaticon-right-arrow one"></i> -->
+                                <i class="fa-solid fa-arrow-right-long one"></i>
                                 {{ __('locale.Learn More') }}
-                                <i class="flaticon-right-arrow two"></i>
+                                <!-- <i class="flaticon-right-arrow two"></i> -->
+                                <i class="fa-solid fa-arrow-right-long two"></i>
                             </a>
                         </div>
                     </div>

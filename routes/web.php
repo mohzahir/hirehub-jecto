@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CandidateController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\WebsiteController;
 use App\Models\Candidate;
 use Illuminate\Support\Facades\Route;
@@ -40,3 +41,28 @@ Route::get('/', [WebsiteController::class, 'index'])->name('home');
 Route::get('/jobs', [WebsiteController::class, 'jobs'])->name('jobs');
 Route::get('/jobs/{job_post}/job-details', [WebsiteController::class, 'jobDetails'])->name('job.details');
 Route::post('/jobs/{job_post}/submit-job-application', [WebsiteController::class, 'submitJobApplication'])->name('submit.job.application');
+Route::get('/workshops', [WebsiteController::class, 'workshops'])->name('workshops');
+
+
+
+
+Route::get('/login', [AuthController::class, 'showAdminLoginForm'])->name('admin.login.form');
+Route::post('/login', [AuthController::class, 'submitAdminLoginForm'])->name('admin.login.submit');
+Route::prefix('admin')->as('admin.')->middleware('auth:web')->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    Route::resource('service', ServiceController::class);
+    Route::get('/service/{service}/change-status', [ServiceController::class, 'changeStatus'])->name('service.change.status');
+    Route::resource('product', ProductController::class);
+    Route::get('/product/{product}/change-status', [ProductController::class, 'changeStatus'])->name('product.change.status');
+    Route::resource('employee', EmployeeController::class);
+    Route::get('/employee/{employee}/change-status', [EmployeeController::class, 'changeStatus'])->name('employee.change.status');
+    Route::resource('client', ClientController::class);
+    Route::resource('project', ProjectController::class);
+    Route::get('/project/{project}/change-status', [ProjectController::class, 'changeStatus'])->name('project.change.status');
+    Route::get('/project-img/{image}/destroy', [ProjectImageController::class, 'destroy'])->name('project.image.destroy');
+    Route::get('/about', [AboutController::class, 'index'])->name('about.index');
+    Route::post('/about', [AboutController::class, 'store'])->name('about.store');
+    Route::get('/setting', [SettingController::class, 'index'])->name('setting.index');
+    Route::post('/setting', [SettingController::class, 'store'])->name('setting.store');
+});

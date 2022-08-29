@@ -59,7 +59,8 @@
                             <h3>{{ $locale == 'ar' ? $job->title_ar : $job->title }}</h3>
                             <ul>
                                 <li>
-                                    <i class="flaticon-send"></i>
+                                    <!-- <i class="flaticon-send"></i> -->
+                                    <i class="fa-solid fa-paper-plane"></i>
                                     {{ $locale == 'ar' ? $job->city->country->name_ar : $job->city->country->name }}, {{ $locale == 'ar' ? $job->city->name_ar : $job->city->name }}
                                 </li>
                                 @php 
@@ -89,7 +90,8 @@
                                 <form>
                                     <input type="text" name="search_text" value="{{ request('search_text') }}" class="form-control" placeholder="{{ __('locale.Keyword') }}">
                                     <button type="submit" class="btn">
-                                        <i class="flaticon-send"></i>
+                                        <!-- <i class="flaticon-send"></i> -->
+                                        <i class="fa-solid fa-paper-plane"></i>
                                     </button>
                                 </form>
                                 

@@ -139,4 +139,10 @@ class WebsiteController extends Controller
 
         return redirect()->back()->with(['success' => 'Data Saved Successfully!']);
     }
+
+
+    public function workshops()
+    {
+        return view('website.workshops');
+    }
 }
