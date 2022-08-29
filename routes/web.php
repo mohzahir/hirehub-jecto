@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CandidateController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\WebsiteController;
 use App\Models\Candidate;
@@ -51,8 +52,8 @@ Route::post('/login', [AuthController::class, 'submitAdminLoginForm'])->name('ad
 Route::prefix('admin')->as('admin.')->middleware('auth:web')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-    Route::resource('service', ServiceController::class);
-    Route::get('/service/{service}/change-status', [ServiceController::class, 'changeStatus'])->name('service.change.status');
+    Route::resource('category', CategoryController::class);
+    Route::get('/category/{category}/change-status', [CategoryController::class, 'changeStatus'])->name('category.change.status');
     Route::resource('product', ProductController::class);
     Route::get('/product/{product}/change-status', [ProductController::class, 'changeStatus'])->name('product.change.status');
     Route::resource('employee', EmployeeController::class);

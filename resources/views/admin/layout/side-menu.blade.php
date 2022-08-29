@@ -9,13 +9,13 @@
         </a><!-- br-menu-link -->
       </li><!-- br-menu-item -->
       <li class="br-menu-item">
-        <a href="#" class="br-menu-link with-sub {{ request()->is('admin/service/*') || request()->routeIs('service.index') ? 'active' : '' }}">
+        <a href="#" class="br-menu-link with-sub {{ request()->is('admin/category/*') || request()->routeIs('admin.category.index') ? 'active' : '' }}">
           <i class="menu-item-icon icon ion-ios-star-outline tx-22"></i>
-          <span class="menu-item-label">الخدمات</span>
+          <span class="menu-item-label">الأقسام</span>
         </a><!-- br-menu-link -->
         <ul class="br-menu-sub">
-          <li class="sub-item"><a href="{{ route('admin.service.index') }}" class="sub-link {{ request()->routeIs('service.index') ? 'active' : '' }}">عرض الخدمات</a></li>
-          <li class="sub-item"><a href="{{ route('admin.service.create') }}" class="sub-link {{ request()->routeIs('service.create') ? 'active' : '' }}">إضافة خدمة</a></li>
+          <li class="sub-item"><a href="{{ route('admin.category.index') }}" class="sub-link {{ request()->routeIs('admin.category.index') ? 'active' : '' }}">عرض الأقسام</a></li>
+          <li class="sub-item"><a href="{{ route('admin.category.create') }}" class="sub-link {{ request()->routeIs('admin.category.create') ? 'active' : '' }}">إضافة قسم</a></li>
         </ul>
       </li><!-- br-menu-item -->
 
