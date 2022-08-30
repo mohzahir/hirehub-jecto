@@ -18,6 +18,26 @@
           <li class="sub-item"><a href="{{ route('admin.category.create') }}" class="sub-link {{ request()->routeIs('admin.category.create') ? 'active' : '' }}">إضافة قسم</a></li>
         </ul>
       </li><!-- br-menu-item -->
+      <li class="br-menu-item">
+        <a href="#" class="br-menu-link with-sub {{ request()->is('admin/job/*') || request()->routeIs('admin.job.index') ? 'active' : '' }}">
+          <i class="menu-item-icon icon ion-ios-briefcase tx-22"></i>
+          <span class="menu-item-label">الوظائف</span>
+        </a><!-- br-menu-link -->
+        <ul class="br-menu-sub">
+          <li class="sub-item"><a href="{{ route('admin.job.index') }}" class="sub-link {{ request()->routeIs('admin.job.index') ? 'active' : '' }}">عرض الوظائف</a></li>
+          <li class="sub-item"><a href="{{ route('admin.job.create') }}" class="sub-link {{ request()->routeIs('admin.job.create') ? 'active' : '' }}">إضافة وظيفة</a></li>
+        </ul>
+      </li><!-- br-menu-item -->
+      <li class="br-menu-item">
+        <a href="#" class="br-menu-link with-sub {{ request()->is('admin/jobPost/*') || request()->routeIs('admin.jobPost.index') ? 'active' : '' }}">
+          <i class="menu-item-icon icon ion-ios-briefcase tx-22"></i>
+          <span class="menu-item-label">إعلانات الوظائف</span>
+        </a><!-- br-menu-link -->
+        <ul class="br-menu-sub">
+          <li class="sub-item"><a href="{{ route('admin.jobPost.index') }}" class="sub-link {{ request()->routeIs('admin.jobPost.index') ? 'active' : '' }}">عرض إعلانات الوظائف</a></li>
+          <li class="sub-item"><a href="{{ route('admin.jobPost.create') }}" class="sub-link {{ request()->routeIs('admin.jobPost.create') ? 'active' : '' }}">إضافة إعلان</a></li>
+        </ul>
+      </li><!-- br-menu-item -->
 
       <li class="br-menu-item">
         <a href="#" class="br-menu-link with-sub {{ request()->is('admin/client/*') || request()->routeIs('client.index') ? 'active' : '' }}">

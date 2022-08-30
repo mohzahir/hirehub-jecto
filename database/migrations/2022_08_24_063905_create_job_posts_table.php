@@ -32,6 +32,7 @@ class CreateJobPostsTable extends Migration
             $table->longText('descr_ar');
             $table->integer('salary_from')->nullable();
             $table->integer('salary_to')->nullable();
+            $table->enum('currency', ['dollar', 'SAR', 'QAR', 'AED', 'SDG', 'BHD', 'OMR', 'KWD', 'EGP'])->nullable();
             $table->integer('experience')->nullable();
             $table->integer('duration')->nullable();
             $table->enum('job_type', ['fulltime', 'remote', 'parttime', 'temporary', 'internship', 'freelancer'])->default('fulltime');

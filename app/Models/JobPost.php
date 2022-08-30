@@ -22,6 +22,7 @@ class JobPost extends Model
         'descr_ar',
         'salary_from',
         'salary_to',
+        'currency',
         'experience',
         'duration',
         'job_type',
