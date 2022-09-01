@@ -1,37 +1,37 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-6 col-lg-4">
-            <div class="footer-item two">
+            <div class="footer-item three">
                 <div class="footer-logo">
                     <a class="logo" href="index.html">
                         <a class="logo" href="index.html">
-                            <img src="{{ asset('jecto/default/assets/img/logo-two.png') }}" class="logo-one" alt="Logo">
-                            <img src="{{ asset('jecto/default/assets/img/logo-three.png') }}" class="logo-two" alt="Logo">
+                            <img style="width: 154px; height: 39px" src="{{ $setting->logo1 }}" class="logo-one" alt="Logo">
+                            <img style="width: 154px; height: 39px" src="{{ $setting->logo2 }}" class="logo-two" alt="Logo">
                         </a>
                     </a>
                     <ul>
                         <li>
                             <span>Address: </span>
-                            2659 Autostrad St, London, UK
+                            {{ $setting->address1 }}
                         </li>
                         <li>
                             <span>Message: </span>
-                            <a href="/cdn-cgi/l/email-protection#3b535e5757547b515e584f5415585456"><span class="__cf_email__" data-cfemail="48202d24242708222d2b3c27662b2725">[email&#160;protected]</span></a>
+                            {{ $setting->email1 }}
                         </li>
                         <li>
                             <span>Phone: </span>
-                            <a href="tel:2151234567">215 - 123 - 4567</a>
+                            <a href="tel:{{ $setting->phone1 }}">{{ $setting->phone1 }}</a>
                         </li>
                         <li>
                             <span>Open: </span>
-                            Mon - Fri / 9:00 AM - 6:00 PM
+                            {{ $setting->opining_week_day }} - {{ $setting->closing_week_day }} / {{ $setting->opining_hour }} - {{ $setting->closing_hour }}
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="col-sm-6 col-lg-3">
-            <div class="footer-item two">
+            <div class="footer-item three">
                 <div class="footer-service">
                     <h3>Our Services</h3>
                     <ul>
@@ -58,7 +58,7 @@
             </div>
         </div>
         <div class="col-sm-6 col-lg-2">
-            <div class="footer-item two">
+            <div class="footer-item three">
                 <div class="footer-service">
                     <h3>Useful Links</h3>
                     <ul>
@@ -85,7 +85,7 @@
             </div>
         </div>
         <div class="col-sm-6 col-lg-3">
-            <div class="footer-item two">
+            <div class="footer-item three">
                 <div class="footer-newsletter">
                     <h3>Newsletter</h3>
                     <p>Lorem ipsum dolor sit amet conscu adipiscing elit sed</p>

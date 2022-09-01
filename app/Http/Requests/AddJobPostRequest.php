@@ -26,8 +26,6 @@ class AddJobPostRequest extends FormRequest
         return [
             'job_id' => 'required|exists:jobs,id',
             'city_id' => 'required|exists:cities,id',
-            'country_id' => 'required|exists:countries,id',
-            'category_id' => 'required|exists:categories,id',
             'title' => 'required|min:3|string',
             'title_ar' => 'required|min:3|string',
             'short_descr' => 'required|min:3|string',
@@ -36,7 +34,7 @@ class AddJobPostRequest extends FormRequest
             'descr_ar' => 'required|min:10|string',
             'salary_from' => 'nullable|numeric',
             'salary_to' => 'nullable|numeric',
-            'currency' => 'nullable|in:doller,SAR,SDG,KWD,AED,EGP,QAR',
+            'currency' => 'required_if:salary_from,true|in:dollar,SAR,SDG,KWD,AED,EGP,QAR',
             'experience' => 'nullable|numeric',
             'duration' => 'nullable|string',
             'job_type' => 'required|in:fulltime,remote,parttime,temporary,internship,freelancer',

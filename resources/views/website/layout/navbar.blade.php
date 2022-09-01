@@ -9,8 +9,8 @@
     <div class="container-fluid">
         <nav class="navbar navbar-expand-md navbar-light">
             <a class="navbar-brand" href="{{ route('home') }}">
-                <img src="{{ asset('jecto/default/assets/img/logo-two.png') }}" class="logo-one" alt="Logo">
-                <img src="{{ asset('jecto/default/assets/img/logo-two.png') }}" class="logo-two" alt="Logo">
+                <img style="width: 115; height: 29.11px" src="{{ asset($setting->logo1) }}" class="logo-one" alt="Logo">
+                <img style="width: 115; height: 29.11px" src="{{ asset($setting->logo2) }}" class="logo-two" alt="Logo">
             </a>
             <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                 <ul class="navbar-nav">
@@ -21,7 +21,16 @@
                         <a href="{{ route('jobs') }}" class="nav-link dropdown-toggle {{ request()->routeIs('jobs') || request()->routeIs('job.details') ? 'active' : '' }}">{{ __('locale.Jobs') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('workshops') }}" class="nav-link dropdown-toggle {{ request()->routeIs('workshops') || request()->routeIs('job.details') ? 'active' : '' }}">{{ __('locale.Workshops') }}</a>
+                        <a href="{{ route('workshops') }}" class="nav-link dropdown-toggle {{ request()->routeIs('workshops') || request()->routeIs('workshops') ? 'active' : '' }}">{{ __('locale.Workshops') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('about') }}" class="nav-link dropdown-toggle {{ request()->routeIs('about') ? 'active' : '' }}">{{ __('locale.About') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('contact') }}" class="nav-link dropdown-toggle {{ request()->routeIs('contact') ? 'active' : '' }}">{{ __('locale.Contact') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('blog') }}" class="nav-link dropdown-toggle {{ request()->routeIs('blog') ? 'active' : '' }}">{{ __('locale.Blog') }}</a>
                     </li>
                     @if(app()->getLocale() == 'en')
                     <li class="nav-item">
@@ -66,7 +75,7 @@
 
     <div class="mobile-nav">
         <a href="{{ route('home') }}" class="logo">
-            <img src="{{ asset('jecto/default/assets/img/logo-three.png') }}" alt="Logo">
+            <img style="width: 115; height: 29.11px" src="{{ asset($setting->logo1) }}" alt="Logo">
         </a>
     </div>
 
@@ -74,7 +83,7 @@
         <div class="container-fluid">
             <nav class="navbar navbar-expand-md navbar-light">
                 <a class="navbar-brand" href="{{ route('home') }}">
-                    <img src="{{ asset('jecto/default/assets/img/logo-three.png') }}" alt="Logo">
+                    <img style="width: 115; height: 29.11px" src="{{ asset($setting->logo2) }}" alt="Logo">
                 </a>
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav">
@@ -86,6 +95,15 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('workshops') }}" class="nav-link dropdown-toggle {{ request()->routeIs('workshops') || request()->routeIs('job.details') ? 'active' : '' }}">{{ __('locale.Workshops') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('about') }}" class="nav-link dropdown-toggle {{ request()->routeIs('about') ? 'active' : '' }}">{{ __('locale.About') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('contact') }}" class="nav-link dropdown-toggle {{ request()->routeIs('contact') ? 'active' : '' }}">{{ __('locale.Contact') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('blog') }}" class="nav-link dropdown-toggle {{ request()->routeIs('blog') ? 'active' : '' }}">{{ __('locale.Blog') }}</a>
                         </li>
                         @if(app()->getLocale() == 'en')
                         <li class="nav-item">

@@ -30,13 +30,25 @@
       </li><!-- br-menu-item -->
       <li class="br-menu-item">
         <a href="#" class="br-menu-link with-sub {{ request()->is('admin/jobPost/*') || request()->routeIs('admin.jobPost.index') ? 'active' : '' }}">
-          <i class="menu-item-icon icon ion-ios-briefcase tx-22"></i>
+          <i class="menu-item-icon icon ion-android-notifications tx-22"></i>
           <span class="menu-item-label">إعلانات الوظائف</span>
         </a><!-- br-menu-link -->
         <ul class="br-menu-sub">
           <li class="sub-item"><a href="{{ route('admin.jobPost.index') }}" class="sub-link {{ request()->routeIs('admin.jobPost.index') ? 'active' : '' }}">عرض إعلانات الوظائف</a></li>
           <li class="sub-item"><a href="{{ route('admin.jobPost.create') }}" class="sub-link {{ request()->routeIs('admin.jobPost.create') ? 'active' : '' }}">إضافة إعلان</a></li>
         </ul>
+      </li><!-- br-menu-item -->
+      <li class="br-menu-item">
+        <a href="{{ route('admin.jobApplication.index') }}" class="br-menu-link {{ request()->routeIs('jobApplication.index') ? 'active' : '' }}">
+          <i class="menu-item-icon icon ion-android-bookmark tx-24"></i>
+          <span class="menu-item-label">تقديمات الوظائف</span>
+        </a><!-- br-menu-link -->
+      </li><!-- br-menu-item -->
+      <li class="br-menu-item">
+        <a href="{{ route('admin.candidate.index') }}" class="br-menu-link {{ request()->routeIs('candidate.index') ? 'active' : '' }}">
+          <i class="menu-item-icon icon ion-ios-people-outline tx-24"></i>
+          <span class="menu-item-label">العملاء</span>
+        </a><!-- br-menu-link -->
       </li><!-- br-menu-item -->
 
       <li class="br-menu-item">

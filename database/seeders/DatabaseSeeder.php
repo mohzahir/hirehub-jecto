@@ -20,5 +20,8 @@ class DatabaseSeeder extends Seeder
         $this->call(CitySeeder::class);
         $this->call(JobSeeder::class);
         $this->call(JobPostSeeder::class);
+        $this->call(SettingSeeder::class);
+        $this->call(BlogSeeder::class);
+        $this->call(BlogCommentSeeder::class);
     }
 }

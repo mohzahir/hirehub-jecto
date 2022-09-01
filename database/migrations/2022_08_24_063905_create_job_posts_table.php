@@ -36,7 +36,7 @@ class CreateJobPostsTable extends Migration
             $table->integer('experience')->nullable();
             $table->integer('duration')->nullable();
             $table->enum('job_type', ['fulltime', 'remote', 'parttime', 'temporary', 'internship', 'freelancer'])->default('fulltime');
-            $table->enum('status', ['active', 'inactive'])->default('inactive');
+            $table->enum('status', ['active', 'inactive'])->default('active');
             $table->boolean('is_featured')->default(0);
             $table->timestamps();
         });

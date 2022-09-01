@@ -8,13 +8,13 @@
   <x-slot name="header">
       <nav class="breadcrumb pd-0 mg-0 tx-12">
           <a class="breadcrumb-item" href="{{ route('admin.dashboard') }}">لوحة التحكم</a>
-          <a class="breadcrumb-item" href="{{ route('admin.job.index') }}">إدارة إعلانات الوظائف</a>
-          <span class="breadcrumb-item active">{{ $job->title_ar }}</span>
+          <a class="breadcrumb-item" href="{{ route('admin.jobPost.index') }}">إدارة إعلانات الوظائف</a>
+          <span class="breadcrumb-item active">{{ $jobPost->title_ar }}</span>
           <span class="breadcrumb-item active">تعديل</span>
       </nav>
   </x-slot>
   <x-slot name="title">
-    <i class="icon ion-ios-briefcase"></i>
+    <i class="icon ion-android-notifications"></i>
     <div>
       <h4>تعديل إعلان</h4>
       <p class="mg-b-0">هنا يمكنك ادارة معلومات إعلانات الوظائف والتعديل عليها</p>
@@ -33,20 +33,31 @@
         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#descr-info" role="tab" aria-controls="profile" aria-selected="false">البيانات الوصفية</a>
       </li>
     </ul>
-    <form action="{{ route('admin.job.update', ['job' => $job->id]) }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('admin.jobPost.update', ['jobPost' => $jobPost->id]) }}" method="post" enctype="multipart/form-data">
       @csrf
       @method('PATCH')
       <div class="form-layout form-layout-1">
         <div  class="tab-content" data-select2-id="31">
           <div id="basic-info" class="tab-pane fade show active " role="tabpanel" aria-labelledby="home-tab">
             <div class="row mg-b-25">
-              <div class="col-lg-12">
+              <div class="col-lg-6">
                 <div class="form-group">
-                  <label class="form-control-label">القسم<span class="tx-danger">*</span></label>
-                  <select name="category_id" id="" class="form-control">
-                    <option value="">إختر القسم</option>
-                    @foreach($categories as $category)
-                    <option {{ $job->category_id == $category->id ? 'selected' : '' }} value="{{ $category->id }}">{{ $category->title_ar }}</option>
+                  <label class="form-control-label">الوظيفة<span class="tx-danger">*</span></label>
+                  <select name="job_id" id="" class="form-control">
+                    <option value="">إختر الوظيفة</option>
+                    @foreach($jobs as $job)
+                    <option {{ $jobPost->job_id== $job->id ? 'selected' : '' }} value="{{ $job->id }}">{{ $job->title_ar }}</option>
+                    @endforeach
+                  </select>
+                </div>
+              </div><!-- col-4 -->
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label class="form-control-label">المدينة<span class="tx-danger">*</span></label>
+                  <select name="city_id" id="" class="form-control">
+                    <option value="">إختر المدينة</option>
+                    @foreach($cities as $city)
+                    <option {{ $jobPost->city_id == $city->id ? 'selected' : '' }} value="{{ $city->id }}">{{ $city->name_ar }}</option>
                     @endforeach
                   </select>
                 </div>
@@ -54,28 +65,70 @@
               <div class="col-lg-6">
                 <div class="form-group">
                   <label class="form-control-label">العنوان بالعربي: <span class="tx-danger">*</span></label>
-                  <input class="form-control" type="text" name="title_ar" value="{{ $job->title_ar }}" placeholder="ادخل عنوان الإعلان بالعربي">
+                  <input class="form-control" type="text" name="title_ar" value="{{ $jobPost->title_ar }}" placeholder="ادخل عنوان الإعلان بالعربي">
                 </div>
               </div><!-- col-4 -->
               <div class="col-lg-6">
                 <div class="form-group">
                   <label class="form-control-label">العنوان بالانجليزي: <span class="tx-danger">*</span></label>
-                  <input class="form-control" type="text" name="title" value="{{ $job->title }}" placeholder="ادخل عنوان الإعلان بالانجليزي">
+                  <input class="form-control" type="text" name="title" value="{{ $jobPost->title }}" placeholder="ادخل عنوان الإعلان بالانجليزي">
                 </div>
               </div><!-- col-4 -->
-              <div class="col-lg-12">
-                <div class="form-groub">
-                  <label for="">صورة الإعلان <span class="tx-danger">*</span></label>
-                  <img style="width: 200px;height: 200px;display: block" src="{{ asset($job->photo) }}" class="img-fluid img-thumbnail" alt="">
-                </div>
+              <div class="col-lg-4">
                 <div class="form-group">
-                  <input id="customFile" class="custom-file-input" type="file" name="photo" value="{{ $job->photo }}">
-                  <label style="top: 213px;width: 200px;" class="custom-file-label m-3" for="customFile"></label>
+                  <label class="form-control-label">الراتب من: </label>
+                  <input class="form-control" type="text" name="salary_from" value="{{ $jobPost->salary_from }}" placeholder="3000">
+                </div>
+              </div><!-- col-4 -->
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label class="form-control-label">الراتب الى: </label>
+                  <input class="form-control" type="text" name="salary_to" value="{{ $jobPost->salary_to }}" placeholder="5000">
+                </div>
+              </div><!-- col-4 -->
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label class="form-control-label">العملة: </label>
+                  <select name="currency" id="" class="form-control">
+                    <option value="">إختر العملة</option>
+                    <option {{ $jobPost->currency == 'dollar' ? 'selected' : '' }} value="dollar">دولار</option>
+                    <option {{ $jobPost->currency == 'SAR' ? 'selected' : '' }} value="SAR">ريال سعودي</option>
+                    <option {{ $jobPost->currency == 'SDG' ? 'selected' : '' }} value="SDG">جنيه سوداني</option>
+                    <option {{ $jobPost->currency == 'AED' ? 'selected' : '' }} value="AED">درهم إماراتي</option>
+                    <option {{ $jobPost->currency == 'QAR' ? 'selected' : '' }} value="QAR">ريال قطري</option>
+                    <option {{ $jobPost->currency == 'EGP' ? 'selected' : '' }} value="EGP">جنيه مصري</option>
+                    <option {{ $jobPost->currency == 'KWD' ? 'selected' : '' }} value="KWD">درهم كويتي</option>
+                  </select>
+                </div>
+              </div><!-- col-4 -->
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label class="form-control-label">سنوات الخبرة: <span class="tx-danger">بالسنين</span></label>
+                  <input class="form-control" type="number" name="experience" value="{{ $jobPost->experience }}" placeholder="0">
+                </div>
+              </div><!-- col-4 -->
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label class="form-control-label">مدة التعاقد: <span class="tx-danger">بالسنين</span></label>
+                  <input class="form-control" type="number" name="duration" value="{{ $jobPost->duration }}" placeholder="2">
+                </div>
+              </div><!-- col-4 -->
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label class="form-control-label">نوع الوظيفة: </label>
+                  <select name="job_type" id="" class="form-control">
+                    <option {{ $jobPost->job_type == 'fulltime' ? 'selected' : '' }} value="fulltime">دوام كامل</option>
+                    <option {{ $jobPost->job_type == 'remote' ? 'selected' : '' }} value="remote">عن بعد</option>
+                    <option {{ $jobPost->job_type == 'parttime' ? 'selected' : '' }} value="parttime">دوام جزئي</option>
+                    <option {{ $jobPost->job_type == 'temporary' ? 'selected' : '' }} value="temporary">توظيف مؤقت</option>
+                    <option {{ $jobPost->job_type == 'internship' ? 'selected' : '' }} value="internship">تدريب وظيفي</option>
+                    <option {{ $jobPost->job_type == 'freelancer' ? 'selected' : '' }} value="freelancer">مستقل</option>
+                  </select>
                 </div>
               </div><!-- col-4 -->
               <div class="col-lg-3 mg-t-20 mg-lg-t-0">
                 <label class="ckbox">
-                  <input type="checkbox" name="is_featured" {{ $job->is_featured ? 'checked' : ''}} value="1"><span>الإعلان مميزة ؟ <small>إعلانات الوظائف المميزة سيتم عرضها على الصفحة الرئيسية</small></span>
+                  <input type="checkbox" name="is_featured" {{ $jobPost->is_featured ? 'checked' : ''}} value="1"><span>الإعلان مميزة ؟ <small>إعلانات الوظائف المميزة سيتم عرضها على الصفحة الرئيسية</small></span>
                 </label>
               </div><!-- col-8 -->
             </div>
@@ -84,16 +137,28 @@
   
           <div id="descr-info" class="tab-pane fade " role="tabpanel" aria-labelledby="home-tab">
             <div class="row mg-b-25">
+              <div class="col-lg-6">
+                <div class="form-group mg-b-10-force">
+                  <label class="form-control-label">الوصف القصير بالعربي: <span class="tx-danger">*</span></label>
+                  <textarea class="form-control" type="text" name="short_descr_ar" placeholder="ادخل الوصف القصير بالعربي">{{ $jobPost->short_descr_ar }}</textarea>
+                </div>
+              </div><!-- col-8 -->
+              <div class="col-lg-6">
+                <div class="form-group mg-b-10-force">
+                  <label class="form-control-label">الوصف القصير بالانجليزي: <span class="tx-danger">*</span></label>
+                  <textarea class="form-control" type="text" name="short_descr" placeholder="ادخل الوصف القصير بالانجليزي">{{ $jobPost->short_descr }}</textarea>
+                </div>
+              </div><!-- col-8 -->
               <div class="col-lg-12">
                 <div class="form-group mg-b-10-force">
                   <label class="form-control-label">الوصف الكامل بالعربي: <span class="tx-danger">*</span></label>
-                  <textarea class="form-control summernote" type="text" name="description_ar" placeholder="ادخل الوصف الكامل بالعربي">{{ $job->description_ar }}</textarea>
+                  <textarea class="form-control summernote" type="text" name="descr_ar" placeholder="ادخل الوصف الكامل بالعربي">{{ $jobPost->descr_ar }}</textarea>
                 </div>
               </div><!-- col-8 -->
               <div class="col-lg-12">
                 <div class="form-group mg-b-10-force">
                   <label class="form-control-label">الوصف الكامل بالانجليزي: <span class="tx-danger">*</span></label>
-                  <textarea class="form-control summernote" type="text" name="description" placeholder="ادخل الوصف الكامل بالانجليزي">{{ $job->description }}</textarea>
+                  <textarea class="form-control summernote" type="text" name="descr" placeholder="ادخل الوصف الكامل بالانجليزي">{{ $jobPost->descr }}</textarea>
                 </div>
               </div><!-- col-8 -->
             </div>
@@ -103,7 +168,7 @@
 
       <div class="card-footer mt-2">
         <button class="btn btn-info">تعديل</button>
-        <a href="{{ route('admin.job.index') }}" class="btn btn-secondary">الغاء</a>
+        <a href="{{ route('admin.jobPost.index') }}" class="btn btn-secondary">الغاء</a>
       </div><!-- form-layout-footer -->
       
         

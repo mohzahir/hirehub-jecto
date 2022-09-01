@@ -36,6 +36,7 @@ class Candidate extends Authenticatable
         'instagram_link',
         'linkedin_link',
         'password',
+        'cv',
         'is_featured',
         'status',
     ];

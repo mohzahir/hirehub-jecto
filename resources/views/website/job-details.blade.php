@@ -148,7 +148,7 @@
                                                 <label>
                                                     {{ __('locale.Cover Latter') }}:
                                                 </label>
-                                                <textarea rows="6" name="cover_latter" class="form-control" placeholder="{{ __('locale.Cover Latter') }}">{{ old('cover_latter') }}</textarea>
+                                                <textarea rows="6" name="cover_letter" class="form-control" placeholder="{{ __('locale.Cover Latter') }}">{{ old('cover_latter') }}</textarea>
                                             </div>
                                         </div>
 
@@ -173,7 +173,12 @@
                                 <li>
                                     <img src="{{ asset('jecto/default/assets/img/job-details-icon.png') }}" alt="Details">
                                     <h4>{{ __('locale.Salary') }}</h4>
-                                    <span>${{ $job_post->salary_from }} - ${{ $job_post->salary_to }}</span>
+                                    <span>{{ $job_post->salary_from }} - {{ $job_post->salary_to }}</span>
+                                </li>
+                                <li>
+                                    <img src="{{ asset('jecto/default/assets/img/job-details-icon.png') }}" alt="Details">
+                                    <h4>{{ __('locale.Currency') }}</h4>
+                                    <span>{{ $job_post->currency }}</span>
                                 </li>
                                 @endif
                                 <li>

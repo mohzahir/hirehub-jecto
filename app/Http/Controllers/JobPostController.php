@@ -47,14 +47,16 @@ class JobPostController extends Controller
     public function store(AddJobPostRequest $request)
     {
         // dd($request->all());
-        $photo = $request->file('photo')->store('files', 'public_folder');
+        $job = Job::findOrFail($request->job_id);
+        $city = City::findOrFail($request->city_id);
         JobPost::create([
             'job_id' => $request->job_id,
+            'category_id' => $job->category->id,
             'city_id' => $request->city_id,
-            'country_id' => $request->country_id,
-            'category_id' => $request->category_id,
+            'country_id' => $city->country->id,
             'title' => $request->title,
             'title_ar' => $request->title_ar,
+            'slug' => Str::slug($request->title),
             'short_descr' => $request->short_descr,
             'short_descr_ar' => $request->short_descr_ar,
             'descr' => $request->descr,
@@ -66,8 +68,7 @@ class JobPostController extends Controller
             'duration' => $request->duration,
             'job_type' => $request->job_type,
             'is_featured' => $request->is_featured,
-            'status' => $request->status,
-            'photo' => $photo,
+            'photo' => $request->photo,
         ]);
         return redirect()->route('admin.jobPost.index')->with('success', 'تمت اضافة إعلان الوظيفة بنجاح');
     }
@@ -109,15 +110,13 @@ class JobPostController extends Controller
      */
     public function update(AddJobPostRequest $request, JobPost $jobPost)
     {
-        $photo = $jobPost->photo;
-        if ($request->hasFile('photo')) {
-            $photo = $request->file('photo')->store('files', 'public_folder');
-        }
+        $job = Job::findOrFail($request->job_id);
+        $city = City::findOrFail($request->city_id);
         $jobPost->update([
             'job_id' => $request->job_id,
+            'category_id' => $job->category->id,
             'city_id' => $request->city_id,
-            'country_id' => $request->country_id,
-            'category_id' => $request->category_id,
+            'country_id' => $city->country->id,
             'title' => $request->title,
             'title_ar' => $request->title_ar,
             'short_descr' => $request->short_descr,
@@ -131,8 +130,7 @@ class JobPostController extends Controller
             'duration' => $request->duration,
             'job_type' => $request->job_type,
             'is_featured' => $request->is_featured,
-            'status' => $request->status,
-            'photo' => $photo,
+            'photo' => $request->photo,
         ]);
         return redirect()->route('admin.jobPost.index')->with('success', 'تم تعديل إعلان الوظيفة بنجاح');
     }
@@ -145,8 +143,8 @@ class JobPostController extends Controller
      */
     public function destroy(JobPost $jobPost)
     {
-        if (count($jobPost->jobPostPosts) > 0) {
-            return redirect()->route('admin.jobPost.index')->with('warning', 'هذا إعلان الوظيفة لديها إعلانات وظائف متاحة تابعة لها ولا يمكن حذفها');
+        if (count($jobPost->jobApplications) > 0) {
+            return redirect()->route('admin.jobPost.index')->with('warning', 'عفوا, هذا الإعلان يحتوي على تقديمات وظيفية ولا يمكن حذفه!');
         }
         $jobPost->delete();
         return redirect()->route('admin.jobPost.index')->with('success', 'تم حذف إعلان الوظيفة بنجاح');

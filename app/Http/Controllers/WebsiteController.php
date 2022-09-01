@@ -3,14 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SubmitJobApplicationRequest;
+use App\Mail\ContactMail;
+use App\Models\Blog;
 use App\Models\Candidate;
 use App\Models\Category;
 use App\Models\Country;
 use App\Models\Job;
 use App\Models\JobApplication;
 use App\Models\JobPost;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class WebsiteController extends Controller
 {
@@ -66,7 +70,6 @@ class WebsiteController extends Controller
         $phone = null;
         $email = null;
         $cv = null;
-        $cover_latter = $request->cover_latter;
 
         if ($request->hasFile('cv')) {
             $cv = $request->file('cv')->store('files', 'public_folder');
@@ -93,7 +96,7 @@ class WebsiteController extends Controller
             'phone' => $phone,
             'email' => $email,
             'cv' => $cv,
-            'cover_latter' => $cover_latter,
+            'cover_latter' => $request->cover_letter,
         ]);
 
         return redirect()->back()->with('success', 'Job Application has been done successfully!');
@@ -144,5 +147,42 @@ class WebsiteController extends Controller
     public function workshops()
     {
         return view('website.workshops');
+    }
+
+    public function about()
+    {
+        return view('website.about', [
+            'locale' => app()->getLocale(),
+            'setting' => Setting::find(1),
+            'candidates_count' => Candidate::count(),
+            'jobPosts_count' => JobPost::count(),
+            'companies_count' => 4,
+            'jobApplications_count' => JobApplication::count(),
+        ]);
+    }
+
+    public function contact()
+    {
+        return view('website.contact');
+    }
+
+    public function SubmitContact(Request $request)
+    {
+        // dd($request->all());
+        Mail::to(Setting::find(1)->email1)->send(new ContactMail($request->name, $request->email, $request->message));
+
+        if (Mail::failures()) {
+            return response()->Fail('عفوا, لم يتم ارسال رسالتك الرجاء المحاولة لاحقا');
+        } else {
+            return response()->success('تم إرسال الرسالة بنجاح');
+        }
+    }
+
+    public function blog()
+    {
+        return view('website.blog', [
+            'blogs' => Blog::where('status', 'active')->orderBy('id', 'desc')->paginate(20),
+            'locale' => app()->getLocale(),
+        ]);
     }
 }

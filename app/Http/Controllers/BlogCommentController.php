@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\JopApplication;
+use App\Models\BlogComment;
 use Illuminate\Http\Request;
 
-class JopApplicationController extends Controller
+class BlogCommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class JopApplicationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\JopApplication  $jopApplication
+     * @param  \App\Models\BlogComment  $blogComment
      * @return \Illuminate\Http\Response
      */
-    public function show(JopApplication $jopApplication)
+    public function show(BlogComment $blogComment)
     {
         //
     }
@@ -52,10 +52,10 @@ class JopApplicationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\JopApplication  $jopApplication
+     * @param  \App\Models\BlogComment  $blogComment
      * @return \Illuminate\Http\Response
      */
-    public function edit(JopApplication $jopApplication)
+    public function edit(BlogComment $blogComment)
     {
         //
     }
@@ -64,10 +64,10 @@ class JopApplicationController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\JopApplication  $jopApplication
+     * @param  \App\Models\BlogComment  $blogComment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, JopApplication $jopApplication)
+    public function update(Request $request, BlogComment $blogComment)
     {
         //
     }
@@ -75,10 +75,10 @@ class JopApplicationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\JopApplication  $jopApplication
+     * @param  \App\Models\BlogComment  $blogComment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(JopApplication $jopApplication)
+    public function destroy(BlogComment $blogComment)
     {
         //
     }

@@ -71,7 +71,7 @@
 
     {{ $slot }}
 
-    <footer class="pt-100 pb-70">
+    <footer class="footer-area pt-100 three pb-70">
         @include('website.layout.footer')
     </footer>
     

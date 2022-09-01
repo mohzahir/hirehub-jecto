@@ -4,8 +4,10 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\JobApplicationController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\JobPostController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\WebsiteController;
 use App\Models\Candidate;
 use Illuminate\Support\Facades\Route;
@@ -45,6 +47,11 @@ Route::get('/jobs', [WebsiteController::class, 'jobs'])->name('jobs');
 Route::get('/jobs/{job_post}/job-details', [WebsiteController::class, 'jobDetails'])->name('job.details');
 Route::post('/jobs/{job_post}/submit-job-application', [WebsiteController::class, 'submitJobApplication'])->name('submit.job.application');
 Route::get('/workshops', [WebsiteController::class, 'workshops'])->name('workshops');
+Route::get('/about', [WebsiteController::class, 'about'])->name('about');
+Route::get('/contact', [WebsiteController::class, 'contact'])->name('contact');
+Route::post('/contact', [WebsiteController::class, 'SubmitContact'])->name('contact.submit');
+Route::get('/blogs', [WebsiteController::class, 'blog'])->name('blog');
+Route::get('/blogs/{blog}/blog-details', [WebsiteController::class, 'blogDetails'])->name('blog.details');
 
 
 
@@ -60,6 +67,10 @@ Route::prefix('admin')->as('admin.')->middleware('auth:web')->group(function () 
     Route::get('/job/{job}/change-status', [JobController::class, 'changeStatus'])->name('job.change.status');
     Route::resource('jobPost', JobPostController::class);
     Route::get('/jobPost/{jobPost}/change-status', [JobPostController::class, 'changeStatus'])->name('jobPost.change.status');
+    Route::resource('jobApplication', JobApplicationController::class);
+    Route::get('/jobApplication/{jobApplication}/change-status', [JobApplicationController::class, 'changeStatus'])->name('jobApplication.change.status');
+    Route::resource('candidate', CandidateController::class);
+    Route::get('/candidate/{candidate}/change-status', [CandidateController::class, 'changeStatus'])->name('candidate.change.status');
     Route::resource('product', ProductController::class);
     Route::get('/product/{product}/change-status', [ProductController::class, 'changeStatus'])->name('product.change.status');
     Route::resource('employee', EmployeeController::class);

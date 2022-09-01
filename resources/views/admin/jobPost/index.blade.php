@@ -7,7 +7,7 @@
       </nav>
   </x-slot>
   <x-slot name="title">
-    <i class="icon ion-ios-briefcase"></i>
+    <i class="icon ion-android-notifications"></i>
     <div>
       <h4>إدارة إعلانات الوظائف</h4>
       <p class="mg-b-0">هنا يمكنك ادارة معلومات إعلانات الوظائف والتعديل عليها</p>
@@ -34,6 +34,7 @@
             <th>القسم</th>
             <th>الحالة</th>
             <th>الإعلان مميز</th>
+            <th>عدد التقديمات</th>
             <th>التحكم</th>
           </tr>
         </thead>
@@ -65,11 +66,16 @@
               </div>
               @endif
             </td>
+            <td class="text-center tx-bold">
+              <span class="badge badge-info rounded ">{{ $jobPost->jobApplications->count() }}</span>
+            </td>
             <td>
               <div style="display: flex;justify-content: space-evenly;">
                 <a href="{{ route('admin.jobPost.show', ['jobPost' => $jobPost->id]) }}" class="btn btn-warning btn-icon btn-sm" title="التفاصيل"><div><i class="icon ion-ios-information-outline"></i></div></a>
                 <a href="{{ route('admin.jobPost.edit', ['jobPost' => $jobPost->id]) }}" class="btn btn-info btn-icon btn-sm" title="تعديل"><div><i class="icon ion-android-create"></i></div></a>
+                @if($jobPost->jobApplications->count() == 0)
                 <button onclick="x = confirm('هل انت متأكد ؟'); if(x){ $('.form-delete{{ $index }}').submit() }" class="btn btn-danger btn-icon btn-sm" title="حذف"><div><i class="icon ion-android-remove-circle"></i></div></button>
+                @endif
               </div>
               <form class="form-delete{{ $index }}" method="post" action="{{ route('admin.jobPost.destroy', ['jobPost' => $jobPost->id]) }}">
                 @csrf
@@ -79,7 +85,7 @@
           </tr>
           @endforeach
           @else
-          <tr>
+          <tr class="text-center">
             <td colspan="10">لا يوجد بيانات لعرضها</td>
           </tr>
           @endif
@@ -94,11 +100,12 @@
             <th>القسم</th>
             <th>الحالة</th>
             <th>الإعلان مميز</th>
+            <th>عدد التقديمات</th>
             <th>التحكم</th>
           </tr>
         </tfoot>
       </table>
-      {!! $jobPost->links !!}
+      {!! $jobPosts->links() !!}
     </div><!-- bd -->
   </div>
 

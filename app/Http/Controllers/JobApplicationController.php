@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Candidate;
+use App\Models\JobApplication;
+use App\Models\JopApplication;
+use Faker\Core\Number;
 use Illuminate\Http\Request;
+use Ramsey\Uuid\Type\Integer;
 
-class CandidateController extends Controller
+class JobApplicationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +17,8 @@ class CandidateController extends Controller
      */
     public function index()
     {
-        return view('admin.candidate.index', [
-            'candidates' => Candidate::orderBy('id', 'DESC')->paginate(15),
+        return view('admin.jobApplication.index', [
+            'jobApplications' => JobApplication::orderBy('id', 'DESC')->paginate(20),
         ]);
     }
 
@@ -43,23 +46,21 @@ class CandidateController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Candidate  $candidate
+     * @param  \App\Models\JopApplication  $jopApplication
      * @return \Illuminate\Http\Response
      */
-    public function show(Candidate $candidate)
+    public function show(JobApplication $jopApplication)
     {
-        return view('admin.candidate.show', [
-            'candidate' => $candidate,
-        ]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Candidate  $candidate
+     * @param  \App\Models\JopApplication  $jopApplication
      * @return \Illuminate\Http\Response
      */
-    public function edit(Candidate $candidate)
+    public function edit(JobApplication $jopApplication)
     {
         //
     }
@@ -68,10 +69,10 @@ class CandidateController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Candidate  $candidate
+     * @param  \App\Models\JopApplication  $jopApplication
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Candidate $candidate)
+    public function update(Request $request, JobApplication $jopApplication)
     {
         //
     }
@@ -79,18 +80,20 @@ class CandidateController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Candidate  $candidate
+     * @param  \App\Models\JopApplication  $jopApplication
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Candidate $candidate)
+    public function destroy(JobApplication $jopApplication)
     {
         //
     }
-    public function changeStatus(Request $request, Candidate $candidate)
+
+    public function changeStatus(Request $request, JobApplication $jobApplication)
     {
-        $candidate->update([
-            'status' => $request->status
+        // dd($jobApplication);
+        $jobApplication->update([
+            'is_replied_to' => (int)$request->is_replied_to
         ]);
-        return redirect()->route('admin.candidate.index')->with('success', 'تم تغيير الحالة بنجاح');
+        return redirect()->route('admin.jobApplication.index')->with('success', 'تم تغيير الحالة بنجاح');
     }
 }

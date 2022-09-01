@@ -32,6 +32,7 @@ class CreateCandidatesTable extends Migration
             $table->string('twitter_link')->nullable();
             $table->string('linkedin_link')->nullable();
             $table->string('instagram_link')->nullable();
+            $table->string('cv')->nullable();
             $table->string('password');
             $table->boolean('is_featured')->default(0);
             $table->enum('status', ['active', 'inactive'])->default('active');

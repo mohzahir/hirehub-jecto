@@ -13,7 +13,7 @@
       </nav>
   </x-slot>
   <x-slot name="title">
-    <i class="icon ion-ios-briefcase"></i>
+    <i class="icon ion-android-notifications"></i>
     <div>
       <h4>إضافة إعلان</h4>
       <p class="mg-b-0">هنا يمكنك ادارة معلومات إعلانات الوظائف والتعديل عليها</p>
@@ -32,7 +32,7 @@
         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#descr-info" role="tab" aria-controls="profile" aria-selected="false">البيانات الوصفية</a>
       </li>
     </ul>
-    <form action="{{ route('admin.job.store') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('admin.jobPost.store') }}" method="post" enctype="multipart/form-data">
       @csrf
       <div class="form-layout form-layout-1">
         <div  class="tab-content" data-select2-id="31">
@@ -89,49 +89,39 @@
                   <label class="form-control-label">العملة: </label>
                   <select name="currency" id="" class="form-control">
                     <option value="">إختر العملة</option>
-                    <option value="dollar">دولار</option>
-                    <option value="SAR">ريال سعودي</option>
-                    <option value="SDG">جنيه سوداني</option>
-                    <option value="AED">درهم إماراتي</option>
-                    <option value="QAR">ريال قطري</option>
-                    <option value="EGP">جنيه مصري</option>
-                    <option value="KWD">درهم كويتي</option>
+                    <option {{ old('currency') == 'dollar' ? 'selected' : '' }} value="dollar">دولار</option>
+                    <option {{ old('currency') == 'SAR' ? 'selected' : '' }} value="SAR">ريال سعودي</option>
+                    <option {{ old('currency') == 'SDG' ? 'selected' : '' }} value="SDG">جنيه سوداني</option>
+                    <option {{ old('currency') == 'AED' ? 'selected' : '' }} value="AED">درهم إماراتي</option>
+                    <option {{ old('currency') == 'QAR' ? 'selected' : '' }} value="QAR">ريال قطري</option>
+                    <option {{ old('currency') == 'EGP' ? 'selected' : '' }} value="EGP">جنيه مصري</option>
+                    <option {{ old('currency') == 'KWD' ? 'selected' : '' }} value="KWD">درهم كويتي</option>
                   </select>
                 </div>
               </div><!-- col-4 -->
               <div class="col-lg-4">
                 <div class="form-group">
                   <label class="form-control-label">سنوات الخبرة: <span class="tx-danger">بالسنين</span></label>
-                  <input class="form-control" type="text" name="title" value="{{ old('title') }}" placeholder="0">
+                  <input class="form-control" type="number" name="experience" value="{{ old('experience') }}" placeholder="0">
                 </div>
               </div><!-- col-4 -->
               <div class="col-lg-4">
                 <div class="form-group">
                   <label class="form-control-label">مدة التعاقد: <span class="tx-danger">بالسنين</span></label>
-                  <input class="form-control" type="text" name="title" value="{{ old('title') }}" placeholder="2">
+                  <input class="form-control" type="number" name="duration" value="{{ old('duration') }}" placeholder="2">
                 </div>
               </div><!-- col-4 -->
               <div class="col-lg-4">
                 <div class="form-group">
                   <label class="form-control-label">نوع الوظيفة: </label>
                   <select name="job_type" id="" class="form-control">
-                    <option value="fulltime">دوام كامل</option>
-                    <option value="remote">عن بعد</option>
-                    <option value="parttime">دوام جزئي</option>
-                    <option value="temporary">توظيف مؤقت</option>
-                    <option value="internship">تدريب وظيفي</option>
-                    <option value="freelancer">مستقل</option>
+                    <option {{ old('job_type') == 'fulltime' ? 'selected' : '' }} value="fulltime">دوام كامل</option>
+                    <option {{ old('job_type') == 'remote' ? 'selected' : '' }} value="remote">عن بعد</option>
+                    <option {{ old('job_type') == 'parttime' ? 'selected' : '' }} value="parttime">دوام جزئي</option>
+                    <option {{ old('job_type') == 'temporary' ? 'selected' : '' }} value="temporary">توظيف مؤقت</option>
+                    <option {{ old('job_type') == 'internship' ? 'selected' : '' }} value="internship">تدريب وظيفي</option>
+                    <option {{ old('job_type') == 'freelancer' ? 'selected' : '' }} value="freelancer">مستقل</option>
                   </select>
-                </div>
-              </div><!-- col-4 -->
-              <div class="col-lg-12">
-                <div class="form-groub">
-                  <label for="">صورة الإعلان <span class="tx-danger">*</span></label>
-                  <img style="width: 200px;height: 200px;display: block" src="{{ asset('bracketplus1.4/app/img/img11.jpg') }}" class="img-fluid img-thumbnail" alt="">
-                </div>
-                <div class="form-group">
-                  <input id="customFile" class="custom-file-input" type="file" name="photo" value="{{ old('photo') }}" placeholder="ادخل عنوان الإعلان بالانجليزي">
-                  <label style="top: 213px;width: 200px;" class="custom-file-label m-3" for="customFile"></label>
                 </div>
               </div><!-- col-4 -->
               <div class="col-lg-3 mg-t-20 mg-lg-t-0">

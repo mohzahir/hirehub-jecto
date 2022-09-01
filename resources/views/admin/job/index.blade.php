@@ -75,7 +75,7 @@
           </tr>
           @endforeach
           @else
-          <tr>
+          <tr class="text-center">
             <td colspan="10">لا يوجد بيانات لعرضها</td>
           </tr>
           @endif
