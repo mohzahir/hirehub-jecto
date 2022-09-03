@@ -132,6 +132,16 @@ return [
     "Currency" => "Currency",
     "Show More" => "Show More",
     "Blog" => "Blog",
+    "Blog Details" => "Blog Details",
+    "Categories" => "Categories",
+    "Recent Posts" => "Recent Posts",
+    "Comments" => "Comments",
+    "Comment" => "Comment",
+    "Leave A Comment" => "Leave A Comment",
+    "Post A Comment" => "Post A Comment",
+    "News Tags" => "News Tags",
+    "Tags" => "Tags",
+    "Write message" => "Write message",
 
 
 

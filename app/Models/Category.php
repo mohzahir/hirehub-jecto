@@ -23,6 +23,10 @@ class Category extends Model
     {
         return $this->hasMany(Job::class);
     }
+    public function blogs()
+    {
+        return $this->hasMany(Blog::class);
+    }
     public function jobPosts()
     {
         return $this->hasMany(JobPost::class);

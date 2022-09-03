@@ -33,4 +33,13 @@ class Blog extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function nextBlog()
+    {
+        return Blog::where('id', $this->id + 1)->first();
+    }
+    public function previousBlog()
+    {
+        return Blog::where('id', $this->id - 1)->first();
+    }
 }

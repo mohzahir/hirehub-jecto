@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\SubmitJobApplicationRequest;
 use App\Mail\ContactMail;
 use App\Models\Blog;
+use App\Models\BlogComment;
 use App\Models\Candidate;
 use App\Models\Category;
 use App\Models\Country;
@@ -184,5 +185,29 @@ class WebsiteController extends Controller
             'blogs' => Blog::where('status', 'active')->orderBy('id', 'desc')->paginate(20),
             'locale' => app()->getLocale(),
         ]);
+    }
+
+    public function blogDetails(Blog $blog)
+    {
+        return view('website.blog-details', [
+            'blog' => $blog,
+            // 'next_blog' => Blog::where(),
+            'recent_blogs' => Blog::orderBy('id', 'desc')->take(3)->get(),
+            'categories' => Category::where('status', 'active')->get(),
+            'locale' => app()->getLocale(),
+        ]);
+    }
+
+    public function blogComment(Request $request, Blog $blog)
+    {
+        // dd($validatedData);
+        $validatedData = $request->validate([
+            'name' => 'required|min:3',
+            'email' => 'required|email',
+            'message' => 'required|string|min:3',
+        ]);
+        $validatedData['blog_id'] = $blog->id;
+        BlogComment::create($validatedData);
+        return redirect()->back()->with('success', 'Comment Added Successfully!');
     }
 }

@@ -132,6 +132,16 @@ return [
     "Currency" => "العملة",
     "Show More" => "Show More",
     "Blog" => "Blog",
+    "Blog Details" => "تفاصيل المدونه",
+    "Categories" => "الأقسام",
+    "Recent Posts" => "الاحدث نشرا",
+    "Comments" => "التعليقات",
+    "Comment" => "تعليق",
+    "Leave A Comment" => "أكتب تعليقك",
+    "Post A Comment" => "انشر التعليق",
+    "News Tags" => "إشارات الاخبار",
+    "Tags" => "الإشارات",
+    "Write message" => "اكتب رسالتك",
 
 
 

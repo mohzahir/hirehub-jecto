@@ -41,16 +41,16 @@
                 <div class="col-sm-6 col-lg-4">
                     <div class="blog-item">
                         <div class="top">
-                            <a href="{{ route('blog.details, ['blog' => $blog->id]') }}">
+                            <a href="{{ route('blog.details', ['blog' => $blog->id]) }}">
                                 <img src="{{ asset($blog->photo) }}" alt="Blog">
                             </a>
                         </div>
                         <span>{{ $locale == 'ar' ? $blog->category->title_ar : $blog->category->title }}. {{ $blog->created_at }}</span>
                         <h3>
-                            <a href="{{ route('blog.details, ['blog' => $blog->id]') }}">{{ $locale == 'ar' ? $blog->title_ar : $blog->title  }} </a>
+                            <a href="{{ route('blog.details', ['blog' => $blog->id]) }}">{{ $locale == 'ar' ? $blog->title_ar : $blog->title  }} </a>
                         </h3>
                         <div class="cmn-link">
-                            <a href="{{ route('blog.details, ['blog' => $blog->id]') }}">
+                            <a href="{{ route('blog.details', ['blog' => $blog->id]) }}">
                                 <i class="flaticon-right-arrow one"></i>
                                 <!-- <i class="fa-solid fa-arrow-left-long"></i> -->
                                 {{ __('locale.Show More') }}
