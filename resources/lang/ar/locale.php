@@ -131,7 +131,7 @@ return [
     "Send Message" => "إرسال",
     "Currency" => "العملة",
     "Show More" => "Show More",
-    "Blog" => "Blog",
+    "Blog" => "المقالات",
     "Blog Details" => "تفاصيل المدونه",
     "Categories" => "الأقسام",
     "Recent Posts" => "الاحدث نشرا",
@@ -142,6 +142,20 @@ return [
     "News Tags" => "إشارات الاخبار",
     "Tags" => "الإشارات",
     "Write message" => "اكتب رسالتك",
+    "dont have account" => "ليس لديك حساب",
+    "Password" => "كلمة السر",
+    "Confirm Password" => "تأكيد كلمة السر",
+    "Register Here" => "تسجيل",
+    "CV Writing" => "كتابة السيرة الزاتية",
+    "All" => "الكل",
+    "STEP 01" => "الخطوة 01",
+    "STEP 02" => "الخطوة 02",
+    "STEP 03" => "الخطوة 03",
+    "Select your CV Category" => "إختر فئة السيرة الزاتية",
+    "Apply For CV Writing" => "التقديم لكتابة السيرة الذاتية",
+    "Some Of CV Samples" => "بعض نمازج السير الذاتية",
+    "Get your CV Now" => "احصل على سيرتك الذاتية الان",
+
 
 
 

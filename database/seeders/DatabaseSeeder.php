@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory(1)->create();
         \App\Models\Candidate::factory(1)->create();
         $this->call(CategorySeeder::class);
+        $this->call(CVCategorySeeder::class);
         $this->call(CountrySeeder::class);
         $this->call(CitySeeder::class);
         $this->call(JobSeeder::class);
@@ -23,5 +24,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SettingSeeder::class);
         $this->call(BlogSeeder::class);
         $this->call(BlogCommentSeeder::class);
+        $this->call(CVSampleSeeder::class);
     }
 }

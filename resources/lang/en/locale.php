@@ -142,6 +142,20 @@ return [
     "News Tags" => "News Tags",
     "Tags" => "Tags",
     "Write message" => "Write message",
+    "dont have account" => "don't have account",
+    "Password" => "Password",
+    "Confirm Password" => "Confirm Password",
+    "Register Here" => "Register Here",
+    "CV Writing" => "CV Writing",
+    "All" => "All",
+    "STEP 01" => "STEP 01",
+    "STEP 02" => "STEP 02",
+    "STEP 03" => "STEP 03",
+    "Select your CV Category" => "Select your CV Category",
+    "Apply For CV Writing" => "Apply For CV Writing",
+    "Some Of CV Samples" => "Some Of CV Samples",
+    "Get your CV Now" => "Get your CV Now",
+
 
 
 

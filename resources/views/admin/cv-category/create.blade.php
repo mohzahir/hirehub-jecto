@@ -8,7 +8,7 @@
   <x-slot name="header">
       <nav class="breadcrumb pd-0 mg-0 tx-12">
           <a class="breadcrumb-item" href="{{ route('admin.dashboard') }}">لوحة التحكم</a>
-          <a class="breadcrumb-item" href="{{ route('admin.category.index') }}">إدارة الأقسام</a>
+          <a class="breadcrumb-item" href="{{ route('admin.cv-category.index') }}">إدارة الأقسام</a>
           <span class="breadcrumb-item active">إضافة قسم</span>
       </nav>
   </x-slot>
@@ -32,7 +32,7 @@
         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#descr-info" role="tab" aria-controls="profile" aria-selected="false">البيانات الوصفية</a>
       </li>
     </ul>
-    <form action="{{ route('admin.category.store') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('admin.cv-category.store') }}" method="post" enctype="multipart/form-data">
       @csrf
       <div class="form-layout form-layout-1">
         <div  class="tab-content" data-select2-id="31">
@@ -52,24 +52,14 @@
               </div><!-- col-4 -->
               <div class="col-lg-6">
                 <div class="form-group">
-                  <label class="form-control-label">النوع: <span class="tx-danger">*</span></label>
-                  <!-- <input class="form-control" type="text" name="title" value="{{ old('title') }}" placeholder="ادخل عنوان القسم بالانجليزي"> -->
-                  <select name="type" class="form-control" id="">
-                    <option {{ old('type') == 'job' ? 'selected' : '' }} value="job">وظيفة</option>
-                    <option {{ old('type') == 'blog' ? 'selected' : '' }} value="blog">مقال</option>
-                    <option {{ old('type') == 'cv' ? 'selected' : '' }} value="cv">سيرة زاتية</option>
-                    <option {{ old('type') == 'workshop' ? 'selected' : '' }} value="workshop">ورشة عمل</option>
-                  </select>
+                  <label class="form-control-label">السعر بالجنيه: <span class="tx-danger">*</span></label>
+                  <input class="form-control" type="text" name="cv_price_sdg" value="{{ old('cv_price_sdg') }}" placeholder="ادخل عنوان القسم بالانجليزي">
                 </div>
               </div><!-- col-4 -->
-              <div class="col-lg-12">
-                <div class="form-groub">
-                  <label for="">صورة القسم <span class="tx-danger">*</span></label>
-                  <img style="width: 200px;height: 200px;display: block" src="{{ asset('bracketplus1.4/app/img/img11.jpg') }}" class="img-fluid img-thumbnail" alt="">
-                </div>
+              <div class="col-lg-6">
                 <div class="form-group">
-                  <input id="customFile" class="custom-file-input" type="file" name="photo" value="{{ old('photo') }}" placeholder="ادخل عنوان القسم بالانجليزي">
-                  <label style="top: 213px;width: 200px;" class="custom-file-label m-3" for="customFile"></label>
+                  <label class="form-control-label">السعر بالدولار: <span class="tx-danger">*</span></label>
+                  <input class="form-control" type="text" name="cv_price_dollar" value="{{ old('cv_price_dollar') }}" placeholder="ادخل عنوان القسم بالانجليزي">
                 </div>
               </div><!-- col-4 -->
               <div class="col-lg-3 mg-t-20 mg-lg-t-0">
@@ -85,14 +75,14 @@
             <div class="row mg-b-25">
               <div class="col-lg-12">
                 <div class="form-group mg-b-10-force">
-                  <label class="form-control-label">الوصف الكامل بالعربي: <span class="tx-danger">*</span></label>
-                  <textarea class="form-control summernote" type="text" name="summary_ar" placeholder="ادخل الوصف الكامل بالعربي">{{ old('summary_ar') }}</textarea>
+                  <label class="form-control-label">مميزات الفئة بالعربي: <span class="tx-danger">*</span></label>
+                  <textarea class="form-control summernote" type="text" name="features_ar" placeholder="ادخل مميزات الفئة بالعربي">{{ old('features_ar') }}</textarea>
                 </div>
               </div><!-- col-8 -->
               <div class="col-lg-12">
                 <div class="form-group mg-b-10-force">
-                  <label class="form-control-label">الوصف الكامل بالانجليزي: <span class="tx-danger">*</span></label>
-                  <textarea class="form-control summernote" type="text" name="summary" placeholder="ادخل الوصف الكامل بالانجليزي">{{ old('summary') }}</textarea>
+                  <label class="form-control-label">مميزات الفئة بالانجليزي: <span class="tx-danger">*</span></label>
+                  <textarea class="form-control summernote" type="text" name="features" placeholder="ادخل مميزات الفئة بالانجليزي">{{ old('features') }}</textarea>
                 </div>
               </div><!-- col-8 -->
             </div>
@@ -102,7 +92,7 @@
 
       <div class="card-footer mt-2">
         <button class="btn btn-info">إضافة</button>
-        <a href="{{ route('admin.category.index') }}" class="btn btn-secondary">الغاء</a>
+        <a href="{{ route('admin.cv-category.index') }}" class="btn btn-secondary">الغاء</a>
       </div><!-- form-layout-footer -->
       
         

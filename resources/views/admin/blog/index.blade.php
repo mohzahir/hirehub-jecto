@@ -3,14 +3,14 @@
   <x-slot name="header">
     <nav class="breadcrumb pd-0 mg-0 tx-12">
       <a class="breadcrumb-item" href="index.html">لوحة التحكم</a>
-      <span class="breadcrumb-item active">إدارة الوظائف</span>
+      <span class="breadcrumb-item active">إدارة المقالات</span>
     </nav>
   </x-slot>
   <x-slot name="title">
     <i class="icon ion-ios-briefcase"></i>
     <div>
-      <h4>إدارة الوظائف</h4>
-      <p class="mg-b-0">هنا يمكنك ادارة معلومات الوظائف والتعديل عليها</p>
+      <h4>إدارة المقالات</h4>
+      <p class="mg-b-0">هنا يمكنك ادارة معلومات المقالات والتعديل عليها</p>
     </div>
     <div class="text-left w-100">
       <a href="{{ route('admin.blog.create') }}" class="btn btn-teal btn-icon rounded-circle" title="إضافة">
@@ -27,7 +27,7 @@
     <div class="col-md-4 mb-5">
       <div class="card shadow-base bd-0 mg-0">
         <figure class="card-item-img bg-transfile rounded-top">
-          <img class="img-fluid rounded-top" src="{{ asset($blog->photo) }}" alt="Image">
+          <img style="width: 225px;height: 200px;" class="img-fluid rounded-top" src="{{ asset($blog->photo ?? 'bracketplus1.4/app/img/img11.jpg') }}" alt="Image">
         </figure>
         <div class="card-body pd-25">
           <p class="tx-11 tx-uppercase tx-mont tx-semibold tx-info">{{ $blog->category->title_ar }}</p>

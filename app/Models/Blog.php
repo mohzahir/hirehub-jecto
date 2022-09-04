@@ -13,6 +13,7 @@ class Blog extends Model
         'user_id',
         'title',
         'title_ar',
+        'slug',
         'content',
         'content_ar',
         'keywords',

@@ -9,6 +9,8 @@ use App\Models\BlogComment;
 use App\Models\Candidate;
 use App\Models\Category;
 use App\Models\Country;
+use App\Models\CVCategory;
+use App\Models\CVSample;
 use App\Models\Job;
 use App\Models\JobApplication;
 use App\Models\JobPost;
@@ -118,8 +120,12 @@ class WebsiteController extends Controller
         $candidate = Candidate::findOrFail(auth()->guard('candidate')->user()->id);
 
         $photo = null;
+        $cv = null;
         if ($request->hasFile('photo')) {
             $photo = $request->file('photo')->store('files', 'public_folder');
+        }
+        if ($request->hasFile('cv')) {
+            $cv = $request->file('cv')->store('files', 'public_folder');
         }
 
         $candidate->update([
@@ -131,6 +137,7 @@ class WebsiteController extends Controller
             'position' => $request->position,
             'salary' => $request->salary,
             'photo' => $photo,
+            'cv' => $cv,
             'education_field' => $request->education_field,
             'education_degree' => $request->education_degree,
             'education_institute' => $request->education_institute,
@@ -179,10 +186,14 @@ class WebsiteController extends Controller
         }
     }
 
-    public function blog()
+    public function blog(Request $request)
     {
         return view('website.blog', [
-            'blogs' => Blog::where('status', 'active')->orderBy('id', 'desc')->paginate(20),
+            'blogs' => Blog::query()
+                ->when($request->category_id, function ($q) use ($request) {
+                    $q->where('category_id', $request->category_id);
+                })
+                ->where('status', 'active')->orderBy('id', 'desc')->paginate(20),
             'locale' => app()->getLocale(),
         ]);
     }
@@ -209,5 +220,15 @@ class WebsiteController extends Controller
         $validatedData['blog_id'] = $blog->id;
         BlogComment::create($validatedData);
         return redirect()->back()->with('success', 'Comment Added Successfully!');
+    }
+
+    public function cvWriting()
+    {
+        return view('website.cv-writing', [
+            'locale' => app()->getLocale(),
+            'setting' => Setting::find(1),
+            'cv_samples' => CVSample::all(),
+            'categories' => CVCategory::where('status', 'active')->get(),
+        ]);
     }
 }

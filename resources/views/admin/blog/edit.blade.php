@@ -8,16 +8,16 @@
   <x-slot name="header">
       <nav class="breadcrumb pd-0 mg-0 tx-12">
           <a class="breadcrumb-item" href="{{ route('admin.dashboard') }}">لوحة التحكم</a>
-          <a class="breadcrumb-item" href="{{ route('admin.job.index') }}">إدارة الوظائف</a>
-          <span class="breadcrumb-item active">{{ $job->title_ar }}</span>
+          <a class="breadcrumb-item" href="{{ route('admin.blog.index') }}">إدارة المقالات</a>
+          <span class="breadcrumb-item active">{{ $blog->title_ar }}</span>
           <span class="breadcrumb-item active">تعديل</span>
       </nav>
   </x-slot>
   <x-slot name="title">
     <i class="icon ion-ios-briefcase"></i>
     <div>
-      <h4>تعديل وظيفة</h4>
-      <p class="mg-b-0">هنا يمكنك ادارة معلومات الوظائف والتعديل عليها</p>
+      <h4>تعديل مقال</h4>
+      <p class="mg-b-0">هنا يمكنك ادارة معلومات المقالات والتعديل عليها</p>
     </div>
     
   </x-slot>
@@ -33,7 +33,7 @@
         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#descr-info" role="tab" aria-controls="profile" aria-selected="false">البيانات الوصفية</a>
       </li>
     </ul>
-    <form action="{{ route('admin.job.update', ['job' => $job->id]) }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('admin.blog.update', ['blog' => $blog->id]) }}" method="post" enctype="multipart/form-data">
       @csrf
       @method('PATCH')
       <div class="form-layout form-layout-1">
@@ -46,7 +46,7 @@
                   <select name="category_id" id="" class="form-control">
                     <option value="">إختر القسم</option>
                     @foreach($categories as $category)
-                    <option {{ $job->category_id == $category->id ? 'selected' : '' }} value="{{ $category->id }}">{{ $category->title_ar }}</option>
+                    <option {{ $blog->category_id == $category->id ? 'selected' : '' }} value="{{ $category->id }}">{{ $category->title_ar }}</option>
                     @endforeach
                   </select>
                 </div>
@@ -54,28 +54,34 @@
               <div class="col-lg-6">
                 <div class="form-group">
                   <label class="form-control-label">العنوان بالعربي: <span class="tx-danger">*</span></label>
-                  <input class="form-control" type="text" name="title_ar" value="{{ $job->title_ar }}" placeholder="ادخل عنوان الوظيفة بالعربي">
+                  <input class="form-control" type="text" name="title_ar" value="{{ $blog->title_ar }}" placeholder="ادخل عنوان المقال بالعربي">
                 </div>
               </div><!-- col-4 -->
               <div class="col-lg-6">
                 <div class="form-group">
                   <label class="form-control-label">العنوان بالانجليزي: <span class="tx-danger">*</span></label>
-                  <input class="form-control" type="text" name="title" value="{{ $job->title }}" placeholder="ادخل عنوان الوظيفة بالانجليزي">
+                  <input class="form-control" type="text" name="title" value="{{ $blog->title }}" placeholder="ادخل عنوان المقال بالانجليزي">
+                </div>
+              </div><!-- col-4 -->
+              <div class="col-lg-12">
+                <div class="form-group">
+                  <label class="form-control-label">الكلمات الدلالية: <span class="tx-danger">* يجب ان تكون الكلمات مفصولة بمساحة فقط</span></label>
+                  <input class="form-control" type="text" name="keywords" value="{{ $blog->keywords }}" placeholder="كلمة1 كلمة2 كلمة3 ..">
                 </div>
               </div><!-- col-4 -->
               <div class="col-lg-12">
                 <div class="form-groub">
-                  <label for="">صورة الوظيفة <span class="tx-danger">*</span></label>
-                  <img style="width: 200px;height: 200px;display: block" src="{{ asset($job->photo) }}" class="img-fluid img-thumbnail" alt="">
+                  <label for="">صورة المقال <span class="tx-danger">*</span></label>
+                  <img style="width: 200px;height: 200px;display: block" src="{{ asset($blog->photo) }}" class="img-fluid img-thumbnail" alt="">
                 </div>
                 <div class="form-group">
-                  <input id="customFile" class="custom-file-input" type="file" name="photo" value="{{ $job->photo }}">
+                  <input id="customFile" class="custom-file-input" type="file" name="photo" value="{{ $blog->photo }}">
                   <label style="top: 213px;width: 200px;" class="custom-file-label m-3" for="customFile"></label>
                 </div>
               </div><!-- col-4 -->
               <div class="col-lg-3 mg-t-20 mg-lg-t-0">
                 <label class="ckbox">
-                  <input type="checkbox" name="is_featured" {{ $job->is_featured ? 'checked' : ''}} value="1"><span>الوظيفة مميزة ؟ <small>الوظائف المميزة سيتم عرضها على الصفحة الرئيسية</small></span>
+                  <input type="checkbox" name="is_featured" {{ $blog->is_featured ? 'checked' : ''}} value="1"><span>المقال مميزة ؟ <small>المقالات المميزة سيتم عرضها على الصفحة الرئيسية</small></span>
                 </label>
               </div><!-- col-8 -->
             </div>
@@ -87,13 +93,13 @@
               <div class="col-lg-12">
                 <div class="form-group mg-b-10-force">
                   <label class="form-control-label">الوصف الكامل بالعربي: <span class="tx-danger">*</span></label>
-                  <textarea class="form-control summernote" type="text" name="description_ar" placeholder="ادخل الوصف الكامل بالعربي">{{ $job->description_ar }}</textarea>
+                  <textarea class="form-control summernote" type="text" name="content_ar" placeholder="ادخل الوصف الكامل بالعربي">{{ $blog->content_ar }}</textarea>
                 </div>
               </div><!-- col-8 -->
               <div class="col-lg-12">
                 <div class="form-group mg-b-10-force">
                   <label class="form-control-label">الوصف الكامل بالانجليزي: <span class="tx-danger">*</span></label>
-                  <textarea class="form-control summernote" type="text" name="description" placeholder="ادخل الوصف الكامل بالانجليزي">{{ $job->description }}</textarea>
+                  <textarea class="form-control summernote" type="text" name="content" placeholder="ادخل الوصف الكامل بالانجليزي">{{ $blog->content }}</textarea>
                 </div>
               </div><!-- col-8 -->
             </div>
@@ -103,7 +109,7 @@
 
       <div class="card-footer mt-2">
         <button class="btn btn-info">تعديل</button>
-        <a href="{{ route('admin.job.index') }}" class="btn btn-secondary">الغاء</a>
+        <a href="{{ route('admin.blog.index') }}" class="btn btn-secondary">الغاء</a>
       </div><!-- form-layout-footer -->
       
         

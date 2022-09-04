@@ -117,6 +117,12 @@
                                                     <input name="photo" value="{{ $candidate->photo }}" type="file">
                                                 </div>
                                             </div>
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <label>{{ __('locale.CV') }}</label>
+                                                    <input name="cv" value="{{ $candidate->cv }}" type="file">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="profile-content-inner">

@@ -52,13 +52,24 @@
       </li><!-- br-menu-item -->
 
       <li class="br-menu-item">
-        <a href="#" class="br-menu-link with-sub {{ request()->is('admin/client/*') || request()->routeIs('client.index') ? 'active' : '' }}">
+        <a href="#" class="br-menu-link with-sub {{ request()->is('admin/cv-sample/*') || request()->routeIs('admin.cv-sample.index') || request()->routeIs('admin.cv-category.index') ? 'active' : '' }}">
           <i class="menu-item-icon icon ion-ios-people-outline tx-22"></i>
-          <span class="menu-item-label">العملاء</span>
+          <span class="menu-item-label">خدمة السيرة الزاتية</span>
         </a><!-- br-menu-link -->
         <ul class="br-menu-sub">
-          <li class="sub-item"><a href="{{ route('admin.client.index') }}" class="sub-link {{ request()->routeIs('client.index') ? 'active' : '' }}">عرض العملاء</a></li>
-          <li class="sub-item"><a href="{{ route('admin.client.create') }}" class="sub-link {{ request()->routeIs('client.create') ? 'active' : '' }}">إضافة عميل</a></li>
+          <li class="sub-item"><a href="{{ route('admin.cv-sample.index') }}" class="sub-link {{ request()->routeIs('admin.cv-sample.index') ? 'active' : '' }}">نمازج السير الزاتية</a></li>
+          <li class="sub-item"><a href="{{ route('admin.cv-category.index') }}" class="sub-link {{ request()->routeIs('admin.cv-category.index') ? 'active' : '' }}">فئات السير الزاتية</a></li>
+          <li class="sub-item"><a href="{{ route('admin.cv-sample.create') }}" class="sub-link {{ request()->routeIs('admin.cv-sample.create') ? 'active' : '' }}">تقديمات السير الزاتية</a></li>
+        </ul>
+      </li><!-- br-menu-item -->
+      <li class="br-menu-item">
+        <a href="#" class="br-menu-link with-sub {{ request()->is('admin/blog/*') || request()->routeIs('blog.index') ? 'active' : '' }}">
+          <i class="menu-item-icon icon ion-ios-people-outline tx-22"></i>
+          <span class="menu-item-label">المقالات</span>
+        </a><!-- br-menu-link -->
+        <ul class="br-menu-sub">
+          <li class="sub-item"><a href="{{ route('admin.blog.index') }}" class="sub-link {{ request()->routeIs('blog.index') ? 'active' : '' }}">عرض المقالات</a></li>
+          <li class="sub-item"><a href="{{ route('admin.blog.create') }}" class="sub-link {{ request()->routeIs('blog.create') ? 'active' : '' }}">إضافة مقال</a></li>
         </ul>
       </li><!-- br-menu-item -->
 

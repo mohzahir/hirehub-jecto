@@ -47,6 +47,7 @@ class CategoryController extends Controller
             'slug' => Str::slug($request->title),
             'summary' => $request->summary,
             'summary_ar' => $request->summary_ar,
+            'type' => $request->type,
             'is_featured' => $request->is_featured ?? 0,
             'photo' => $photo,
         ]);
@@ -97,6 +98,7 @@ class CategoryController extends Controller
             'title_ar' => $request->title_ar,
             'summary' => $request->summary,
             'summary_ar' => $request->summary_ar,
+            'type' => $request->type,
             'is_featured' => $request->is_featured ?? 0,
             'photo' => $photo,
         ]);

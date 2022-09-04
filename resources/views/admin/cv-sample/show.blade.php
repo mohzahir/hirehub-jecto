@@ -4,15 +4,15 @@
     <x-slot name="header">
         <nav class="breadcrumb pd-0 mg-0 tx-12">
             <a class="breadcrumb-item" href="{{ route('admin.dashboard') }}">لوحة التحكم</a>
-            <a class="breadcrumb-item" href="{{ route('admin.category.index') }}">إدارة الأقسام</a>
-            <span class="breadcrumb-item active">{{ $category->title_ar }}</span>
+            <a class="breadcrumb-item" href="{{ route('admin.cv_sample.index') }}">إدارة السير زاتية</a>
+            <span class="breadcrumb-item active">{{ $cv_sample->title_ar }}</span>
         </nav>
     </x-slot>
     <x-slot name="title">
-        <i class="icon ion-ios-star-outline"></i>
+        <i class="icon ion-ios-briefcase"></i>
         <div>
-            <h4>{{ $category->title_ar }}</h4>
-            <p class="mg-b-0">هنا يمكنك ادارة معلومات الأقسام والتعديل عليها</p>
+            <h4>{{ $cv_sample->title_ar }}</h4>
+            <p class="mg-b-0">هنا يمكنك ادارة معلومات السير زاتية والتعديل عليها</p>
         </div>
 
     </x-slot>
@@ -35,30 +35,24 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label class="form-control-label">العنوان بالعربي</label>
-                                <input readonly class="form-control" type="text" name="title_ar" value="{{ $category->title_ar }}" placeholder="ادخل عنوان القسم بالعربي">
+                                <input readonly class="form-control" type="text" name="title_ar" value="{{ $cv_sample->title_ar }}" placeholder="ادخل عنوان السيرة الزاتية بالعربي">
                             </div>
                         </div><!-- col-4 -->
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label class="form-control-label">العنوان بالانجليزي</label>
-                                <input readonly class="form-control" type="text" name="title" value="{{ $category->title }}" placeholder="ادخل عنوان القسم بالانجليزي">
-                            </div>
-                        </div><!-- col-4 -->
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label class="form-control-label">النوع</label>
-                                <input readonly class="form-control" type="text" name="title" value="{{ $category->type }}">
+                                <input readonly class="form-control" type="text" name="title" value="{{ $cv_sample->title }}" placeholder="ادخل عنوان السيرة الزاتية بالانجليزي">
                             </div>
                         </div><!-- col-4 -->
                         <div class="col-lg-6">
                             <div class="form-groub">
-                                <label for="">صورة القسم</label>
-                                <img style="width: 200px;height: 200px;display: block" src="{{ asset($category->photo) }}" class="img-fluid img-thumbnail" alt="">
+                                <label for="">صورة السيرة الزاتية</label>
+                                <img style="width: 200px;height: 200px;display: block" src="{{ asset($cv_sample->photo) }}" class="img-fluid img-thumbnail" alt="">
                             </div>
                         </div><!-- col-4 -->
                         <div class="col-lg-3 mg-t-20 mg-lg-t-0">
                             <label class="ckbox">
-                                <input readonly disabled type="checkbox" name="is_featured" {{ $category->is_featured ? 'checked' : ''}} value="1"><span>القسم مميزة ؟ </span>
+                                <input readonly disabled type="checkbox" name="is_featured" {{ $cv_sample->is_featured ? 'checked' : ''}} value="1"><span>السيرة الزاتية مميزة ؟ </span>
                             </label>
                         </div><!-- col-8 -->
                     </div>
@@ -71,13 +65,13 @@
                         <div class="col-lg-12">
                             <div class="form-group mg-b-10-force">
                                 <label class="form-control-label">الوصف الكامل بالعربي</label>
-                                <textarea readonly class="form-control summernote" rows="10" type="text" name="summary_ar" placeholder="ادخل الوصف الكامل بالعربي">{!! $category->summary_ar !!}</textarea>
+                                <textarea readonly class="form-control summernote" rows="10" type="text" name="description_ar" placeholder="ادخل الوصف الكامل بالعربي">{!! $cv_sample->description_ar !!}</textarea>
                             </div>
                         </div><!-- col-8 -->
                         <div class="col-lg-12">
                             <div class="form-group mg-b-10-force">
                                 <label class="form-control-label">الوصف الكامل بالانجليزي</label>
-                                <textarea readonly class="form-control summernote" rows="10" type="text" name="summary" placeholder="ادخل الوصف الكامل بالانجليزي">{!! $category->summary !!}</textarea>
+                                <textarea readonly class="form-control summernote" rows="10" type="text" name="description" placeholder="ادخل الوصف الكامل بالانجليزي">{!! $cv_sample->description !!}</textarea>
                             </div>
                         </div><!-- col-8 -->
                     </div>

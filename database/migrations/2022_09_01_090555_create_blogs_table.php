@@ -21,6 +21,7 @@ class CreateBlogsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('title');
             $table->string('title_ar');
+            $table->string('slug');
             $table->longText('content');
             $table->longText('content_ar');
             $table->text('keywords')->nullable();

@@ -23,8 +23,9 @@ class CategorySeeder extends Seeder
                 'slug' => 'engineering',
                 'summary' => $faker->sentences(3, true),
                 'summary_ar' => $faker->sentences(3, true),
-                'status' => $faker->randomElement(['active', 'active']),
-                'photo' =>  'dfdsdfdfs',
+                'status' => 'active',
+                'photo' =>  'jecto/default/assets/img/home-three/feature1.png',
+                'type' =>  'job',
             ],
             [
                 'title' => "Medicine",
@@ -32,8 +33,9 @@ class CategorySeeder extends Seeder
                 'slug' => 'medicine',
                 'summary' => $faker->sentences(3, true),
                 'summary_ar' => $faker->sentences(3, true),
-                'status' => $faker->randomElement(['active', 'active']),
-                'photo' => 'dfdsdfdfs',
+                'status' => 'active',
+                'photo' => 'jecto/default/assets/img/home-three/feature2.png',
+                'type' =>  'job',
             ],
         ]);
     }

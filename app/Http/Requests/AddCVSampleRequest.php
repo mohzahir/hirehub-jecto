@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AddCategoryRequest extends FormRequest
+class AddCVSampleRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,26 +26,20 @@ class AddCategoryRequest extends FormRequest
         if (request()->isMethod('patch')) {
             // edit
             return [
+                'cv_category_id' => 'required|exists:categories,id',
                 'title' => 'required|min:3|string',
                 'title_ar' => 'required|min:3|string',
-                'type' => 'required|in:workshop,cv,job,blog',
-                'summary' => 'required|min:10|string',
-                'summary_ar' => 'required|min:10|string',
-                'is_featured' => 'nullable|in:0,1',
-                'status' => 'nullable',
                 'photo' => 'nullable|mimes:jpg,png,jpeg,gif,svg',
+                'pdf' => 'nullable|mimes:pdf',
             ];
         } else {
             //add
             return [
+                'cv_category_id' => 'required|exists:categories,id',
                 'title' => 'required|min:3|string',
                 'title_ar' => 'required|min:3|string',
-                'type' => 'required|in:workshop,cv,job,blog',
-                'summary' => 'required|min:10|string',
-                'summary_ar' => 'required|min:10|string',
-                'is_featured' => 'nullable|in:0,1',
-                'status' => 'nullable',
                 'photo' => 'required|mimes:jpg,png,jpeg,gif,svg',
+                'pdf' => 'nullable|mimes:pdf',
             ];
         }
     }

@@ -12,24 +12,27 @@
                 <div class="col-lg-6 p-0">
                     <div class="user-content">
                         <div class="top">
-                            <h2>{{ __('locale.Login') }}</h2>
+                            <h2>{{ __('locale.Register') }}</h2>
                             @include('flash-message')
-                            <form action="{{ route('candidate.login.submit') }}" method="post">
+                            <form action="{{ route('candidate.register.submit') }}" method="post">
                                 @csrf
                                 <div class="form-group">
-                                    <input type="email" name="email" class="form-control" placeholder="{{ __('locale.Email') }}">
+                                    <input type="text" name="name" value="{{ old('name') }}" class="form-control" placeholder="{{ __('locale.Name') }}">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" name="email" value="{{ old('email') }}" class="form-control" placeholder="{{ __('locale.Email') }}">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="phone" value="{{ old('phone') }}" class="form-control" placeholder="{{ __('locale.Phone') }}">
                                 </div>
                                 <div class="form-group">
                                     <input type="password" name="password" class="form-control" placeholder="{{ __('locale.Password') }}">
                                 </div>
-                                <button type="submit" class="btn">{{ __('locale.Login Here') }}</button>
+                                <div class="form-group">
+                                    <input type="password" name="password_confirmation" class="form-control" placeholder="{{ __('locale.Confirm Password') }}">
+                                </div>
+                                <button type="submit" class="btn">{{ __('locale.Register Here') }}</button>
                             </form>
-                            <div class="">
-                                <p class="text-left">
-                                    {{ __('locale.dont have account') }} ? 
-                                    <a href="{{ route('candidate.register.form') }}">{{ __('locale.Register') }}</a>
-                                </p>
-                            </div>
                         </div>
                         <div class="end">
                             <ul>

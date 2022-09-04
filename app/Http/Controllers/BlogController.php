@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AddBlogRequest;
 use App\Models\Blog;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class BlogController extends Controller
 {
@@ -44,15 +46,17 @@ class BlogController extends Controller
         $photo = $request->file('photo')->store('files', 'public_folder');
         Blog::create([
             'category_id' => $request->category_id,
+            'user_id' => auth()->guard('web')->user()->id,
             'title' => $request->title,
             'title_ar' => $request->title_ar,
+            'keyword' => $request->keyword,
             'slug' => Str::slug($request->title),
-            'description' => $request->description,
-            'description_ar' => $request->description_ar,
+            'content' => $request->content,
+            'content_ar' => $request->content_ar,
             'is_featured' => $request->is_featured ?? 0,
             'photo' => $photo,
         ]);
-        return redirect()->route('admin.blog.index')->with('success', 'تمت اضافة الوظيفة بنجاح');
+        return redirect()->route('admin.blog.index')->with('success', 'تمت اضافة المقال بنجاح');
     }
 
     /**
@@ -99,12 +103,14 @@ class BlogController extends Controller
             'category_id' => $request->category_id,
             'title' => $request->title,
             'title_ar' => $request->title_ar,
-            'description' => $request->description,
-            'description_ar' => $request->description_ar,
+            'keyword' => $request->keyword,
+            'slug' => Str::slug($request->title),
+            'content' => $request->content,
+            'content_ar' => $request->content_ar,
             'is_featured' => $request->is_featured ?? 0,
             'photo' => $photo,
         ]);
-        return redirect()->route('admin.blog.index')->with('success', 'تم تعديل الوظيفة بنجاح');
+        return redirect()->route('admin.blog.index')->with('success', 'تم تعديل المقال بنجاح');
     }
 
     /**
@@ -115,11 +121,8 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
-        if (count($blog->BlogPosts) > 0) {
-            return redirect()->route('admin.blog.index')->with('warning', 'هذا الوظيفة لديها إعلانات وظائف متاحة تابعة لها ولا يمكن حذفها');
-        }
         $blog->delete();
-        return redirect()->route('admin.blog.index')->with('success', 'تم حذف الوظيفة بنجاح');
+        return redirect()->route('admin.blog.index')->with('success', 'تم حذف المقال بنجاح');
     }
 
     public function changeStatus(Request $request, Blog $blog)

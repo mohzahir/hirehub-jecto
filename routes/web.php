@@ -4,6 +4,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CVCategoryController;
+use App\Http\Controllers\CVSampleController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\JobApplicationController;
 use App\Http\Controllers\JobController;
@@ -38,6 +40,8 @@ Route::get('language/{locale}', function ($locale) {
 
 Route::get('/candidate/login', [AuthController::class, 'showCandidateLoginForm'])->name('candidate.login.form');
 Route::post('/candidate/login', [AuthController::class, 'submitCandidateLoginForm'])->name('candidate.login.submit');
+Route::get('/candidate/register', [AuthController::class, 'showCandidateRegisterForm'])->name('candidate.register.form');
+Route::post('/candidate/register', [AuthController::class, 'submitCandidateRegisterForm'])->name('candidate.register.submit');
 Route::prefix('candidate')->as('candidate.')->middleware('auth:candidate')->group(function () {
     Route::get('/', [WebsiteController::class, 'showCandidateDashboard'])->name('dashboard');
     Route::post('/', [WebsiteController::class, 'submitCandidateInfo'])->name('submit.info');
@@ -54,6 +58,7 @@ Route::post('/contact', [WebsiteController::class, 'SubmitContact'])->name('cont
 Route::get('/blogs', [WebsiteController::class, 'blog'])->name('blog');
 Route::get('/blogs/{blog}/blog-details', [WebsiteController::class, 'blogDetails'])->name('blog.details');
 Route::post('/blog-comment/{blog}', [WebsiteController::class, 'blogComment'])->name('blog.comment');
+Route::get('/cv-writing', [WebsiteController::class, 'cvWriting'])->name('cv.writing');
 
 
 
@@ -73,6 +78,9 @@ Route::prefix('admin')->as('admin.')->middleware('auth:web')->group(function () 
     Route::get('/jobApplication/{jobApplication}/change-status', [JobApplicationController::class, 'changeStatus'])->name('jobApplication.change.status');
     Route::resource('candidate', CandidateController::class);
     Route::get('/candidate/{candidate}/change-status', [CandidateController::class, 'changeStatus'])->name('candidate.change.status');
+    Route::resource('cv-sample', CVSampleController::class);
+    Route::resource('cv-category', CVCategoryController::class);
+    Route::get('/cv-category/{cv-category}/change-status', [CVCategoryController::class, 'changeStatus'])->name('cv-category.change.status');
     Route::resource('blog', BlogController::class);
     Route::get('/blog/{blog}/change-status', [BlogController::class, 'changeStatus'])->name('blog.change.status');
     Route::resource('product', ProductController::class);

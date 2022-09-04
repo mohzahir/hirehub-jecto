@@ -25,7 +25,7 @@ class JobSeeder extends Seeder
                 'description' => $faker->sentences(3, true),
                 'description_ar' => $faker->sentences(3, true),
                 'status' => 'active',
-                'photo' => 'active',
+                'photo' => 'jecto/default/assets/img/home-three/feature3.png',
                 'is_featured' => '1',
             ],
             [
@@ -36,7 +36,7 @@ class JobSeeder extends Seeder
                 'description' => $faker->sentences(3, true),
                 'description_ar' => $faker->sentences(3, true),
                 'status' => 'active',
-                'photo' => 'active',
+                'photo' => 'jecto/default/assets/img/home-three/feature2.png',
                 'is_featured' => '1',
             ],
         ]);

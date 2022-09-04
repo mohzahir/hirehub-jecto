@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategoriesTable extends Migration
+class CreateCVCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,15 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('cv_categories', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->string('title_ar');
             $table->string('slug')->unique();
-            $table->mediumText('summary')->nullable();
-            $table->mediumText('summary_ar')->nullable();
-            $table->string('photo')->nullable();
-            $table->enum('type', ['job', 'blog', 'workshop']);
+            $table->mediumText('features')->nullable();
+            $table->mediumText('features_ar')->nullable();
+            $table->double('cv_price_sdg');
+            $table->double('cv_price_dollar');
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->boolean('is_featured')->default(0);
             $table->timestamps();

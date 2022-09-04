@@ -49,6 +49,10 @@ class JobPostController extends Controller
         // dd($request->all());
         $job = Job::findOrFail($request->job_id);
         $city = City::findOrFail($request->city_id);
+        $photo = null;
+        if ($request->hasFile('photo')) {
+            $photo = $request->file('photo')->store('files', 'public_folder');
+        }
         JobPost::create([
             'job_id' => $request->job_id,
             'category_id' => $job->category->id,
@@ -68,7 +72,7 @@ class JobPostController extends Controller
             'duration' => $request->duration,
             'job_type' => $request->job_type,
             'is_featured' => $request->is_featured,
-            'photo' => $request->photo,
+            'photo' => $photo,
         ]);
         return redirect()->route('admin.jobPost.index')->with('success', 'تمت اضافة إعلان الوظيفة بنجاح');
     }
@@ -112,6 +116,10 @@ class JobPostController extends Controller
     {
         $job = Job::findOrFail($request->job_id);
         $city = City::findOrFail($request->city_id);
+        $photo = $jobPost->photo;
+        if ($request->hasFile('photo')) {
+            $photo = $request->file('photo')->store('files', 'public_folder');
+        }
         $jobPost->update([
             'job_id' => $request->job_id,
             'category_id' => $job->category->id,
@@ -130,7 +138,7 @@ class JobPostController extends Controller
             'duration' => $request->duration,
             'job_type' => $request->job_type,
             'is_featured' => $request->is_featured,
-            'photo' => $request->photo,
+            'photo' => $photo,
         ]);
         return redirect()->route('admin.jobPost.index')->with('success', 'تم تعديل إعلان الوظيفة بنجاح');
     }

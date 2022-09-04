@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class JobApplication extends Model
+class CVApplication extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'job_post_id',
+        'cv_category_id',
         'candidate_id',
         'name',
         'phone',
@@ -20,7 +20,6 @@ class JobApplication extends Model
         'payment_method',
         'paid_amount',
         'paid_currency',
-        'cover_letter',
         'is_replied_to',
     ];
 

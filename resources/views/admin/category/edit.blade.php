@@ -52,6 +52,18 @@
                   <input class="form-control" type="text" name="title" value="{{ $category->title }}" placeholder="ادخل عنوان القسم بالانجليزي">
                 </div>
               </div><!-- col-4 -->
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label class="form-control-label">النوع: <span class="tx-danger">*</span></label>
+                  <!-- <input class="form-control" type="text" name="title" value="{{ old('title') }}" placeholder="ادخل عنوان القسم بالانجليزي"> -->
+                  <select name="type" class="form-control" id="">
+                    <option {{ $category->type == 'job' ? 'selected' : '' }} value="job">وظيفة</option>
+                    <option {{ $category->type == 'blog' ? 'selected' : '' }} value="blog">مقال</option>
+                    <option {{ $category->type == 'cv' ? 'selected' : '' }} value="cv">سيرة زاتية</option>
+                    <option {{ $category->type == 'workshop' ? 'selected' : '' }} value="workshop">ورشة عمل</option>
+                  </select>
+                </div>
+              </div><!-- col-4 -->
               <div class="col-lg-12">
                 <div class="form-groub">
                   <label for="">صورة القسم <span class="tx-danger">*</span></label>
