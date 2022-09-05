@@ -9,6 +9,8 @@ class CVApplication extends Model
 {
     use HasFactory;
 
+    protected $table = "cv_applications";
+
     protected $fillable = [
         'cv_category_id',
         'candidate_id',
@@ -22,6 +24,7 @@ class CVApplication extends Model
         'payment_confirmed',
         'paid_amount',
         'paid_currency',
+        'notes',
         'is_replied_to',
     ];
 

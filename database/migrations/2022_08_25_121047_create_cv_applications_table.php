@@ -30,6 +30,7 @@ class CreateCVApplicationsTable extends Migration
             $table->double('paid_amount')->nullable();
             $table->enum('paid_currency', ['sdg', 'dollar'])->nullable();
             $table->enum('type', ['cv', 'job', 'workshop'])->default('job');
+            $table->text('notes')->nullable();
             $table->boolean('is_replied_to')->default(0);
             $table->timestamps();
         });

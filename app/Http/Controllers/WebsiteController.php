@@ -9,6 +9,7 @@ use App\Models\BlogComment;
 use App\Models\Candidate;
 use App\Models\Category;
 use App\Models\Country;
+use App\Models\CVApplication;
 use App\Models\CVCategory;
 use App\Models\CVSample;
 use App\Models\Job;
@@ -240,5 +241,36 @@ class WebsiteController extends Controller
             // 'cv_samples' => CVSample::all(),
             // 'categories' => CVCategory::where('status', 'active')->get(),
         ]);
+    }
+
+    public function cvWritingApplicationSubmit(Request $request, CVCategory $category)
+    {
+        // dd($request->all());
+        $validatedData = $request->validate([
+            'name' => 'required|min:3|string',
+            'phone' => 'required|numeric',
+            'email' => 'required|email',
+            'paid_currency' => 'required|in:sdg,dollar',
+            'cv' => 'nullable',
+            'payment_photo' => 'required_if:paid_currency,sdg',
+            'notes' => 'nullable',
+        ]);
+        if (auth()->guard('candidate')->check()) {
+            // is logged in
+            $validatedData['candidate_id'] = auth()->guard('candidate')->user()->id;
+        }
+        if ($validatedData['paid_currency'] == 'sdg') {
+            //bank
+            $validatedData['payment_time'] = date('Y-m-d H:m:s');
+            $validatedData['payment_method'] = 'bank';
+            $validatedData['payment_confirmed'] = 0;
+            $validatedData['paid_amount'] = 0;
+            $validatedData['is_replied_to'] = 0;
+            CVApplication::create($validatedData);
+
+            return redirect()->back()->with('success', 'Your order has been placed successfully please wait our feedback');
+        } else {
+            //telr
+        }
     }
 }

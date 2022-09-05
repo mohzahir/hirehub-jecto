@@ -23,6 +23,7 @@ class JobApplication extends Model
         'paid_amount',
         'paid_currency',
         'cover_letter',
+        'notes',
         'is_replied_to',
     ];
 

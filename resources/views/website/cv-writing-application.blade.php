@@ -60,13 +60,16 @@
                 </div>
                 <div class="col-lg-8">
                     <div class="post-job-area mt-3">
-                        <form>
+                        @include('flash-message')
+                        <form action="{{ route('cv.writing.application.submit', ['category' => $category->id]) }}" method="post" enctype="multipart/form-data">
+                            @csrf
                             <div class="post-item">
                                 <div class="section-title">
                                     <h2>{{ __('locale.CV Application Form') }}</h2>
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet placeat totam laboriosam ut labore aliquid veniam repellendus similique? Id molestiae pariatur molestias, alias quia sint autem nemo architecto facere asperiores.</p>
                                 </div>
                                 <div class="row">
+                                    @if(!auth()->guard('candidate')->check())
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label>
@@ -91,6 +94,32 @@
                                             <input type="text" name="email" class="form-control" placeholder="{{ __('locale.Email') }}">
                                         </div>
                                     </div>
+                                    @else
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label>
+                                                {{ __('locale.Name') }}:
+                                            </label>
+                                            <input type="text" name="name" value="{{ auth()->guard('candidate')->user()->name }}" class="form-control" placeholder="{{ __('locale.Name') }}" disabled readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>
+                                                {{ __('locale.Phone') }}:
+                                            </label>
+                                            <input type="text" name="phone" value="{{ auth()->guard('candidate')->user()->phone }}" class="form-control" placeholder="{{ __('locale.Phone') }}" disabled readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>
+                                                {{ __('locale.Email') }}:
+                                            </label>
+                                            <input type="text" name="email" value="{{ auth()->guard('candidate')->user()->email }}" class="form-control" placeholder="{{ __('locale.Email') }}" disabled readonly>
+                                        </div>
+                                    </div>
+                                    @endif
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label>
@@ -104,7 +133,7 @@
                                             <label>
                                                 {{ __('locale.Payment Currency') }}:
                                             </label>
-                                            <select onchange="this.value == 'sdg' ? showBankDiv() : hideBankDiv()" name="payment_currency" class="form-control" id="">
+                                            <select onchange="this.value == 'sdg' ? showBankDiv() : hideBankDiv()" name="paid_currency" class="form-control" id="">
                                                 <option value="">{{ __('locale.Select Payment Currency') }}</option>
                                                 <option value="sdg">{{ __('locale.SDG') }}</option>
                                                 <option value="dollar">{{ __('locale.USD') }}</option>
@@ -115,6 +144,14 @@
                                         <div class="form-group">
                                             <label class="text-danger">{{ __('locale.please send fees to the following account number (12345678) and attach the transaction Image bellow') }}</label>
                                             <input type="file" name="payment_photo" class="form-control" placeholder="{{ __('locale.CV') }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label>
+                                                {{ __('locale.Notes') }}:
+                                            </label>
+                                            <textarea type="text" name="notes" rows="5" cols="5" class="form-control" placeholder="{{ __('locale.Notes') }}">{{ old('notes') }}</textarea>
                                         </div>
                                     </div>
                                 </div>

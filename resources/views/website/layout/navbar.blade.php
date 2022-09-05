@@ -24,6 +24,9 @@
                         <a href="{{ route('workshops') }}" class="nav-link dropdown-toggle {{ request()->routeIs('workshops') || request()->routeIs('workshops') ? 'active' : '' }}">{{ __('locale.Workshops') }}</a>
                     </li>
                     <li class="nav-item">
+                        <a href="{{ route('cv.writing') }}" class="nav-link dropdown-toggle {{ request()->routeIs('cv.writing') || request()->routeIs('cv.writing.application') ? 'active' : '' }}">{{ __('locale.CV Writing') }}</a>
+                    </li>
+                    <li class="nav-item">
                         <a href="{{ route('about') }}" class="nav-link dropdown-toggle {{ request()->routeIs('about') ? 'active' : '' }}">{{ __('locale.About') }}</a>
                     </li>
                     <li class="nav-item">
@@ -95,6 +98,9 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('workshops') }}" class="nav-link dropdown-toggle {{ request()->routeIs('workshops') || request()->routeIs('job.details') ? 'active' : '' }}">{{ __('locale.Workshops') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('cv.writing') }}" class="nav-link dropdown-toggle {{ request()->routeIs('cv.writing') || request()->routeIs('cv.writing.application') ? 'active' : '' }}">{{ __('locale.CV Writing') }}</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('about') }}" class="nav-link dropdown-toggle {{ request()->routeIs('about') ? 'active' : '' }}">{{ __('locale.About') }}</a>
