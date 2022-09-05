@@ -59,6 +59,7 @@ Route::get('/blogs', [WebsiteController::class, 'blog'])->name('blog');
 Route::get('/blogs/{blog}/blog-details', [WebsiteController::class, 'blogDetails'])->name('blog.details');
 Route::post('/blog-comment/{blog}', [WebsiteController::class, 'blogComment'])->name('blog.comment');
 Route::get('/cv-writing', [WebsiteController::class, 'cvWriting'])->name('cv.writing');
+Route::get('/cv-writing/{category}/application', [WebsiteController::class, 'cvWritingApplication'])->name('cv.writing.application');
 
 
 

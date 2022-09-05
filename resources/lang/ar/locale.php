@@ -155,6 +155,16 @@ return [
     "Apply For CV Writing" => "التقديم لكتابة السيرة الذاتية",
     "Some Of CV Samples" => "بعض نمازج السير الذاتية",
     "Get your CV Now" => "احصل على سيرتك الذاتية الان",
+    "CV Application Form" => "طلب كتابة سيرة ذاتية",
+    "Service Information" => "معلومات الخدمة",
+    "Service Type" => "نوع الخدمة",
+    "CV Category" => "فئة السيرة الذاتية",
+    "Dollar Price" => "السعر بالدولار",
+    "SDG Price" => "السعر بالجنيه السوداني",
+    "Payment Currency" => "عملة الدفع",
+    "Select Payment Currency" => "إختر عملة الدفع",
+    "SDG" => "جنيه سوداني",
+    "USD" => "دولار امريكي",
 
 
 

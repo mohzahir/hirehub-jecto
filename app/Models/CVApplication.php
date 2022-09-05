@@ -18,6 +18,8 @@ class CVApplication extends Model
         'cv',
         'payment_time',
         'payment_method',
+        'payment_photo',
+        'payment_confirmed',
         'paid_amount',
         'paid_currency',
         'is_replied_to',

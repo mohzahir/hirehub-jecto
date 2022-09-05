@@ -18,6 +18,8 @@ class JobApplication extends Model
         'cv',
         'payment_time',
         'payment_method',
+        'payment_photo',
+        'payment_confirmed',
         'paid_amount',
         'paid_currency',
         'cover_letter',

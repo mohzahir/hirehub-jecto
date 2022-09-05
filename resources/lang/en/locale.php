@@ -155,6 +155,17 @@ return [
     "Apply For CV Writing" => "Apply For CV Writing",
     "Some Of CV Samples" => "Some Of CV Samples",
     "Get your CV Now" => "Get your CV Now",
+    "CV Application Form" => "CV Application Form",
+    "Service Information" => "Service Information",
+    "Service Type" => "Service Type",
+    "CV Category" => "CV Category",
+    "Dollar Price" => "Dollar Price",
+    "SDG Price" => "SDG Price",
+    "Payment Currency" => "Payment Currency",
+    "Select Payment Currency" => "Select Payment Currency",
+    "SDG" => "SDG",
+    "USD" => "USD",
+    "USD" => "USD",
 
 
 

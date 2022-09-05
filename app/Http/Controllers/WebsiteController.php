@@ -231,4 +231,14 @@ class WebsiteController extends Controller
             'categories' => CVCategory::where('status', 'active')->get(),
         ]);
     }
+    public function cvWritingApplication(CVCategory $category)
+    {
+        return view('website.cv-writing-application', [
+            'category' => $category,
+            'locale' => app()->getLocale(),
+            'setting' => Setting::find(1),
+            // 'cv_samples' => CVSample::all(),
+            // 'categories' => CVCategory::where('status', 'active')->get(),
+        ]);
+    }
 }

@@ -25,6 +25,8 @@ class CreateCVApplicationsTable extends Migration
             $table->string('cv')->nullable();
             $table->date('payment_time')->nullable();
             $table->enum('payment_method', ['bank', 'telr'])->nullable();
+            $table->string('payment_photo')->nullable();
+            $table->boolean('payment_confirmed')->default(0);
             $table->double('paid_amount')->nullable();
             $table->enum('paid_currency', ['sdg', 'dollar'])->nullable();
             $table->enum('type', ['cv', 'job', 'workshop'])->default('job');

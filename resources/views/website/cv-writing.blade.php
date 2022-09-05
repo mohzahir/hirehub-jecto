@@ -158,7 +158,7 @@
                             <div class="pb-3">
                                 {!! $locale == 'ar' ? $category->features_ar : $category->features !!}
                             </div>
-                            <a class="cmn-btn" href="#">
+                            <a class="cmn-btn" href="{{ route('cv.writing.application', ['category' => $category->id]) }}">
                                 {{ __('locale.Apply Now') }}
                                 <i class="bx bx-plus"></i>
                             </a>
