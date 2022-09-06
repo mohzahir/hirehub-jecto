@@ -28,7 +28,7 @@ class SettingSeeder extends Seeder
             'address3' => ' Sudan- Khartoum, 21 October street, Wad Eljabal Building, Floor no 1',
             'address3_ar' => ' Sudan- Khartoum, 21 October street, Wad Eljabal Building, Floor no 1',
             'opining_week_day' => 'sat',
-            'opining_week_day' => 'thu',
+            'closing_week_day' => 'thu',
             'opining_hour' => '08:00',
             'closing_hour' => '09:00',
             'feature1_title' => 'Excellence',
