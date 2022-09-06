@@ -85,27 +85,6 @@ class CVSampleSeeder extends Seeder
                 'photo' => 'jecto/default/assets/img/home-one/location4.jpg',
                 'pdf' => 'jecto/default/assets/img/home-one/location4.jpg',
             ],
-            [
-                'title' => 'title',
-                'title_ar' => 'محمد زاهر',
-                'cv_category_id' => '5',
-                'photo' => 'jecto/default/assets/img/home-one/location4.jpg',
-                'pdf' => 'jecto/default/assets/img/home-one/location4.jpg',
-            ],
-            [
-                'title' => 'title',
-                'title_ar' => 'محمد زاهر',
-                'cv_category_id' => '5',
-                'photo' => 'jecto/default/assets/img/home-one/location4.jpg',
-                'pdf' => 'jecto/default/assets/img/home-one/location4.jpg',
-            ],
-            [
-                'title' => 'title',
-                'title_ar' => 'محمد زاهر',
-                'cv_category_id' => '5',
-                'photo' => 'jecto/default/assets/img/home-one/location4.jpg',
-                'pdf' => 'jecto/default/assets/img/home-one/location4.jpg',
-            ],
         ]);
     }
 }

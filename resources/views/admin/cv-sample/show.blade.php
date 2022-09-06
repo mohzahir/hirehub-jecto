@@ -9,7 +9,7 @@
         </nav>
     </x-slot>
     <x-slot name="title">
-        <i class="icon ion-ios-briefcase"></i>
+        <i class="icon ion-ios-paper-outline"></i>
         <div>
             <h4>{{ $cv_sample->title_ar }}</h4>
             <p class="mg-b-0">هنا يمكنك ادارة معلومات السير زاتية والتعديل عليها</p>

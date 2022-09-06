@@ -37,6 +37,26 @@ class CategorySeeder extends Seeder
                 'photo' => 'jecto/default/assets/img/home-three/feature2.png',
                 'type' =>  'job',
             ],
+            [
+                'title' => "Employment",
+                'title_ar' => "التوظيف",
+                'slug' => 'employment',
+                'summary' => $faker->sentences(3, true),
+                'summary_ar' => $faker->sentences(3, true),
+                'status' => 'active',
+                'photo' => 'jecto/default/assets/img/home-three/feature2.png',
+                'type' =>  'blog',
+            ],
+            [
+                'title' => "HR",
+                'title_ar' => "الموارد البشرية",
+                'slug' => 'hr',
+                'summary' => $faker->sentences(3, true),
+                'summary_ar' => $faker->sentences(3, true),
+                'status' => 'active',
+                'photo' => 'jecto/default/assets/img/home-three/feature2.png',
+                'type' =>  'blog',
+            ],
         ]);
     }
 }

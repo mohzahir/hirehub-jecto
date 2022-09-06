@@ -7,7 +7,7 @@
       </nav>
   </x-slot>
   <x-slot name="title">
-    <i class="icon ion-ios-briefcase"></i>
+    <i class="icon ion-ios-paper-outline"></i>
     <div>
       <h4>إدارة السير زاتية</h4>
       <p class="mg-b-0">هنا يمكنك ادارة معلومات السير زاتية والتعديل عليها</p>
@@ -42,7 +42,7 @@
             <th scope="row">{{ $cv_sample->id }}</th>
             <td>{{ $cv_sample->title_ar }}</td>
             <td>{{ $cv_sample->title }}</td>
-            <td>{{ $cv_sample->category->title_ar }}</td>
+            <td>{{ $cv_sample->CVCategory->title_ar }}</td>
             <td><img style="width: 50px;height: 50px;" src="{{ asset($cv_sample->photo) }}" class="img-fluid img-thumbnail" alt=""></td>
             <td><a href="{{ asset($cv_sample->pdf) }}"> <i class="icon ion-link tx-22"></i></a></td>
             

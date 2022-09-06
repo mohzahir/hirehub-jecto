@@ -28,7 +28,7 @@ class AddCategoryRequest extends FormRequest
             return [
                 'title' => 'required|min:3|string',
                 'title_ar' => 'required|min:3|string',
-                'type' => 'required|in:workshop,cv,job,blog',
+                'type' => 'required|in:workshop,job,blog',
                 'summary' => 'required|min:10|string',
                 'summary_ar' => 'required|min:10|string',
                 'is_featured' => 'nullable|in:0,1',
@@ -40,7 +40,7 @@ class AddCategoryRequest extends FormRequest
             return [
                 'title' => 'required|min:3|string',
                 'title_ar' => 'required|min:3|string',
-                'type' => 'required|in:workshop,cv,job,blog',
+                'type' => 'required|in:workshop,job,blog',
                 'summary' => 'required|min:10|string',
                 'summary_ar' => 'required|min:10|string',
                 'is_featured' => 'nullable|in:0,1',

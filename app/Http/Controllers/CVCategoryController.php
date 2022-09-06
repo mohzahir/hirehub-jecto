@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AddCVCategoryRequest;
-use App\Models\Category;
 use App\Models\CVCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -88,7 +87,7 @@ class CVCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(AddCVCategoryRequest $request, Category $category)
+    public function update(AddCVCategoryRequest $request, CVCategory $category)
     {
         $category->update([
             'title' => $request->title,
@@ -117,8 +116,11 @@ class CVCategoryController extends Controller
         return redirect()->route('admin.cv-category.index')->with('success', 'تم حذف القسم بنجاح');
     }
 
-    public function changeStatus(Request $request, Category $category)
+    public function changeStatus(Request $request, CVCategory $category)
     {
+        if (count($category->CVSamples) > 0) {
+            return redirect()->route('admin.cv-category.index')->with('warning', 'عفوا, هذالفئة تحتوي على عينات سير زاتية ولا يمكن حذفها!');
+        }
         $category->update([
             'status' => $request->status
         ]);

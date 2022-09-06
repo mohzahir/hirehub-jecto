@@ -205,7 +205,7 @@ class WebsiteController extends Controller
             'blog' => $blog,
             // 'next_blog' => Blog::where(),
             'recent_blogs' => Blog::orderBy('id', 'desc')->take(3)->get(),
-            'categories' => Category::where('status', 'active')->get(),
+            'categories' => Category::where('status', 'active')->where('type', 'blog')->get(),
             'locale' => app()->getLocale(),
         ]);
     }

@@ -14,7 +14,7 @@
       </nav>
   </x-slot>
   <x-slot name="title">
-    <i class="icon ion-ios-briefcase"></i>
+    <i class="icon ion-android-clipboard"></i>
     <div>
       <h4>تعديل مقال</h4>
       <p class="mg-b-0">هنا يمكنك ادارة معلومات المقالات والتعديل عليها</p>

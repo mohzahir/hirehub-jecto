@@ -57,7 +57,6 @@
                   <select name="type" class="form-control" id="">
                     <option {{ old('type') == 'job' ? 'selected' : '' }} value="job">وظيفة</option>
                     <option {{ old('type') == 'blog' ? 'selected' : '' }} value="blog">مقال</option>
-                    <option {{ old('type') == 'cv' ? 'selected' : '' }} value="cv">سيرة زاتية</option>
                     <option {{ old('type') == 'workshop' ? 'selected' : '' }} value="workshop">ورشة عمل</option>
                   </select>
                 </div>

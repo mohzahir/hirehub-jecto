@@ -26,7 +26,7 @@ class AddCVSampleRequest extends FormRequest
         if (request()->isMethod('patch')) {
             // edit
             return [
-                'cv_category_id' => 'required|exists:categories,id',
+                'cv_category_id' => 'required|exists:cv_categories,id',
                 'title' => 'required|min:3|string',
                 'title_ar' => 'required|min:3|string',
                 'photo' => 'nullable|mimes:jpg,png,jpeg,gif,svg',
@@ -35,7 +35,7 @@ class AddCVSampleRequest extends FormRequest
         } else {
             //add
             return [
-                'cv_category_id' => 'required|exists:categories,id',
+                'cv_category_id' => 'required|exists:cv_categories,id',
                 'title' => 'required|min:3|string',
                 'title_ar' => 'required|min:3|string',
                 'photo' => 'required|mimes:jpg,png,jpeg,gif,svg',

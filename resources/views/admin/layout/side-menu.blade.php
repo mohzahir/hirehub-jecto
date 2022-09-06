@@ -53,7 +53,7 @@
 
       <li class="br-menu-item">
         <a href="#" class="br-menu-link with-sub {{ request()->is('admin/cv-sample/*') || request()->is('admin/cv-application/*') || request()->is('admin/cv-category/*') || request()->routeIs('admin.cv-sample.index') || request()->routeIs('admin.cv-category.index') || request()->routeIs('admin.cv-application.index') ? 'active' : '' }}">
-          <i class="menu-item-icon icon ion-ios-people-outline tx-22"></i>
+          <i class="menu-item-icon icon ion-ios-paper-outline tx-22"></i>
           <span class="menu-item-label">خدمة السيرة الزاتية</span>
         </a><!-- br-menu-link -->
         <ul class="br-menu-sub">
@@ -64,7 +64,7 @@
       </li><!-- br-menu-item -->
       <li class="br-menu-item">
         <a href="#" class="br-menu-link with-sub {{ request()->is('admin/blog/*') || request()->routeIs('blog.index') ? 'active' : '' }}">
-          <i class="menu-item-icon icon ion-ios-people-outline tx-22"></i>
+          <i class="menu-item-icon icon ion-android-clipboard tx-22"></i>
           <span class="menu-item-label">المقالات</span>
         </a><!-- br-menu-link -->
         <ul class="br-menu-sub">

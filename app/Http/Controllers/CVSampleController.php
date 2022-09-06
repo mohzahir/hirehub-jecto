@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AddCVSampleRequest;
 use App\Models\Category;
+use App\Models\CVCategory;
 use App\Models\CVSample;
 use Illuminate\Http\Request;
 
@@ -29,7 +30,7 @@ class CVSampleController extends Controller
     public function create()
     {
         return view('admin.cv-sample.create', [
-            'categories' => Category::where('status', 'active')->where('type', 'cv')->get(),
+            'categories' => CVCategory::where('status', 'active')->get(),
         ]);
     }
 

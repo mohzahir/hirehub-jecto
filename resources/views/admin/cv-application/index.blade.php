@@ -7,7 +7,7 @@
       </nav>
   </x-slot>
   <x-slot name="title">
-    <i class="icon ion-android-bookmark"></i>
+    <i class="icon ion-ios-paper-outline"></i>
     <div>
       <h4>إدارة تقديمات السير الذاتية</h4>
       <p class="mg-b-0">هنا يمكنك ادارة معلومات تقديمات السير الذاتية والتعديل عليها</p>

@@ -58,16 +58,6 @@ class CVCategorySeeder extends Seeder
                 'features_ar' => $faker->sentences(3, true),
                 'status' => 'active',
             ],
-            [
-                'title' => "Bronze",
-                'title_ar' => "برونزي",
-                'slug' => 'Bronze',
-                'cv_price_sdg' => '5000',
-                'cv_price_dollar' => '1000',
-                'features' => $faker->sentences(3, true),
-                'features_ar' => $faker->sentences(3, true),
-                'status' => 'active',
-            ],
         ]);
     }
 }

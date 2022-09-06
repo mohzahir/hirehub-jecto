@@ -13,7 +13,7 @@
       </nav>
   </x-slot>
   <x-slot name="title">
-    <i class="icon ion-ios-star-outline"></i>
+    <i class="icon ion-ios-paper-outline"></i>
     <div>
       <h4>إضافة قسم</h4>
       <p class="mg-b-0">هنا يمكنك ادارة معلومات الأقسام والتعديل عليها</p>

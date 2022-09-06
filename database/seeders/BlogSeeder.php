@@ -16,7 +16,7 @@ class BlogSeeder extends Seeder
     {
         Blog::insert([
             [
-                'category_id' => '1',
+                'category_id' => '3',
                 'user_id' => '1',
                 'title' => 'The Internet Is A Job Seeker Most Crucial Success',
                 'title_ar' => 'مقال رقم 1 بالعربي',
@@ -33,7 +33,7 @@ class BlogSeeder extends Seeder
                 'status' => 'active',
             ],
             [
-                'category_id' => '1',
+                'category_id' => '3',
                 'user_id' => '1',
                 'title' => 'The Internet Is A Job Seeker Most Crucial Success',
                 'title_ar' => 'مقال رقم 2 بالعربي',
@@ -50,7 +50,7 @@ class BlogSeeder extends Seeder
                 'status' => 'active',
             ],
             [
-                'category_id' => '1',
+                'category_id' => '3',
                 'user_id' => '1',
                 'title' => 'The Internet Is A Job Seeker Most Crucial Success',
                 'title_ar' => 'مقال رقم 3 بالعربي',
@@ -67,7 +67,7 @@ class BlogSeeder extends Seeder
                 'status' => 'active',
             ],
             [
-                'category_id' => '1',
+                'category_id' => '4',
                 'user_id' => '1',
                 'title' => 'The Internet Is A Job Seeker Most Crucial Success',
                 'title_ar' => 'مقال رقم 4 بالعربي',

@@ -22,16 +22,8 @@ class CVCategory extends Model
         'status',
     ];
 
-    public function jobs()
+    public function CVSamples()
     {
-        return $this->hasMany(Job::class);
-    }
-    public function blogs()
-    {
-        return $this->hasMany(Blog::class);
-    }
-    public function jobPosts()
-    {
-        return $this->hasMany(JobPost::class);
+        return $this->hasMany(CVSample::class, 'cv_category_id');
     }
 }
