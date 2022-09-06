@@ -75,7 +75,7 @@
                                             <label>
                                                 {{ __('locale.Name') }}:
                                             </label>
-                                            <input type="text" name="name" class="form-control" placeholder="{{ __('locale.Name') }}">
+                                            <input type="text" name="name" value="{{ old('name') }}" class="form-control" placeholder="{{ __('locale.Name') }}">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
@@ -83,7 +83,7 @@
                                             <label>
                                                 {{ __('locale.Phone') }}:
                                             </label>
-                                            <input type="text" name="phone" class="form-control" placeholder="{{ __('locale.Phone') }}">
+                                            <input type="text" name="phone" value="{{ old('phone') }}" class="form-control" placeholder="{{ __('locale.Phone') }}">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
@@ -91,7 +91,7 @@
                                             <label>
                                                 {{ __('locale.Email') }}:
                                             </label>
-                                            <input type="text" name="email" class="form-control" placeholder="{{ __('locale.Email') }}">
+                                            <input type="text" name="email" value="{{ old('email') }}" class="form-control" placeholder="{{ __('locale.Email') }}">
                                         </div>
                                     </div>
                                     @else
@@ -100,7 +100,7 @@
                                             <label>
                                                 {{ __('locale.Name') }}:
                                             </label>
-                                            <input type="text" name="name" value="{{ auth()->guard('candidate')->user()->name }}" class="form-control" placeholder="{{ __('locale.Name') }}" disabled readonly>
+                                            <input type="text" name="name" value="{{ auth()->guard('candidate')->user()->name }}" class="form-control" placeholder="{{ __('locale.Name') }}" readonly>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
@@ -108,7 +108,7 @@
                                             <label>
                                                 {{ __('locale.Phone') }}:
                                             </label>
-                                            <input type="text" name="phone" value="{{ auth()->guard('candidate')->user()->phone }}" class="form-control" placeholder="{{ __('locale.Phone') }}" disabled readonly>
+                                            <input type="text" name="phone" value="{{ auth()->guard('candidate')->user()->phone }}" class="form-control" placeholder="{{ __('locale.Phone') }}" readonly>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
@@ -116,7 +116,7 @@
                                             <label>
                                                 {{ __('locale.Email') }}:
                                             </label>
-                                            <input type="text" name="email" value="{{ auth()->guard('candidate')->user()->email }}" class="form-control" placeholder="{{ __('locale.Email') }}" disabled readonly>
+                                            <input type="text" name="email" value="{{ auth()->guard('candidate')->user()->email }}" class="form-control" placeholder="{{ __('locale.Email') }}" readonly>
                                         </div>
                                     </div>
                                     @endif

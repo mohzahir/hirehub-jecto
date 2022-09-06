@@ -52,14 +52,14 @@
       </li><!-- br-menu-item -->
 
       <li class="br-menu-item">
-        <a href="#" class="br-menu-link with-sub {{ request()->is('admin/cv-sample/*') || request()->routeIs('admin.cv-sample.index') || request()->routeIs('admin.cv-category.index') ? 'active' : '' }}">
+        <a href="#" class="br-menu-link with-sub {{ request()->is('admin/cv-sample/*') || request()->is('admin/cv-application/*') || request()->is('admin/cv-category/*') || request()->routeIs('admin.cv-sample.index') || request()->routeIs('admin.cv-category.index') || request()->routeIs('admin.cv-application.index') ? 'active' : '' }}">
           <i class="menu-item-icon icon ion-ios-people-outline tx-22"></i>
           <span class="menu-item-label">خدمة السيرة الزاتية</span>
         </a><!-- br-menu-link -->
         <ul class="br-menu-sub">
-          <li class="sub-item"><a href="{{ route('admin.cv-sample.index') }}" class="sub-link {{ request()->routeIs('admin.cv-sample.index') ? 'active' : '' }}">نمازج السير الزاتية</a></li>
-          <li class="sub-item"><a href="{{ route('admin.cv-category.index') }}" class="sub-link {{ request()->routeIs('admin.cv-category.index') ? 'active' : '' }}">فئات السير الزاتية</a></li>
-          <li class="sub-item"><a href="{{ route('admin.cv-sample.create') }}" class="sub-link {{ request()->routeIs('admin.cv-sample.create') ? 'active' : '' }}">تقديمات السير الزاتية</a></li>
+          <li class="sub-item"><a href="{{ route('admin.cv-sample.index') }}" class="sub-link {{ request()->is('admin/cv-sample/*') || request()->routeIs('admin.cv-sample.index') ? 'active' : '' }}">نمازج السير الزاتية</a></li>
+          <li class="sub-item"><a href="{{ route('admin.cv-category.index') }}" class="sub-link {{ request()->is('admin/cv-category/*') || request()->routeIs('admin.cv-category.index') ? 'active' : '' }}">فئات السير الزاتية</a></li>
+          <li class="sub-item"><a href="{{ route('admin.cv-application.index') }}" class="sub-link {{ request()->is('admin/cv-application/*') || request()->routeIs('admin.cv-application.index') ? 'active' : '' }}">تقديمات السير الزاتية</a></li>
         </ul>
       </li><!-- br-menu-item -->
       <li class="br-menu-item">

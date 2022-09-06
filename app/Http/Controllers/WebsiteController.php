@@ -245,13 +245,16 @@ class WebsiteController extends Controller
 
     public function cvWritingApplicationSubmit(Request $request, CVCategory $category)
     {
-        // dd($request->all());
+        // dd($request->all(), $category);
+        $payment_photo = null;
+        $payment_photo = null;
+        $cv = null;
         $validatedData = $request->validate([
             'name' => 'required|min:3|string',
             'phone' => 'required|numeric',
             'email' => 'required|email',
             'paid_currency' => 'required|in:sdg,dollar',
-            'cv' => 'nullable',
+            'cv' => 'nullable|mimes:pdf',
             'payment_photo' => 'required_if:paid_currency,sdg',
             'notes' => 'nullable',
         ]);
@@ -259,13 +262,22 @@ class WebsiteController extends Controller
             // is logged in
             $validatedData['candidate_id'] = auth()->guard('candidate')->user()->id;
         }
+        if ($request->hasFile('payment_photo')) {
+            $payment_photo = $request->file('payment_photo')->store('files', 'public_folder');
+        }
+        if ($request->hasFile('cv')) {
+            $cv = $request->file('cv')->store('files', 'public_folder');
+        }
         if ($validatedData['paid_currency'] == 'sdg') {
             //bank
+            $validatedData['cv_category_id'] = $category->id;
             $validatedData['payment_time'] = date('Y-m-d H:m:s');
             $validatedData['payment_method'] = 'bank';
             $validatedData['payment_confirmed'] = 0;
             $validatedData['paid_amount'] = 0;
             $validatedData['is_replied_to'] = 0;
+            $validatedData['payment_photo'] = $payment_photo;
+            $validatedData['cv'] = $cv;
             CVApplication::create($validatedData);
 
             return redirect()->back()->with('success', 'Your order has been placed successfully please wait our feedback');

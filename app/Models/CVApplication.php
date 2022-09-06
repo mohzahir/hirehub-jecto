@@ -28,13 +28,13 @@ class CVApplication extends Model
         'is_replied_to',
     ];
 
-    public function jobPost()
-    {
-        return $this->belongsTo(JobPost::class);
-    }
 
     public function candidate()
     {
         return $this->belongsTo(Candidate::class);
+    }
+    public function CVCategory()
+    {
+        return $this->belongsTo(CVCategory::class, 'cv_category_id');
     }
 }

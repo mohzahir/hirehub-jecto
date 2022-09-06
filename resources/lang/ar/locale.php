@@ -165,6 +165,7 @@ return [
     "Select Payment Currency" => "إختر عملة الدفع",
     "SDG" => "جنيه سوداني",
     "USD" => "دولار امريكي",
+    "Notes" => "ملاحظات",
     "CV Writing Application" => "التقديم لكتابة سيرة زاتية",
 
 

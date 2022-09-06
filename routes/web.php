@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CVApplicationController;
 use App\Http\Controllers\CVCategoryController;
 use App\Http\Controllers\CVSampleController;
 use App\Http\Controllers\DashboardController;
@@ -13,6 +14,7 @@ use App\Http\Controllers\JobPostController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\WebsiteController;
 use App\Models\Candidate;
+use App\Models\CVApplication;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -83,6 +85,8 @@ Route::prefix('admin')->as('admin.')->middleware('auth:web')->group(function () 
     Route::resource('cv-sample', CVSampleController::class);
     Route::resource('cv-category', CVCategoryController::class);
     Route::get('/cv-category/{cv-category}/change-status', [CVCategoryController::class, 'changeStatus'])->name('cv-category.change.status');
+    Route::resource('cv-application', CVApplicationController::class);
+    Route::get('/cv-application/{application}/change-status', [CVApplicationController::class, 'changeStatus'])->name('cv-application.change.status');
     Route::resource('blog', BlogController::class);
     Route::get('/blog/{blog}/change-status', [BlogController::class, 'changeStatus'])->name('blog.change.status');
     Route::resource('product', ProductController::class);

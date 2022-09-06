@@ -165,6 +165,7 @@ return [
     "Select Payment Currency" => "Select Payment Currency",
     "SDG" => "SDG",
     "USD" => "USD",
+    "Notes" => "Notes",
     "CV Writing Application" => "CV Writing Application",
 
 

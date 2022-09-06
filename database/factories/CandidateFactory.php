@@ -17,6 +17,7 @@ class CandidateFactory extends Factory
     {
         return [
             'name' => 'محمد زاهر عبدالله علي',
+            'phone' => '0927942031',
             'email' => 'candidate@gmail.com',
             'email_verified_at' => now(),
             'password' => Hash::make('123456'), // password
