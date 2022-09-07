@@ -15,8 +15,6 @@ class DatabaseSeeder extends Seeder
     {
         \App\Models\User::factory(1)->create();
         \App\Models\Candidate::factory(1)->create();
-        \App\Models\Workshop::factory(3)->create();
-        \App\Models\RunningWorkshop::factory(10)->create();
         $this->call(CategorySeeder::class);
         $this->call(CVCategorySeeder::class);
         $this->call(CountrySeeder::class);
@@ -27,5 +25,7 @@ class DatabaseSeeder extends Seeder
         $this->call(BlogSeeder::class);
         $this->call(BlogCommentSeeder::class);
         $this->call(CVSampleSeeder::class);
+        \App\Models\Workshop::factory(3)->create();
+        \App\Models\RunningWorkshop::factory(10)->create();
     }
 }
