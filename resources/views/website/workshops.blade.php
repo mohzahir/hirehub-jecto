@@ -2,7 +2,64 @@
 
 
     @push('styles')
-
+        <style>
+            .workshop-item{
+                padding: 0px 0px 10px;
+                border-radius: 5px;
+                position: relative;
+                margin-bottom: 30px;
+                border: 2px dashed #21a212;
+                overflow: hidden;
+            }
+            .workshop-item img{
+                width: 100%;
+                height: 170px;
+                border-radius: 5px 5px 0px 0px;
+            }
+            .workshop-item .details-container{
+                padding: 25px 25px 0;
+            }
+            .workshop-item .workshop-trainer span{
+                display: block;
+                color: #7d789b;
+                margin-bottom: 8px;
+            }
+            .workshop-item h4{
+                display: block;
+                color: #21a212;;
+                margin-bottom: 10px;
+                font-size: 20px;
+            }
+            .workshop-item .separator{
+                border-bottom: 2px dashed #21a212;
+                content: '';
+                display: block;
+                position: absolute;
+                width: 500px;
+                right: 0;
+            }
+            .workshop-item .category span{
+                list-style-type: none;
+                display: inline-block;
+                font-size: 12px;
+                color: #7f7f7f;
+                background-color: #ececec;
+                border-radius: 5px;
+                padding: 4px 8px;
+                margin-right: 3px;
+                margin-bottom: 6px;
+                margin-right: 0;
+                margin-left: 3px;
+                margin-bottom: 15px;
+            }
+            .workshop-item .workshop-footer{
+                margin-top: 15px;
+                display: flex;
+                flex-wrap: nowrap;
+                justify-content: space-between;
+                align-items: stretch;
+            }
+        </style>
     @endpush
 
     <div class="page-title-area">
@@ -122,288 +179,36 @@
     <div class="candidate-area pb-100">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6">
-                    <div class="candidate-item two">
-                        <div class="left">
-                            <h3>
-                                <a href="candidate-details.html">Arielle Terry</a>
-                            </h3>
-                            <span>Web Developer</span>
-                            <ul class="experience">
-                                <li>Experience: <span>3-5 years</span></li>
-                                <li>Hour Rate: <span>$30</span></li>
-                                <li>
-                                    <!-- <i class="flaticon-send"></i> -->
+                @foreach($running_workshops as $running_workshop)
+                <div class="col-md-3">
+                    <div class="workshop-item tow">
+                        <img  src="{{ asset($running_workshop->workshop->img) }}" alt="Candidate">
+                        <div class="details-container">
+                            <div class="workshop-title">
+                                <span>{{ $locale == 'ar' ? $running_workshop->workshop->trainer_name_ar : $running_workshop->workshop->trainer_name_ar}}</span>
+                                <a href="{{ route('workshop.details', ['running_workshop' => $running_workshop->id]) }}">
+                                    <h4>{{ $locale == 'ar' ? $running_workshop->workshop->title_ar : $running_workshop->workshop->title }}</h4>
+                                </a>
+                            </div>
+                            <div class="category">
+                                <span>{{ $locale == 'ar' ? $running_workshop->workshop->category->title_ar : $running_workshop->workshop->category->title }}</span>
+                            </div>
+                            <div class="separator"></div>
+                            <div class="workshop-footer">
+                                <div class="right">
                                     <i class="fa-solid fa-paper-plane"></i>
-                                    Chicago, Illinios
-                                </li>
-                            </ul>
-                            <ul>
-                                <li>Php</li>
-                                <li>jQuery</li>
-                                <li>WordPress</li>
-                                <li>CSS3</li>
-                                <li>HTML5</li>
-                            </ul>
-                            <div class="cmn-link">
-                                <a href="single-resume.html">
-                                    <!-- <i class="flaticon-right-arrow one"></i> -->
-                                    <i class="fa-solid fa-arrow-right-long one"></i>
-
-                                    View Resume
-                                    <!-- <i class="flaticon-right-arrow two"></i> -->
-                                    <i class="fa-solid fa-arrow-right-long one"></i>
-
-                                </a>
+                                    {{ $running_workshop->location }}
+                                </div>
+                                <div style="color: #21a212;" class="left">
+                                    {{ $running_workshop->price_dollar }}<i class="fa-solid fa-dollar"></i>
+                                    -
+                                    {{ $running_workshop->price_sdg }}<b>SDG</b>
+                                </div>
                             </div>
                         </div>
-                        <img src="{{ asset('jecto/default/assets/img/candidate1.jpg') }}" alt="Candidate">
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="candidate-item two">
-                        <div class="left">
-                            <h3>
-                                <a href="candidate-details.html">Alexander Max</a>
-                            </h3>
-                            <span>Senior UX/UI Designer</span>
-                            <ul class="experience">
-                                <li>Experience: <span>2-3 years</span></li>
-                                <li>Hour Rate: <span>$60</span></li>
-                                <li>
-                                    <!-- <i class="flaticon-send"></i> -->
-                                    <i class="fa-solid fa-paper-plane"></i>
-                                    California
-                                </li>
-                            </ul>
-                            <ul>
-                                <li>CSS</li>
-                                <li>Creative</li>
-                                <li>Photoshop</li>
-                                <li>Illustrator</li>
-                                <li>HTML5</li>
-                            </ul>
-                            <div class="cmn-link">
-                                <a href="single-resume.html">
-                                    <!-- <i class="flaticon-right-arrow one"></i> -->
-                                    <i class="fa-solid fa-arrow-right-long one"></i>
-
-                                    View Resume
-                                    <!-- <i class="flaticon-right-arrow two"></i> -->
-                                    <i class="fa-solid fa-arrow-right-long one"></i>
-
-                                </a>
-                            </div>
-                        </div>
-                        <img src="{{ asset('jecto/default/assets/img/candidate2.jpg') }}" alt="Candidate">
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="candidate-item two">
-                        <div class="left">
-                            <h3>
-                                <a href="candidate-details.html">Jesse R. Chung</a>
-                            </h3>
-                            <span>PHP Developer</span>
-                            <ul class="experience">
-                                <li>Experience: <span>1-3 years</span></li>
-                                <li>Hour Rate: <span>$50</span></li>
-                                <li>
-                                    <i class="flaticon-send"></i>
-                                    Berlin
-                                </li>
-                            </ul>
-                            <ul>
-                                <li>CSS</li>
-                                <li>Creative</li>
-                                <li>Photoshop</li>
-                                <li>Illustrator</li>
-                                <li>HTML5</li>
-                            </ul>
-                            <div class="cmn-link">
-                                <a href="single-resume.html">
-                                    <!-- <i class="flaticon-right-arrow one"></i> -->
-                                    <i class="fa-solid fa-arrow-right-long one"></i>
-
-                                    View Resume
-                                    <!-- <i class="flaticon-right-arrow two"></i> -->
-                                    <i class="fa-solid fa-arrow-right-long one"></i>
-
-                                </a>
-                            </div>
-                        </div>
-                        <img src="{{ asset('jecto/default/assets/img/candidate3.jpg') }}" alt="Candidate">
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="candidate-item two">
-                        <div class="left">
-                            <h3>
-                                <a href="candidate-details.html">Linnaea Ronald</a>
-                            </h3>
-                            <span>Unity Developer</span>
-                            <ul class="experience">
-                                <li>Experience: <span>2-6 years</span></li>
-                                <li>Hour Rate: <span>$70</span></li>
-                                <li>
-                                    <i class="flaticon-send"></i>
-                                    France
-                                </li>
-                            </ul>
-                            <ul>
-                                <li>CSS</li>
-                                <li>Creative</li>
-                                <li>Photoshop</li>
-                                <li>Illustrator</li>
-                                <li>HTML5</li>
-                            </ul>
-                            <div class="cmn-link">
-                                <a href="single-resume.html">
-                                    <!-- <i class="flaticon-right-arrow one"></i> -->
-                                    <i class="fa-solid fa-arrow-right-long one"></i>
-
-                                    View Resume
-                                    <!-- <i class="flaticon-right-arrow two"></i> -->
-                                    <i class="fa-solid fa-arrow-right-long one"></i>
-
-                                </a>
-                            </div>
-                        </div>
-                        <img src="{{ asset('jecto/default/assets/img/candidate4.jpg') }}" alt="Candidate">
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="candidate-item two">
-                        <div class="left">
-                            <h3>
-                                <a href="candidate-details.html">Leo Tolstoy</a>
-                            </h3>
-                            <span>Accounting/Finance</span>
-                            <ul class="experience">
-                                <li>Experience: <span>3-5 years</span></li>
-                                <li>Hour Rate: <span>$30</span></li>
-                                <li>
-                                    <i class="flaticon-send"></i>
-                                    Taine, Paris
-                                </li>
-                            </ul>
-                            <ul>
-                                <li>CSS</li>
-                                <li>Creative</li>
-                                <li>Photoshop</li>
-                                <li>Illustrator</li>
-                                <li>HTML5</li>
-                            </ul>
-                            <div class="cmn-link">
-                                <a href="single-resume.html">
-                                    <i class="flaticon-right-arrow one"></i>
-                                    View Resume
-                                    <i class="flaticon-right-arrow two"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <img src="{{ asset('jecto/default/assets/img/candidate5.jpg') }}" alt="Candidate">
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="candidate-item two">
-                        <div class="left">
-                            <h3>
-                                <a href="candidate-details.html">Jack London</a>
-                            </h3>
-                            <span>UX/UI Designer</span>
-                            <ul class="experience">
-                                <li>Experience: <span>1-3 years</span></li>
-                                <li>Hour Rate: <span>$35</span></li>
-                                <li>
-                                    <i class="flaticon-send"></i>
-                                    United State
-                                </li>
-                            </ul>
-                            <ul>
-                                <li>CSS</li>
-                                <li>Creative</li>
-                                <li>Photoshop</li>
-                                <li>Illustrator</li>
-                                <li>HTML5</li>
-                            </ul>
-                            <div class="cmn-link">
-                                <a href="single-resume.html">
-                                    <i class="flaticon-right-arrow one"></i>
-                                    View Resume
-                                    <i class="flaticon-right-arrow two"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <img src="{{ asset('jecto/default/assets/img/candidate6.jpg') }}" alt="Candidate">
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="candidate-item two">
-                        <div class="left">
-                            <h3>
-                                <a href="candidate-details.html">Charles Dickens</a>
-                            </h3>
-                            <span>Education Training</span>
-                            <ul class="experience">
-                                <li>Experience: <span>3-5 years</span></li>
-                                <li>Hour Rate: <span>$30</span></li>
-                                <li>
-                                    <i class="flaticon-send"></i>
-                                    Berlin
-                                </li>
-                            </ul>
-                            <ul>
-                                <li>CSS</li>
-                                <li>Creative</li>
-                                <li>Photoshop</li>
-                                <li>Illustrator</li>
-                                <li>HTML5</li>
-                            </ul>
-                            <div class="cmn-link">
-                                <a href="single-resume.html">
-                                    <i class="flaticon-right-arrow one"></i>
-                                    View Resume
-                                    <i class="flaticon-right-arrow two"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <img src="{{ asset('jecto/default/assets/img/candidate7.jpg') }}" alt="Candidate">
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="candidate-item two">
-                        <div class="left">
-                            <h3>
-                                <a href="candidate-details.html">Tom Henry</a>
-                            </h3>
-                            <span>Senior UX/UI Designer</span>
-                            <ul class="experience">
-                                <li>Experience: <span>2-3 years</span></li>
-                                <li>Hour Rate: <span>$60</span></li>
-                                <li>
-                                    <i class="flaticon-send"></i>
-                                    UK
-                                </li>
-                            </ul>
-                            <ul>
-                                <li>CSS</li>
-                                <li>Creative</li>
-                                <li>Photoshop</li>
-                                <li>Illustrator</li>
-                                <li>HTML5</li>
-                            </ul>
-                            <div class="cmn-link">
-                                <a href="single-resume.html">
-                                    <i class="flaticon-right-arrow one"></i>
-                                    View Resume
-                                    <i class="flaticon-right-arrow two"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <img src="{{ asset('jecto/default/assets/img/candidate8.jpg') }}" alt="Candidate">
-                    </div>
-                </div>
+                @endforeach
             </div>
             <div class="pagination-area">
                 <ul>

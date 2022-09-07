@@ -54,6 +54,7 @@ Route::get('/jobs', [WebsiteController::class, 'jobs'])->name('jobs');
 Route::get('/jobs/{job_post}/job-details', [WebsiteController::class, 'jobDetails'])->name('job.details');
 Route::post('/jobs/{job_post}/submit-job-application', [WebsiteController::class, 'submitJobApplication'])->name('submit.job.application');
 Route::get('/workshops', [WebsiteController::class, 'workshops'])->name('workshops');
+Route::get('/workshops/{running_workshop}/details', [WebsiteController::class, 'workshopDetails'])->name('workshop.details');
 Route::get('/about', [WebsiteController::class, 'about'])->name('about');
 Route::get('/contact', [WebsiteController::class, 'contact'])->name('contact');
 Route::post('/contact', [WebsiteController::class, 'SubmitContact'])->name('contact.submit');

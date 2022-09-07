@@ -15,7 +15,10 @@ use App\Models\CVSample;
 use App\Models\Job;
 use App\Models\JobApplication;
 use App\Models\JobPost;
+use App\Models\RunnigWorkshop;
+use App\Models\RunningWorkshop;
 use App\Models\Setting;
+use App\Models\Workshop;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -155,7 +158,18 @@ class WebsiteController extends Controller
 
     public function workshops()
     {
-        return view('website.workshops');
+        return view('website.workshops', [
+            'running_workshops' => RunningWorkshop::where('shown', 1)->get(),
+            'locale' => app()->getLocale(),
+        ]);
+    }
+    public function workshopDetails(RunningWorkshop $running_workshop)
+    {
+        // dd($running_workshop);
+        return view('website.workshop-details', [
+            'locale' => app()->getLocale(),
+            'running_workshop' => $running_workshop,
+        ]);
     }
 
     public function about()
