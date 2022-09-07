@@ -167,6 +167,14 @@ return [
     "USD" => "دولار امريكي",
     "Notes" => "ملاحظات",
     "CV Writing Application" => "التقديم لكتابة سيرة زاتية",
+    "Start Date" => "تاريخ البداية",
+    "Finish Date" => "تاريخ النهاية",
+    "Workshop" => "ورشة عمل",
+    "Workshop Information" => "تفاصيل ورشة العمل",
+    "Total Hours" => "عدد ساعات",
+    "Lecture Hours" => "ساعات المحاضرة",
+    "Overview" => "نظرة عامة",
+    "Trainer" => "المدرب",
 
 
 

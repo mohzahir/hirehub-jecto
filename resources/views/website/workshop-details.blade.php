@@ -94,26 +94,26 @@
                         <div class="col-lg-4">
                             <div class="right">
                                 <a class="cmn-btn" href="#">
-                                    Apply Now
+                                    {{ __('locale.Apply Now') }}
                                     <i class='bx bx-plus'></i>
                                 </a>
                                 <ul>
                                     <li>
                                         <a href="#">
                                             <i class='bx bx-heart'></i>
-                                            Save
+                                            {{ __('locale.Save') }}
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
                                             <i class='bx bx-share-alt'></i>
-                                            Share
+                                            {{ __('locale.Share') }}
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
                                             <i class='bx bxs-report'></i>
-                                            Report
+                                            {{ __('locale.Report') }}
                                         </a>
                                     </li>
                                 </ul>
@@ -132,9 +132,68 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <div class="details-item">
-                        {!! $locale == 'ar' ? html_entity_decode($running_workshop->workshop->description_ar) : html_entity_decode($running_workshop->workshop->description) !!}
+
+                    <div class="portfolio mb-5">
+                        <!-- <h3>{{ $locale == 'ar' ? $running_workshop->workshop->title_ar : $running_workshop->workshop->title }}</h3> -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="img">
+                                    <img style="width: 100%; height: 489px; border-radius: 5px;" src="{{ asset($running_workshop->workshop->img) }}" alt="Portfolio">
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
+                    <nav>
+                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">{{ __('locale.Overview') }}</button>
+                            <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">{{ __('locale.Trainer') }}</button>
+                        </div>
+                    </nav>
+                    <div class="tab-content mt-3" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                            <div class="details-item">
+                                {!! $locale == 'ar' ? html_entity_decode($running_workshop->workshop->description_ar) : html_entity_decode($running_workshop->workshop->description) !!}
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                            <div class="person-details-area">
+                                <div class="details-item">
+                                    <div class="client" style="padding: 20px;">
+                                        <!-- <img src="assets/img/candidate-details-client1.png" alt="Candidate Details"> -->
+                                        <h3>{{ $locale == 'ar' ? $running_workshop->workshop->trainer_name_ar : $running_workshop->workshop->trainer_name }}</h3>
+                                        <span>{{ $locale == 'ar' ? $running_workshop->workshop->trainer_job_title_ar : $running_workshop->workshop->trainer_job_title }}</span>
+                                        <p>{!! $locale == 'ar' ? $running_workshop->workshop->trainer_descr_ar : $running_workshop->workshop->trainer_descr !!}</p>
+                                        <ul>
+                                            <li>
+                                                <span>05</span>
+                                            </li>
+                                            <li>
+                                                <i class="bx bxs-star checked"></i>
+                                            </li>
+                                            <li>
+                                                <i class="bx bxs-star checked"></i>
+                                            </li>
+                                            <li>
+                                                <i class="bx bxs-star checked"></i>
+                                            </li>
+                                            <li>
+                                                <i class="bx bxs-star checked"></i>
+                                            </li>
+                                            <li>
+                                                <i class="bx bxs-star checked"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+
+
+
                 </div>
                 <div class="col-lg-4">
                     <div class="widget-area">
@@ -178,7 +237,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="candidate-item widget-item">
+                        <!-- <div class="candidate-item widget-item">
                             <div style="max-width: none;" class="left">
                                 <h3>
                                     <a href="candidate-details.html">{{ $locale == 'ar' ? $running_workshop->workshop->trainer_name_ar : $running_workshop->workshop->trainer_name }}</a>
@@ -192,15 +251,9 @@
                                     <li>Illustrator</li>
                                     <li>HTML5</li>
                                 </ul>
-                                <!-- <div class="cmn-link">
-                                    <a href="single-resume.html">
-                                        <i class="flaticon-right-arrow one"></i>
-                                        View Resume
-                                        <i class="flaticon-right-arrow two"></i>
-                                    </a>
-                                </div> -->
+                                
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -211,7 +264,43 @@
 
 
 
-
+    <!-- <div class="job-details-related pt-100 pb-70">
+        <div class="container">
+            <div class="section-title">
+                <h2>{{ __('locale.Related Workshops') }}</h2>
+            </div>
+            @foreach($running_workshop->workshop->category->workshops->first()->runningWorkshops->take(5) as $related_running_workshop)
+            <div class="col-md-3">
+                <div class="workshop-item tow">
+                    <img src="{{ asset($related_running_workshop->workshop->img) }}" alt="Candidate">
+                    <div class="details-container">
+                        <div class="workshop-title">
+                            <span>{{ $locale == 'ar' ? $related_running_workshop->workshop->trainer_name_ar : $related_running_workshop->workshop->trainer_name_ar}}</span>
+                            <a href="{{ route('workshop.details', ['running_workshop' => $related_running_workshop->id]) }}">
+                                <h4>{{ $locale == 'ar' ? $related_running_workshop->workshop->title_ar : $related_running_workshop->workshop->title }}</h4>
+                            </a>
+                        </div>
+                        <div class="category">
+                            <span>{{ $locale == 'ar' ? $related_running_workshop->workshop->category->title_ar : $related_running_workshop->workshop->category->title }}</span>
+                        </div>
+                        <div class="separator"></div>
+                        <div class="workshop-footer">
+                            <div class="right">
+                                <i class="fa-solid fa-paper-plane"></i>
+                                {{ $related_running_workshop->location }}
+                            </div>
+                            <div style="color: #21a212;" class="left">
+                                {{ $related_running_workshop->price_dollar }}<i class="fa-solid fa-dollar"></i>
+                                -
+                                <b>SDG</b>{{ $related_running_workshop->price_sdg }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div> -->
 
 
 

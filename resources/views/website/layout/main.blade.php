@@ -76,7 +76,7 @@
     </footer>
     
     
-    <div class="copyright-area two">
+    <div class="copyright-area three">
         @include('website.layout.copyright')
     </div>
 

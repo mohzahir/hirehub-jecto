@@ -167,6 +167,14 @@ return [
     "USD" => "USD",
     "Notes" => "Notes",
     "CV Writing Application" => "CV Writing Application",
+    "Start Date" => "Start Date",
+    "Finish Date" => "Finish Date",
+    "Workshop" => "Workshop",
+    "Workshop Information" => "Workshop Information",
+    "Total Hours" => "Total Hours",
+    "Lecture Hours" => "Lecture Hours",
+    "Overview" => "Overview",
+    "Trainer" => "Trainer",
 
 
 

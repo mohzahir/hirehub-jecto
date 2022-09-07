@@ -202,7 +202,7 @@
                                 <div style="color: #21a212;" class="left">
                                     {{ $running_workshop->price_dollar }}<i class="fa-solid fa-dollar"></i>
                                     -
-                                    {{ $running_workshop->price_sdg }}<b>SDG</b>
+                                    <b>SDG</b>{{ $running_workshop->price_sdg }}
                                 </div>
                             </div>
                         </div>

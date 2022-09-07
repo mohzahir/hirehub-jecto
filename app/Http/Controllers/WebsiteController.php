@@ -159,7 +159,7 @@ class WebsiteController extends Controller
     public function workshops()
     {
         return view('website.workshops', [
-            'running_workshops' => RunningWorkshop::where('shown', 1)->get(),
+            'running_workshops' => RunningWorkshop::where('shown', 1)->paginate(12),
             'locale' => app()->getLocale(),
         ]);
     }

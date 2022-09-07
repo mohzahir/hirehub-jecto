@@ -34,4 +34,9 @@ class Category extends Model
     {
         return $this->hasMany(JobPost::class);
     }
+
+    public function workshops()
+    {
+        return $this->hasMany(Workshop::class);
+    }
 }
