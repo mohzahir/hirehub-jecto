@@ -23,6 +23,7 @@ use App\Models\WorkshopApplication;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use TelrGateway\TelrManager;
 use TelrGateway\Transaction;
 
 class WebsiteController extends Controller
@@ -325,7 +326,7 @@ class WebsiteController extends Controller
             $validatedData['cv'] = $cv;
             $application = CVApplication::create($validatedData);
 
-            $telrManager = new \TelrGateway\TelrManager();
+            $telrManager = new TelrManager();
 
             $billingParams = [
                 'first_name' => $validatedData['name'],

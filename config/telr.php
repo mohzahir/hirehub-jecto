@@ -5,7 +5,7 @@ return [
 
     // The currency of store
 
-    'currency' => 'USD',
+    'currency' => 'SAR',
 
     // The sale endpoint that receive the params
     // @see https://telr.com/support/knowledge-base/hosted-payment-page-integration-guide
