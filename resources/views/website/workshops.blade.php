@@ -1,66 +1,7 @@
 <x-website-layout>
 
 
-    @push('styles')
-        <style>
-            .workshop-item{
-                padding: 0px 0px 10px;
-                border-radius: 5px;
-                position: relative;
-                margin-bottom: 30px;
-                border: 2px dashed #21a212;
-                overflow: hidden;
-            }
-            .workshop-item img{
-                width: 100%;
-                height: 170px;
-                border-radius: 5px 5px 0px 0px;
-            }
-            .workshop-item .details-container{
-                padding: 25px 25px 0;
-            }
-            .workshop-item .workshop-trainer span{
-                display: block;
-                color: #7d789b;
-                margin-bottom: 8px;
-            }
-            .workshop-item h4{
-                display: block;
-                color: #21a212;;
-                margin-bottom: 10px;
-                font-size: 20px;
-            }
-            .workshop-item .separator{
-                border-bottom: 2px dashed #21a212;
-                content: '';
-                display: block;
-                position: absolute;
-                width: 500px;
-                right: 0;
-            }
-            .workshop-item .category span{
-                list-style-type: none;
-                display: inline-block;
-                font-size: 12px;
-                color: #7f7f7f;
-                background-color: #ececec;
-                border-radius: 5px;
-                padding: 4px 8px;
-                margin-right: 3px;
-                margin-bottom: 6px;
-                margin-right: 0;
-                margin-left: 3px;
-                margin-bottom: 15px;
-            }
-            .workshop-item .workshop-footer{
-                margin-top: 15px;
-                display: flex;
-                flex-wrap: nowrap;
-                justify-content: space-between;
-                align-items: stretch;
-            }
-        </style>
-    @endpush
+    
 
     <div class="page-title-area">
         <div class="d-table">
@@ -102,32 +43,29 @@
                 <div class="row">
                     <div class="col-sm-6 col-lg-3">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="e.g UI/UX Design">
+                            <input type="text" value="{{ request('title') }}" name="title" class="form-control" placeholder="{{ __('locale.Title') }}">
                         </div>
                     </div>
                     <div class="col-sm-6 col-lg-3">
                         <div class="form-group">
-                            <select>
-                                <option>Filter By Age</option>
-                                <option>Another option</option>
-                                <option>A option</option>
-                                <option>Potato</option>
+                            <select name="category_id">
+                                <option value="">{{ __('locale.Category') }}</option>
+                                @foreach($categories as $category)
+                                <option {{ request('category_id') == $category->id ? 'selected' : '' }} value="{{ $category->id }}">{{ $locale == 'ar' ? $category->title_ar : $category->title }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
                     <div class="col-sm-6 col-lg-3">
                         <div class="form-group">
-                            <select>
-                                <option>Filter By Category</option>
-                                <option>Another option</option>
-                                <option>A option</option>
-                                <option>Potato</option>
-                            </select>
+                            <input type="date" value="{{ request('start_date') }}" name="start_date" class="form-control" placeholder="Start Date">
                         </div>
                     </div>
+                    
+                    
                     <div class="col-sm-6 col-lg-3">
                         <button type="submit" class="btn cmn-btn">
-                            Search By Filter
+                            {{ __('locale.Filter Now') }}
                             <i class='bx bx-plus'></i>
                         </button>
                     </div>
@@ -139,17 +77,14 @@
 
     <div class="job-showing-area">
         <div class="container">
-            <h4>Showing 1 - 8 of 11 results</h4>
+            <!-- <h4>Showing 1 - 8 of 11 results</h4> -->
             <div class="showing">
                 <div class="row">
                     <div class="col-sm-6 col-lg-6">
                         <div class="left">
                             <div class="form-group">
                                 <select>
-                                    <option>Newest</option>
-                                    <option>Another option</option>
-                                    <option>A option</option>
-                                    <option>Potato</option>
+                                    <option>{{ __('locale.Newest') }}</option>
                                 </select>
                             </div>
                         </div>
@@ -181,32 +116,7 @@
             <div class="row">
                 @foreach($running_workshops as $running_workshop)
                 <div class="col-md-3">
-                    <div class="workshop-item tow">
-                        <img  src="{{ asset($running_workshop->workshop->img) }}" alt="Candidate">
-                        <div class="details-container">
-                            <div class="workshop-title">
-                                <span>{{ $locale == 'ar' ? $running_workshop->workshop->trainer_name_ar : $running_workshop->workshop->trainer_name_ar}}</span>
-                                <a href="{{ route('workshop.details', ['running_workshop' => $running_workshop->id]) }}">
-                                    <h4>{{ $locale == 'ar' ? $running_workshop->workshop->title_ar : $running_workshop->workshop->title }}</h4>
-                                </a>
-                            </div>
-                            <div class="category">
-                                <span>{{ $locale == 'ar' ? $running_workshop->workshop->category->title_ar : $running_workshop->workshop->category->title }}</span>
-                            </div>
-                            <div class="separator"></div>
-                            <div class="workshop-footer">
-                                <div class="right">
-                                    <i class="fa-solid fa-paper-plane"></i>
-                                    {{ $running_workshop->location }}
-                                </div>
-                                <div style="color: #21a212;" class="left">
-                                    {{ $running_workshop->price_dollar }}<i class="fa-solid fa-dollar"></i>
-                                    -
-                                    <b>SDG</b>{{ $running_workshop->price_sdg }}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @include('website.includes.workshop-card', $running_workshop)
                 </div>
                 @endforeach
             </div>

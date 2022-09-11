@@ -31,7 +31,7 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="profile-item">
-                        <img style="width: 296px; height: 296px;" src="{{ asset($candidate->photo ?? 'jecto/default/assets/img/dashboard1.jpg') }}" alt="Dashboard">
+                        <img style="width: 296px; height: 296px;" src="{{ asset($candidate->photo ?? 'bracketplus1.4/app/img/avatar.jpg') }}" alt="Dashboard">
                         <h2>{{ $candidate->name }}</h2>
                         <span>{{ $candidate->job_title ?? '----' }}</span>
                     </div>
@@ -40,12 +40,24 @@
                             <i class='bx bx-user'></i>
                             {{ __('locale.My Profile') }}
                         </a>
-                        <a class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+                        <a class="nav-link" id="v-pills-jobs-tab" data-bs-toggle="pill" href="#v-pills-jobs" role="tab" aria-controls="v-pills-jobs" aria-selected="false">
                             <div class="profile-list">
                                 <i class='bx bxs-inbox'></i>
                                 {{ __('locale.Applied Jobs') }}
                             </div>
                         </a>
+                        <a class="nav-link" id="v-pills-workshops-tab" data-bs-toggle="pill" href="#v-pills-workshops" role="tab" aria-controls="v-pills-workshops" aria-selected="false">
+                            <div class="profile-list">
+                                <i class='bx bxs-inbox'></i>
+                                {{ __('locale.Registered Workshops') }}
+                            </div>
+                        </a>
+                        <!-- <a class="nav-link" id="v-pills-cvs-tab" data-bs-toggle="pill" href="#v-pills-cvs" role="tab" aria-controls="v-pills-cvs" aria-selected="false">
+                            <div class="profile-list">
+                                <i class='bx bxs-inbox'></i>
+                                {{ __('locale.CV Writing Requests') }}
+                            </div>
+                        </a> -->
                         <a href="single-resume.html">
                             <div class="profile-list">
                                 <i class='bx bx-note'></i>
@@ -60,7 +72,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-8">
+                <div class="col-lg-8" style="background-color: #f5f5f5;border-radius: 5px;padding-top: 10px;">
                     <div class="tab-content" id="v-pills-tabContent">
                         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                             <div class="profile-content">
@@ -187,7 +199,7 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                        <div class="tab-pane fade" id="v-pills-jobs" role="tabpanel" aria-labelledby="v-pills-jobs-tab">
                             @if(count($applied_jobs) > 0)
                             @foreach($applied_jobs as $job_application)
                             <div class="employer-item">
@@ -218,6 +230,36 @@
                             </div>
                             @endif
                         </div>
+                        <div class="tab-pane fade" id="v-pills-workshops" role="tabpanel" aria-labelledby="v-pills-workshops-tab">
+                            <div class="row">
+                                @if(count($applied_workshops) > 0)
+                                @foreach($applied_workshops as $applied_workshop)
+                                <div class="col-md-4">
+                                    @include('website.includes.workshop-card', ['running_workshop' => $applied_workshop->runningWorkshop])
+                                </div>
+                                @endforeach
+                                @else
+                                <div class="text-center text-danger alert alert-warning">
+                                    <p class="">No Jobs Applied to</p>
+                                </div>
+                                @endif
+                            </div>
+                        </div>
+                        <!-- <div class="tab-pane fade" id="v-pills-cvs" role="tabpanel" aria-labelledby="v-pills-cvs-tab">
+                            <div class="row">
+                                @if(count($applied_workshops) > 0)
+                                @foreach($applied_workshops as $applied_workshop)
+                                <div class="col-md-4">
+                                    @include('website.includes.workshop-card', ['running_workshop' => $applied_workshop->runningWorkshop])
+                                </div>
+                                @endforeach
+                                @else
+                                <div class="text-center text-danger alert alert-warning">
+                                    <p class="">No Jobs Applied to</p>
+                                </div>
+                                @endif
+                            </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

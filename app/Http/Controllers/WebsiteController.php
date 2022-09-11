@@ -19,9 +19,11 @@ use App\Models\RunnigWorkshop;
 use App\Models\RunningWorkshop;
 use App\Models\Setting;
 use App\Models\Workshop;
+use App\Models\WorkshopApplication;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use TelrGateway\Transaction;
 
 class WebsiteController extends Controller
 {
@@ -111,9 +113,12 @@ class WebsiteController extends Controller
 
     public function showCandidateDashboard()
     {
+        // dd(WorkshopApplication::where('candidate_id', auth()->guard('candidate')->user()->id)->first()->runningWorkshop);
         return view('website.candidate.dashboard', [
             'candidate' => auth()->guard('candidate')->user(),
             'applied_jobs' => JobApplication::where('candidate_id', auth()->guard('candidate')->user()->id)->get(),
+            'applied_workshops' => WorkshopApplication::where('candidate_id', auth()->guard('candidate')->user()->id)->get(),
+            // 'applied_CVs' => CVApplication::where('candidate_id', auth()->guard('candidate')->user()->id)->get(),
             'locale' => app()->getLocale(),
         ]);
     }
@@ -156,11 +161,24 @@ class WebsiteController extends Controller
     }
 
 
-    public function workshops()
+    public function workshops(Request $request)
     {
         return view('website.workshops', [
-            'running_workshops' => RunningWorkshop::where('shown', 1)->paginate(12),
+            'running_workshops' => RunningWorkshop::join('workshops', 'running_workshops.workshop_id', 'workshops.id')
+                ->when($request->title, function ($q) use ($request) {
+                    // dd($q);
+                    $q->where('workshops.title', $request->title);
+                })
+                ->when($request->category_id, function ($q) use ($request) {
+                    // dd($q);
+                    $q->where('workshops.category_id', $request->category_id);
+                })
+                ->when($request->start_date, function ($q) use ($request) {
+                    $q->where('start_date', ">", $request->start_date);
+                })
+                ->where('shown', 1)->paginate(12),
             'locale' => app()->getLocale(),
+            'categories' => Category::where('status', 'active')->where('type', 'workshop')->get(),
         ]);
     }
     public function workshopDetails(RunningWorkshop $running_workshop)
@@ -261,7 +279,6 @@ class WebsiteController extends Controller
     {
         // dd($request->all(), $category);
         $payment_photo = null;
-        $payment_photo = null;
         $cv = null;
         $validatedData = $request->validate([
             'name' => 'required|min:3|string',
@@ -297,6 +314,122 @@ class WebsiteController extends Controller
             return redirect()->back()->with('success', 'Your order has been placed successfully please wait our feedback');
         } else {
             //telr
+
+            $validatedData['cv_category_id'] = $category->id;
+            // $validatedData['payment_time'] = date('Y-m-d H:m:s');
+            $validatedData['payment_method'] = 'telr';
+            $validatedData['payment_confirmed'] = 0;
+            $validatedData['paid_amount'] = 0;
+            $validatedData['is_replied_to'] = 0;
+            // $validatedData['payment_photo'] = $payment_photo;
+            $validatedData['cv'] = $cv;
+            $application = CVApplication::create($validatedData);
+
+            $telrManager = new \TelrGateway\TelrManager();
+
+            $billingParams = [
+                'first_name' => $validatedData['name'],
+                'sur_name' => 'Bafi',
+                'address_1' => 'Gnaklis',
+                'address_2' => 'Gnaklis 2',
+                'city' => 'Alexandria',
+                'region' => 'San Stefano',
+                'zip' => '11231',
+                'country' => 'EG',
+                'email' => $validatedData['email'],
+            ];
+
+            return $telrManager->pay($application->id, $application->CVCategory->cv_price_dollar, 'DESCRIPTION ...', $billingParams)->redirect();
         }
+    }
+    public function runningWorkshopApplication(RunningWorkshop $running_workshop)
+    {
+        return view('website.running-workshop-application', [
+            'running_workshop' => $running_workshop,
+            'locale' => app()->getLocale(),
+            'setting' => Setting::find(1),
+            // 'cv_samples' => CVSample::all(),
+            // 'categories' => CVCategory::where('status', 'active')->get(),
+        ]);
+    }
+
+    public function runningWorkshopApplicationSubmit(Request $request, RunningWorkshop $running_workshop)
+    {
+        // dd($request->all(), $running_workshop);
+        $payment_photo = null;
+        $validatedData = $request->validate([
+            'name' => 'required|min:3|string',
+            'phone' => 'required|numeric',
+            'email' => 'required|email',
+            'paid_currency' => 'required|in:sdg,dollar',
+            'payment_photo' => 'required_if:paid_currency,sdg',
+            'notes' => 'nullable',
+        ]);
+        if (auth()->guard('candidate')->check()) {
+            // is logged in
+            $validatedData['candidate_id'] = auth()->guard('candidate')->user()->id;
+        }
+        if ($request->hasFile('payment_photo')) {
+            $payment_photo = $request->file('payment_photo')->store('files', 'public_folder');
+        }
+        if ($validatedData['paid_currency'] == 'sdg') {
+            //bank
+            $validatedData['running_workshop_id'] = $running_workshop->id;
+            $validatedData['payment_time'] = date('Y-m-d H:m:s');
+            $validatedData['payment_method'] = 'bank';
+            $validatedData['payment_confirmed'] = 0;
+            $validatedData['paid_amount'] = 0;
+            $validatedData['is_replied_to'] = 0;
+            $validatedData['payment_photo'] = $payment_photo;
+            WorkshopApplication::create($validatedData);
+
+            return redirect()->back()->with('success', 'You have been registered successfully please wait our feedback');
+        } else {
+            //telr
+        }
+    }
+
+    public function success(Request $request)
+    {
+        /* $telrManager = new \TelrGateway\TelrManager();
+        return $telrManager->handleTransactionResponse($request);*/
+        // $reservation_id = session()->get('reservation_id');
+        $transaction = Transaction::where('cart_id', $request->cart_id)->first();
+
+        $reservation = Reseervation::find($transaction->order_id);
+        $reservation->update([
+            'payment_method' => 'telr',
+            'payment_time' => date('Y-m-d H:i:s'),
+            'paid' => $transaction->amount,
+            'currency' => $reservation->trip->currency,
+            'status' => 'confirmed',
+        ]);
+
+
+        $body = 'حجوزات يمن باص رقم الحجز: ' . $reservation->id . ' تم تاكيد حجزك للمتابعة
+        :https://www.yemenbus.com/passengers/order/' . $reservation->id;
+
+        // $reservation->s_phone != null ? $this->sendSASMS($reservation->s_phone, $body) : $this->sendYESMS($reservation->y_phone, $body);
+        $reservation->passenger->phone ? $this->sendSASMS($reservation->passenger->phone, $body) : $this->sendYESMS($reservation->passenger->y_phone, $body);
+
+        // Send mail to passenger
+        if ($reservation->passenger->email) {
+            // $mailToMarketer = $marketer->email;
+            Mail::to($reservation->passenger->email)->send(new ConfirmReservation($reservation));
+        }
+
+        return redirect()->route('passengers.orderDetails', [
+            'id' => $transaction->order_id,
+        ]);
+    }
+
+    public function cancel()
+    {
+        return redirect('/');
+    }
+    public function decline()
+    {
+        $telrManager = new \TelrGateway\TelrManager();
+        $telrManager->handleTransactionResponse($request);
     }
 }

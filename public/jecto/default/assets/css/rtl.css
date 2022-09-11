@@ -696,7 +696,7 @@ span.current {
 }
 .job-showing-area .showing .left .form-group {
     position: absolute;
-    right: 25px;
+    /* right: 25px; */
 }
 .job-showing-area span.current {
     right: 10px;

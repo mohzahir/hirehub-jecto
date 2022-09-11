@@ -93,8 +93,8 @@
                         </div>
                         <div class="col-lg-4">
                             <div class="right">
-                                <a class="cmn-btn" href="#">
-                                    {{ __('locale.Apply Now') }}
+                                <a class="cmn-btn" href="{{ route('running.workshop.application', $running_workshop->id) }}">
+                                    {{ __('locale.Workshop Register') }}
                                     <i class='bx bx-plus'></i>
                                 </a>
                                 <ul>

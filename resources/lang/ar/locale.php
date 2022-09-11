@@ -175,7 +175,16 @@ return [
     "Lecture Hours" => "ساعات المحاضرة",
     "Overview" => "نظرة عامة",
     "Trainer" => "المدرب",
-
+    "Running Workshop Application" => "التسجيل في ورشة عمل",
+    "Running Workshop Application Form" => "بيانات التسجيل",
+    "Workshop Register" => "تسجيل",
+    "Newest" => "الأحدث",
+    "Registered Workshops" => "ورش العمل المسجلة",
+    "CV Writing Requests" => "طلبات كتابة السيرة الذاتية",
+    "Human Resource (HR)" => "الموارد البشرية",
+    "Recruitment/Jobs" => "الوظائف",
+    "Curriculum Vitae (CV) Writing" => "خدمة كتابة السيرة الذاتية",
+    "Employment Clinic/Workshops" => "عيادة التوظيف\ورش العمل",
 
 
 

@@ -18,13 +18,18 @@
                         <a href="{{ route('home') }}" class="nav-link dropdown-toggle {{ request()->routeIs('home') ? 'active' : '' }}">{{ __('locale.Home') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('jobs') }}" class="nav-link dropdown-toggle {{ request()->routeIs('jobs') || request()->routeIs('job.details') ? 'active' : '' }}">{{ __('locale.Jobs') }}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('workshops') }}" class="nav-link dropdown-toggle {{ request()->routeIs('workshops') || request()->routeIs('workshops') ? 'active' : '' }}">{{ __('locale.Workshops') }}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('cv.writing') }}" class="nav-link dropdown-toggle {{ request()->routeIs('cv.writing') || request()->routeIs('cv.writing.application') ? 'active' : '' }}">{{ __('locale.CV Writing') }}</a>
+                        <a href="#" class="nav-link dropdown-toggle">{{ __('locale.Human Resource (HR)') }} <i class='bx bx-chevron-down'></i></a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item">
+                                <a href="{{ route('jobs') }}" class="nav-link">{{ __('locale.Recruitment/Jobs') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('cv.writing') }}" class="nav-link">{{ __('locale.Curriculum Vitae (CV) Writing') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('workshops') }}" class="nav-link">{{ __('locale.Employment Clinic/Workshops') }}</a>
+                            </li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('about') }}" class="nav-link dropdown-toggle {{ request()->routeIs('about') ? 'active' : '' }}">{{ __('locale.About') }}</a>
@@ -94,13 +99,18 @@
                             <a href="{{ route('home') }}" class="nav-link dropdown-toggle {{ request()->routeIs('home') ? 'active' : '' }}">{{ __('locale.Home') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('jobs') }}" class="nav-link dropdown-toggle {{ request()->routeIs('jobs') || request()->routeIs('job.details') ? 'active' : '' }}">{{ __('locale.Jobs') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('workshops') }}" class="nav-link dropdown-toggle {{ request()->routeIs('workshops') || request()->routeIs('job.details') ? 'active' : '' }}">{{ __('locale.Workshops') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('cv.writing') }}" class="nav-link dropdown-toggle {{ request()->routeIs('cv.writing') || request()->routeIs('cv.writing.application') ? 'active' : '' }}">{{ __('locale.CV Writing') }}</a>
+                            <a href="#" class="nav-link dropdown-toggle">{{ __('locale.Human Resource (HR)') }} <i class='bx bx-chevron-down'></i></a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item">
+                                    <a href="{{ route('jobs') }}" class="nav-link">{{ __('locale.Recruitment/Jobs') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('cv.writing') }}" class="nav-link">{{ __('locale.Curriculum Vitae (CV) Writing') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('workshops') }}" class="nav-link">{{ __('locale.Employment Clinic/Workshops') }}</a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('about') }}" class="nav-link dropdown-toggle {{ request()->routeIs('about') ? 'active' : '' }}">{{ __('locale.About') }}</a>

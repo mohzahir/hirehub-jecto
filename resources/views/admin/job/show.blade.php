@@ -32,6 +32,12 @@
             <div class="tab-content" data-select2-id="31">
                 <div id="basic-info" class="tab-pane fade show active " role="tabpanel" aria-labelledby="home-tab">
                     <div class="row mg-b-25">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-control-label">القسم</label>
+                                <input readonly class="form-control" type="text" name="category" value="{{ $job->category->name_ar }}" placeholder="ادخل عنوان الوظيفة بالعربي">
+                            </div>
+                        </div><!-- col-4 -->
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label class="form-control-label">العنوان بالعربي</label>

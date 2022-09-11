@@ -175,8 +175,13 @@ return [
     "Lecture Hours" => "Lecture Hours",
     "Overview" => "Overview",
     "Trainer" => "Trainer",
-
-
-
-
+    "Workshop Application" => "Workshop Application",
+    "Workshop Application Form" => "Workshop Application Form",
+    "Workshop Register" => "Register",
+    "Newest" => "Newest",
+    "Registered Workshops" => "Registered Workshops",
+    "Human Resource (HR)" => "Human Resource (HR)",
+    "Recruitment/Jobs" => "Recruitment/Jobs",
+    "Curriculum Vitae (CV) Writing" => "Curriculum Vitae (CV) Writing",
+    "Employment Clinic/Workshops" => "Employment Clinic/Workshops",
 ];

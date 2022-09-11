@@ -19,38 +19,27 @@
         </ul>
       </li><!-- br-menu-item -->
       <li class="br-menu-item">
-        <a href="#" class="br-menu-link with-sub {{ request()->is('admin/job/*') || request()->routeIs('admin.job.index') ? 'active' : '' }}">
+        <a href="#" class="br-menu-link with-sub {{ request()->is('admin/job/*') || request()->routeIs('admin.job.index') || request()->is('admin/jobPost/*') || request()->routeIs('admin.jobPost.index') || request()->is('admin/jobApplication/*') || request()->routeIs('admin.jobApplication.index') ? 'active' : '' }}">
           <i class="menu-item-icon icon ion-ios-briefcase tx-22"></i>
           <span class="menu-item-label">الوظائف</span>
         </a><!-- br-menu-link -->
         <ul class="br-menu-sub">
-          <li class="sub-item"><a href="{{ route('admin.job.index') }}" class="sub-link {{ request()->routeIs('admin.job.index') ? 'active' : '' }}">عرض الوظائف</a></li>
-          <li class="sub-item"><a href="{{ route('admin.job.create') }}" class="sub-link {{ request()->routeIs('admin.job.create') ? 'active' : '' }}">إضافة وظيفة</a></li>
+          <li class="sub-item"><a href="{{ route('admin.job.index') }}" class="sub-link {{ request()->routeIs('admin.job.index') || request()->is('admin/job/*') ? 'active' : '' }}">عرض الوظائف</a></li>
+          <li class="sub-item"><a href="{{ route('admin.jobPost.index') }}" class="sub-link {{ request()->routeIs('admin.jobPost.index') || request()->is('admin/jobPost/*') ? 'active' : '' }}">إعلانات الوظائف</a></li>
+          <li class="sub-item"><a href="{{ route('admin.jobApplication.index') }}" class="sub-link {{ request()->routeIs('admin.jobApplication.index') || request()->is('admin/jobApplication/*') ? 'active' : '' }}">تقديمات الوظائف</a></li>
         </ul>
       </li><!-- br-menu-item -->
       <li class="br-menu-item">
-        <a href="#" class="br-menu-link with-sub {{ request()->is('admin/jobPost/*') || request()->routeIs('admin.jobPost.index') ? 'active' : '' }}">
-          <i class="menu-item-icon icon ion-android-notifications tx-22"></i>
-          <span class="menu-item-label">إعلانات الوظائف</span>
+        <a href="#" class="br-menu-link with-sub {{ request()->is('admin/job/*') || request()->routeIs('admin.workshop.index') || request()->is('admin/running_workshop/*') || request()->routeIs('admin.running_workshop.index') || request()->is('admin/workshopApplication/*') || request()->routeIs('admin.workshopApplication.index') ? 'active' : '' }}">
+          <i class="menu-item-icon icon ion-ios-briefcase tx-22"></i>
+          <span class="menu-item-label">ورش العمل</span>
         </a><!-- br-menu-link -->
         <ul class="br-menu-sub">
-          <li class="sub-item"><a href="{{ route('admin.jobPost.index') }}" class="sub-link {{ request()->routeIs('admin.jobPost.index') ? 'active' : '' }}">عرض إعلانات الوظائف</a></li>
-          <li class="sub-item"><a href="{{ route('admin.jobPost.create') }}" class="sub-link {{ request()->routeIs('admin.jobPost.create') ? 'active' : '' }}">إضافة إعلان</a></li>
+          <li class="sub-item"><a href="{{ route('admin.workshop.index') }}" class="sub-link {{ request()->routeIs('admin.workshop.index') || request()->is('admin/workshop/*') ? 'active' : '' }}">عرض ورش العمل</a></li>
+          <li class="sub-item"><a href="{{ route('admin.running_workshop.index') }}" class="sub-link {{ request()->routeIs('admin.running_workshop.index') || request()->is('admin/running_workshop/*') ? 'active' : '' }}">إعلانات ورش العمل</a></li>
+          <li class="sub-item"><a href="{{ route('admin.workshopApplication.index') }}" class="sub-link {{ request()->routeIs('admin.workshopApplication.index') || request()->is('admin/workshopApplication/*') ? 'active' : '' }}">تقديمات ورش العمل</a></li>
         </ul>
       </li><!-- br-menu-item -->
-      <li class="br-menu-item">
-        <a href="{{ route('admin.jobApplication.index') }}" class="br-menu-link {{ request()->routeIs('jobApplication.index') ? 'active' : '' }}">
-          <i class="menu-item-icon icon ion-android-bookmark tx-24"></i>
-          <span class="menu-item-label">تقديمات الوظائف</span>
-        </a><!-- br-menu-link -->
-      </li><!-- br-menu-item -->
-      <li class="br-menu-item">
-        <a href="{{ route('admin.candidate.index') }}" class="br-menu-link {{ request()->routeIs('candidate.index') ? 'active' : '' }}">
-          <i class="menu-item-icon icon ion-ios-people-outline tx-24"></i>
-          <span class="menu-item-label">العملاء</span>
-        </a><!-- br-menu-link -->
-      </li><!-- br-menu-item -->
-
       <li class="br-menu-item">
         <a href="#" class="br-menu-link with-sub {{ request()->is('admin/cv-sample/*') || request()->is('admin/cv-application/*') || request()->is('admin/cv-category/*') || request()->routeIs('admin.cv-sample.index') || request()->routeIs('admin.cv-category.index') || request()->routeIs('admin.cv-application.index') ? 'active' : '' }}">
           <i class="menu-item-icon icon ion-ios-paper-outline tx-22"></i>
@@ -63,6 +52,12 @@
         </ul>
       </li><!-- br-menu-item -->
       <li class="br-menu-item">
+        <a href="{{ route('admin.candidate.index') }}" class="br-menu-link {{ request()->routeIs('candidate.index') ? 'active' : '' }}">
+          <i class="menu-item-icon icon ion-ios-people-outline tx-24"></i>
+          <span class="menu-item-label">العملاء</span>
+        </a><!-- br-menu-link -->
+      </li><!-- br-menu-item -->
+      <li class="br-menu-item">
         <a href="#" class="br-menu-link with-sub {{ request()->is('admin/blog/*') || request()->routeIs('blog.index') ? 'active' : '' }}">
           <i class="menu-item-icon icon ion-android-clipboard tx-22"></i>
           <span class="menu-item-label">المقالات</span>
@@ -71,46 +66,6 @@
           <li class="sub-item"><a href="{{ route('admin.blog.index') }}" class="sub-link {{ request()->routeIs('blog.index') ? 'active' : '' }}">عرض المقالات</a></li>
           <li class="sub-item"><a href="{{ route('admin.blog.create') }}" class="sub-link {{ request()->routeIs('blog.create') ? 'active' : '' }}">إضافة مقال</a></li>
         </ul>
-      </li><!-- br-menu-item -->
-
-      <li class="br-menu-item">
-        <a href="#" class="br-menu-link with-sub {{ request()->is('admin/project/*') || request()->routeIs('project.index') ? 'active' : '' }}">
-          <i class="menu-item-icon icon ion-stats-bars tx-22"></i>
-          <span class="menu-item-label">المشاريع</span>
-        </a><!-- br-menu-link -->
-        <ul class="br-menu-sub">
-          <li class="sub-item"><a href="{{ route('admin.project.index') }}" class="sub-link {{ request()->routeIs('project.index') ? 'active' : '' }}">عرض المشاريع</a></li>
-          <li class="sub-item"><a href="{{ route('admin.project.create') }}" class="sub-link {{ request()->routeIs('project.create') ? 'active' : '' }}">إضافة مشروع</a></li>
-        </ul>
-      </li><!-- br-menu-item -->
-
-      <li class="br-menu-item">
-        <a href="#" class="br-menu-link with-sub {{ request()->is('admin/product/*') || request()->routeIs('product.index') ? 'active' : '' }}">
-          <i class="menu-item-icon icon ion-bag tx-22"></i>
-          <span class="menu-item-label">المنتجات</span>
-        </a><!-- br-menu-link -->
-        <ul class="br-menu-sub">
-          <li class="sub-item"><a href="{{ route('admin.product.index') }}" class="sub-link {{ request()->routeIs('product.index') ? 'active' : '' }}">عرض المنتجات</a></li>
-          <li class="sub-item"><a href="{{ route('admin.product.create') }}" class="sub-link {{ request()->routeIs('product.create') ? 'active' : '' }}">إضافة منتج</a></li>
-        </ul>
-      </li><!-- br-menu-item -->
-
-      <li class="br-menu-item">
-        <a href="#" class="br-menu-link with-sub {{ request()->is('admin/employee/*') || request()->routeIs('employee.index') ? 'active' : '' }}">
-          <i class="menu-item-icon icon ion-ios-body-outline tx-22"></i>
-          <span class="menu-item-label">فريق العمل</span>
-        </a><!-- br-menu-link -->
-        <ul class="br-menu-sub">
-          <li class="sub-item"><a href="{{ route('admin.employee.index') }}" class="sub-link {{ request()->routeIs('employee.index') ? 'active' : '' }}">عرض الموظفين</a></li>
-          <li class="sub-item"><a href="{{ route('admin.employee.create') }}" class="sub-link {{ request()->routeIs('employee.create') ? 'active' : '' }}">إضافة موظف</a></li>
-        </ul>
-      </li><!-- br-menu-item -->
-      
-      <li class="br-menu-item">
-        <a href="{{ route('admin.about.index') }}" class="br-menu-link {{ request()->routeIs('about.index') ? 'active' : '' }}">
-          <i class="menu-item-icon icon ion-ios-information-outline tx-24"></i>
-          <span class="menu-item-label">معلومات الشركة</span>
-        </a><!-- br-menu-link -->
       </li><!-- br-menu-item -->
       <li class="br-menu-item">
         <a href="{{ route('admin.setting.index') }}" class="br-menu-link {{ request()->routeIs('setting.index') ? 'active' : '' }}">

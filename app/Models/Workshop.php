@@ -26,7 +26,7 @@ class Workshop extends Model
         'trainer_img',
         'trainer_descr',
         'trainer_descr_ar',
-        // 'outcome',
+        'status',
     ];
 
     public function runningWorkshops()

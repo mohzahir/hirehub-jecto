@@ -166,7 +166,7 @@
 
       <div class="card-footer mt-2">
         <button class="btn btn-info">إضافة</button>
-        <a href="{{ route('admin.job.index') }}" class="btn btn-secondary">الغاء</a>
+        <a href="{{ route('admin.jobPost.index') }}" class="btn btn-secondary">الغاء</a>
       </div><!-- form-layout-footer -->
       
         

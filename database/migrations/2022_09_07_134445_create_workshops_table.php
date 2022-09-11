@@ -31,7 +31,7 @@ class CreateWorkshopsTable extends Migration
             $table->string('trainer_img')->nullable();
             $table->text('trainer_descr')->nullable();
             $table->text('trainer_descr_ar')->nullable();
-            // $table->text('outcome')->nullable();
+            $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
         });
     }

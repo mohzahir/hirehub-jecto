@@ -11,8 +11,12 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\JobApplicationController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\JobPostController;
+use App\Http\Controllers\RunnigWorkshopController;
+use App\Http\Controllers\RunningWorkshopController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\WebsiteController;
+use App\Http\Controllers\WorkshopApplicationController;
+use App\Http\Controllers\WorkshopController;
 use App\Models\Candidate;
 use App\Models\CVApplication;
 use Illuminate\Support\Facades\Route;
@@ -55,6 +59,8 @@ Route::get('/jobs/{job_post}/job-details', [WebsiteController::class, 'jobDetail
 Route::post('/jobs/{job_post}/submit-job-application', [WebsiteController::class, 'submitJobApplication'])->name('submit.job.application');
 Route::get('/workshops', [WebsiteController::class, 'workshops'])->name('workshops');
 Route::get('/workshops/{running_workshop}/details', [WebsiteController::class, 'workshopDetails'])->name('workshop.details');
+Route::get('/workshops/{running_workshop}/application', [WebsiteController::class, 'runningWorkshopApplication'])->name('running.workshop.application');
+Route::post('/workshops/{running_workshop}/application', [WebsiteController::class, 'runningWorkshopApplicationSubmit'])->name('running.workshop.application.submit');
 Route::get('/about', [WebsiteController::class, 'about'])->name('about');
 Route::get('/contact', [WebsiteController::class, 'contact'])->name('contact');
 Route::post('/contact', [WebsiteController::class, 'SubmitContact'])->name('contact.submit');
@@ -64,7 +70,10 @@ Route::post('/blog-comment/{blog}', [WebsiteController::class, 'blogComment'])->
 Route::get('/cv-writing', [WebsiteController::class, 'cvWriting'])->name('cv.writing');
 Route::get('/cv-writing/{category}/application', [WebsiteController::class, 'cvWritingApplication'])->name('cv.writing.application');
 Route::post('/cv-writing/{category}/application', [WebsiteController::class, 'cvWritingApplicationSubmit'])->name('cv.writing.application.submit');
-
+// For Payment with telr routes
+Route::get('/handle-payment/success', [WebsiteController::class, 'success'])->name('telr.success');
+Route::get('/handle-payment/cancel', [WebsiteController::class, 'cancel'])->name('telr.cancel');
+Route::get('/handle-payment/declined',  [WebsiteController::class, 'decline'])->name('telr.declined');
 
 
 
@@ -81,25 +90,31 @@ Route::prefix('admin')->as('admin.')->middleware('auth:web')->group(function () 
     Route::get('/jobPost/{jobPost}/change-status', [JobPostController::class, 'changeStatus'])->name('jobPost.change.status');
     Route::resource('jobApplication', JobApplicationController::class);
     Route::get('/jobApplication/{jobApplication}/change-status', [JobApplicationController::class, 'changeStatus'])->name('jobApplication.change.status');
-    Route::resource('candidate', CandidateController::class);
-    Route::get('/candidate/{candidate}/change-status', [CandidateController::class, 'changeStatus'])->name('candidate.change.status');
+    Route::resource('workshop', WorkshopController::class);
+    Route::get('/workshop/{workshop}/change-status', [WorkshopController::class, 'changeStatus'])->name('workshop.change.status');
+    Route::resource('running_workshop', RunningWorkshopController::class);
+    Route::get('/running_workshop/{running_workshop}/change-status', [RunningWorkshopController::class, 'changeStatus'])->name('running_workshop.change.status');
+    Route::resource('workshopApplication', WorkshopApplicationController::class);
+    Route::get('/workshopApplication/{workshop_application}/change-status', [WorkshopApplicationController::class, 'changeStatus'])->name('workshop.application.change.status');
     Route::resource('cv-sample', CVSampleController::class);
     Route::resource('cv-category', CVCategoryController::class);
     Route::get('/cv-category/{cv-category}/change-status', [CVCategoryController::class, 'changeStatus'])->name('cv-category.change.status');
     Route::resource('cv-application', CVApplicationController::class);
     Route::get('/cv-application/{application}/change-status', [CVApplicationController::class, 'changeStatus'])->name('cv-application.change.status');
+    Route::resource('candidate', CandidateController::class);
+    Route::get('/candidate/{candidate}/change-status', [CandidateController::class, 'changeStatus'])->name('candidate.change.status');
     Route::resource('blog', BlogController::class);
     Route::get('/blog/{blog}/change-status', [BlogController::class, 'changeStatus'])->name('blog.change.status');
-    Route::resource('product', ProductController::class);
-    Route::get('/product/{product}/change-status', [ProductController::class, 'changeStatus'])->name('product.change.status');
-    Route::resource('employee', EmployeeController::class);
-    Route::get('/employee/{employee}/change-status', [EmployeeController::class, 'changeStatus'])->name('employee.change.status');
-    Route::resource('client', ClientController::class);
-    Route::resource('project', ProjectController::class);
-    Route::get('/project/{project}/change-status', [ProjectController::class, 'changeStatus'])->name('project.change.status');
-    Route::get('/project-img/{image}/destroy', [ProjectImageController::class, 'destroy'])->name('project.image.destroy');
-    Route::get('/about', [AboutController::class, 'index'])->name('about.index');
-    Route::post('/about', [AboutController::class, 'store'])->name('about.store');
+    // Route::resource('product', ProductController::class);
+    // Route::get('/product/{product}/change-status', [ProductController::class, 'changeStatus'])->name('product.change.status');
+    // Route::resource('employee', EmployeeController::class);
+    // Route::get('/employee/{employee}/change-status', [EmployeeController::class, 'changeStatus'])->name('employee.change.status');
+    // Route::resource('client', ClientController::class);
+    // Route::resource('project', ProjectController::class);
+    // Route::get('/project/{project}/change-status', [ProjectController::class, 'changeStatus'])->name('project.change.status');
+    // Route::get('/project-img/{image}/destroy', [ProjectImageController::class, 'destroy'])->name('project.image.destroy');
+    // Route::get('/about', [AboutController::class, 'index'])->name('about.index');
+    // Route::post('/about', [AboutController::class, 'store'])->name('about.store');
     Route::get('/setting', [SettingController::class, 'index'])->name('setting.index');
     Route::post('/setting', [SettingController::class, 'store'])->name('setting.store');
 });

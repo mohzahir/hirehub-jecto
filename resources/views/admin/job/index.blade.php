@@ -28,6 +28,7 @@
           <tr>
             <th>ID</th>
             <th>الصورة</th>
+            <th>القسم</th>
             <th>الاسم العربي</th>
             <th>الاسم الانجليزي</th>
             <th>الحالة</th>
@@ -41,6 +42,7 @@
           <tr>
             <th scope="row">{{ $job->id }}</th>
             <td><img style="width: 50px;height: 50px;" src="{{ asset($job->photo) }}" class="img-fluid img-thumbnail" alt=""></td>
+            <td>{{ $job->category->title_ar }}</td>
             <td>{{ $job->title_ar }}</td>
             <td>{{ $job->title }}</td>
             <td>
@@ -84,6 +86,7 @@
           <tr>
             <th>ID</th>
             <th>الصورة</th>
+            <th>القسم</th>
             <th>الاسم العربي</th>
             <th>الاسم الانجليزي</th>
             <th>الحالة</th>

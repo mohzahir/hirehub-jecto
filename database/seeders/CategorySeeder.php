@@ -57,6 +57,16 @@ class CategorySeeder extends Seeder
                 'photo' => 'jecto/default/assets/img/home-three/feature2.png',
                 'type' =>  'blog',
             ],
+            [
+                'title' => "Management",
+                'title_ar' => "الادارة",
+                'slug' => 'management',
+                'summary' => $faker->sentences(3, true),
+                'summary_ar' => $faker->sentences(3, true),
+                'status' => 'active',
+                'photo' => 'jecto/default/assets/img/home-three/feature2.png',
+                'type' =>  'workshop',
+            ],
         ]);
     }
 }
