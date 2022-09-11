@@ -422,7 +422,7 @@ class WebsiteController extends Controller
 
     public function success(Request $request)
     {
-        dd($request);
+        // dd($request);
         $transaction = Transaction::where('cart_id', $request->cart_id)->first();
         if ($request->session()->get('key') == 'cv_writing') {
             $cv_application = CVApplication::find($transaction->order_id);
@@ -433,6 +433,7 @@ class WebsiteController extends Controller
                 'paid_currency' => $cv_application->CVCategory->cv_price_dollar,
                 'payment_confirmed' => 1,
             ]);
+            return redirect()->route('cv.writing.application', ['category' => $cv_application->CVCategory->id])->with('success', 'You have been registered successfully please wait our feedback');
         } elseif ($request->session()->get('key') == 'workshop') {
             $workshop_application = WorkshopApplication::find($transaction->order_id);
             $workshop_application->update([
@@ -442,9 +443,8 @@ class WebsiteController extends Controller
                 'paid_currency' => $workshop_application->runningWorkshop->price_dollar,
                 'payment_confirmed' => 1,
             ]);
+            return redirect()->route('running.workshop.application', ['running_workshop' => $workshop_application->runningWorkshop->id])->with('success', 'You have been registered successfully please wait our feedback');
         }
-
-        return redirect()->back()->with('success', 'You have been registered successfully please wait our feedback');
     }
 
     public function cancel()
