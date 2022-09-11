@@ -338,7 +338,10 @@ class WebsiteController extends Controller
                 'zip' => '11231',
                 'country' => 'EG',
                 'email' => $validatedData['email'],
+                'phone' => $validatedData['phone'],
             ];
+
+            $request->session()->put('service', 'cv_writing');
 
             return $telrManager->pay($application->id, $application->CVCategory->cv_price_dollar, 'DESCRIPTION ...', $billingParams)->redirect();
         }
@@ -387,41 +390,61 @@ class WebsiteController extends Controller
             return redirect()->back()->with('success', 'You have been registered successfully please wait our feedback');
         } else {
             //telr
+            $validatedData['running_workshop_id'] = $running_workshop->id;
+            // $validatedData['payment_time'] = date('Y-m-d H:m:s');
+            $validatedData['payment_method'] = 'telr';
+            $validatedData['payment_confirmed'] = 0;
+            $validatedData['paid_amount'] = 0;
+            $validatedData['is_replied_to'] = 0;
+            // $validatedData['payment_photo'] = $payment_photo;
+            $application = WorkshopApplication::create($validatedData);
+
+            $telrManager = new TelrManager();
+
+            $billingParams = [
+                'first_name' => $validatedData['name'],
+                'sur_name' => 'Bafi',
+                'address_1' => 'Gnaklis',
+                'address_2' => 'Gnaklis 2',
+                'city' => 'Alexandria',
+                'region' => 'San Stefano',
+                'zip' => '11231',
+                'country' => 'EG',
+                'email' => $validatedData['email'],
+                'phone' => $validatedData['phone'],
+            ];
+
+            $request->session()->put('service', 'workshop');
+
+            return $telrManager->pay($application->id, $application->runningWorkshop->price_dollar, 'DESCRIPTION ...', $billingParams)->redirect();
         }
     }
 
     public function success(Request $request)
     {
-        /* $telrManager = new \TelrGateway\TelrManager();
-        return $telrManager->handleTransactionResponse($request);*/
-        // $reservation_id = session()->get('reservation_id');
+        dd($request);
         $transaction = Transaction::where('cart_id', $request->cart_id)->first();
-
-        $reservation = Reseervation::find($transaction->order_id);
-        $reservation->update([
-            'payment_method' => 'telr',
-            'payment_time' => date('Y-m-d H:i:s'),
-            'paid' => $transaction->amount,
-            'currency' => $reservation->trip->currency,
-            'status' => 'confirmed',
-        ]);
-
-
-        $body = 'حجوزات يمن باص رقم الحجز: ' . $reservation->id . ' تم تاكيد حجزك للمتابعة
-        :https://www.yemenbus.com/passengers/order/' . $reservation->id;
-
-        // $reservation->s_phone != null ? $this->sendSASMS($reservation->s_phone, $body) : $this->sendYESMS($reservation->y_phone, $body);
-        $reservation->passenger->phone ? $this->sendSASMS($reservation->passenger->phone, $body) : $this->sendYESMS($reservation->passenger->y_phone, $body);
-
-        // Send mail to passenger
-        if ($reservation->passenger->email) {
-            // $mailToMarketer = $marketer->email;
-            Mail::to($reservation->passenger->email)->send(new ConfirmReservation($reservation));
+        if ($request->session()->get('key') == 'cv_writing') {
+            $cv_application = CVApplication::find($transaction->order_id);
+            $cv_application->update([
+                'payment_method' => 'telr',
+                'payment_time' => date('Y-m-d H:i:s'),
+                'paid_amount' => $transaction->amount,
+                'paid_currency' => $cv_application->CVCategory->cv_price_dollar,
+                'payment_confirmed' => 1,
+            ]);
+        } elseif ($request->session()->get('key') == 'workshop') {
+            $workshop_application = WorkshopApplication::find($transaction->order_id);
+            $workshop_application->update([
+                'payment_method' => 'telr',
+                'payment_time' => date('Y-m-d H:i:s'),
+                'paid_amount' => $transaction->amount,
+                'paid_currency' => $workshop_application->runningWorkshop->price_dollar,
+                'payment_confirmed' => 1,
+            ]);
         }
 
-        return redirect()->route('passengers.orderDetails', [
-            'id' => $transaction->order_id,
-        ]);
+        return redirect()->back()->with('success', 'You have been registered successfully please wait our feedback');
     }
 
     public function cancel()
