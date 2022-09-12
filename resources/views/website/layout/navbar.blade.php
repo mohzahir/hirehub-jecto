@@ -40,6 +40,13 @@
                     <li class="nav-item">
                         <a href="{{ route('blog') }}" class="nav-link dropdown-toggle {{ request()->routeIs('blog') ? 'active' : '' }}">{{ __('locale.Blog') }}</a>
                     </li>
+                    @foreach($pages as $page)
+                        @if($page->is_navbar_page)
+                        <li class="nav-item">
+                            <a href="{{ url('page/' . $page->slug) }}" class="nav-link dropdown-toggle {{ request()->url() == url('page/' . $page->slug) ? 'active' : '' }}">{{ $locale == 'ar' ? $page->title_ar : $page->title }}</a>
+                        </li>
+                        @endif
+                    @endforeach
                     @if(app()->getLocale() == 'en')
                     <li class="nav-item">
                         <a href="{{ route('set.locale', ['locale' => 'ar']) }}" class="nav-link">
@@ -121,6 +128,13 @@
                         <li class="nav-item">
                             <a href="{{ route('blog') }}" class="nav-link dropdown-toggle {{ request()->routeIs('blog') ? 'active' : '' }}">{{ __('locale.Blog') }}</a>
                         </li>
+                        @foreach($pages as $page)
+                            @if($page->is_navbar_page)
+                            <li class="nav-item">
+                                <a href="{{ url('page/' . $page->slug) }}" class="nav-link dropdown-toggle {{ request()->url() == url('page/' . $page->slug) ? 'active' : '' }}">{{ $locale == 'ar' ? $page->title_ar : $page->title }}</a>
+                            </li>
+                            @endif
+                        @endforeach
                         @if(app()->getLocale() == 'en')
                         <li class="nav-item">
                             <a href="{{ route('set.locale', ['locale' => 'ar']) }}" class="nav-link">

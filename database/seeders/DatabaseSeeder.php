@@ -27,5 +27,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CVSampleSeeder::class);
         \App\Models\Workshop::factory(3)->create();
         \App\Models\RunningWorkshop::factory(10)->create();
+        $this->call(PageSeeder::class);
     }
 }

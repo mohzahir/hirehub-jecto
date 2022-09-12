@@ -11,6 +11,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\JobApplicationController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\JobPostController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\RunnigWorkshopController;
 use App\Http\Controllers\RunningWorkshopController;
 use App\Http\Controllers\SettingController;
@@ -54,6 +55,7 @@ Route::prefix('candidate')->as('candidate.')->middleware('auth:candidate')->grou
     Route::get('/logout', [AuthController::class, 'candidateLogout'])->name('logout');
 });
 Route::get('/', [WebsiteController::class, 'index'])->name('home');
+Route::get('/page/{slug}', [WebsiteController::class, 'page'])->name('custom.page');
 Route::get('/jobs', [WebsiteController::class, 'jobs'])->name('jobs');
 Route::get('/jobs/{job_post}/job-details', [WebsiteController::class, 'jobDetails'])->name('job.details');
 Route::post('/jobs/{job_post}/submit-job-application', [WebsiteController::class, 'submitJobApplication'])->name('submit.job.application');
@@ -105,6 +107,8 @@ Route::prefix('admin')->as('admin.')->middleware('auth:web')->group(function () 
     Route::get('/candidate/{candidate}/change-status', [CandidateController::class, 'changeStatus'])->name('candidate.change.status');
     Route::resource('blog', BlogController::class);
     Route::get('/blog/{blog}/change-status', [BlogController::class, 'changeStatus'])->name('blog.change.status');
+    Route::resource('page', PageController::class);
+    Route::get('/page/{page}/change-status', [PageController::class, 'changeStatus'])->name('page.change.status');
     // Route::resource('product', ProductController::class);
     // Route::get('/product/{product}/change-status', [ProductController::class, 'changeStatus'])->name('product.change.status');
     // Route::resource('employee', EmployeeController::class);

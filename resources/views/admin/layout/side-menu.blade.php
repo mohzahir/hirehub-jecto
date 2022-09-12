@@ -68,6 +68,12 @@
         </ul>
       </li><!-- br-menu-item -->
       <li class="br-menu-item">
+        <a href="{{ route('admin.page.index') }}" class="br-menu-link {{ request()->routeIs('page.index') ? 'active' : '' }}">
+          <i class="menu-item-icon icon ion-ios-people-outline tx-24"></i>
+          <span class="menu-item-label">الصفحات</span>
+        </a><!-- br-menu-link -->
+      </li><!-- br-menu-item -->
+      <li class="br-menu-item">
         <a href="{{ route('admin.setting.index') }}" class="br-menu-link {{ request()->routeIs('setting.index') ? 'active' : '' }}">
           <i class="menu-item-icon icon ion-ios-settings tx-24"></i>
           <span class="menu-item-label">الإعدادات</span>

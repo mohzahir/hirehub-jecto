@@ -15,6 +15,7 @@ use App\Models\CVSample;
 use App\Models\Job;
 use App\Models\JobApplication;
 use App\Models\JobPost;
+use App\Models\Page;
 use App\Models\RunnigWorkshop;
 use App\Models\RunningWorkshop;
 use App\Models\Setting;
@@ -36,6 +37,16 @@ class WebsiteController extends Controller
             'categories' => Category::where('status', 'active')->orderBy('id', 'Desc')->get(),
             'countries' => Country::orderBy('id', 'Desc')->get(),
             'countries_has_jobs' => Country::has('jobPosts')->take(4)->get(),
+        ]);
+    }
+
+    public function page($slug)
+    {
+        // dd($slug);
+        $page = Page::where('slug', $slug)->first();
+        return view('website.page', [
+            'page' => $page,
+            'locale' => app()->getLocale(),
         ]);
     }
     public function jobs(Request $request)
@@ -422,25 +433,25 @@ class WebsiteController extends Controller
 
     public function success(Request $request)
     {
-        // dd($request);
+        // dd($request->session()->get('service'));
         $transaction = Transaction::where('cart_id', $request->cart_id)->first();
-        if ($request->session()->get('key') == 'cv_writing') {
+        if ($request->session()->get('service') == 'cv_writing') {
             $cv_application = CVApplication::find($transaction->order_id);
             $cv_application->update([
                 'payment_method' => 'telr',
                 'payment_time' => date('Y-m-d H:i:s'),
                 'paid_amount' => $transaction->amount,
-                'paid_currency' => $cv_application->CVCategory->cv_price_dollar,
+                'paid_currency' => 'dollar',
                 'payment_confirmed' => 1,
             ]);
             return redirect()->route('cv.writing.application', ['category' => $cv_application->CVCategory->id])->with('success', 'You have been registered successfully please wait our feedback');
-        } elseif ($request->session()->get('key') == 'workshop') {
+        } elseif ($request->session()->get('service') == 'workshop') {
             $workshop_application = WorkshopApplication::find($transaction->order_id);
             $workshop_application->update([
                 'payment_method' => 'telr',
                 'payment_time' => date('Y-m-d H:i:s'),
                 'paid_amount' => $transaction->amount,
-                'paid_currency' => $workshop_application->runningWorkshop->price_dollar,
+                'paid_currency' => 'dollar',
                 'payment_confirmed' => 1,
             ]);
             return redirect()->route('running.workshop.application', ['running_workshop' => $workshop_application->runningWorkshop->id])->with('success', 'You have been registered successfully please wait our feedback');

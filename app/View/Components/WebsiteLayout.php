@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Models\Page;
 use App\Models\Setting;
 use Illuminate\View\Component;
 
@@ -26,6 +27,8 @@ class WebsiteLayout extends Component
     {
         return view('website.layout.main', [
             'setting' => Setting::find(1),
+            'pages' => Page::where('status', 'active')->get(),
+            'locale' => app()->getLocale(),
         ]);
     }
 }

@@ -53,6 +53,7 @@
                         <li>
                             <a href="#" target="_blank">Science & Analytics</a>
                         </li>
+                        
                     </ul>
                 </div>
             </div>
@@ -80,6 +81,13 @@
                         <li>
                             <a href="contact.html" target="_blank">Contact</a>
                         </li>
+                        @foreach($pages as $page)
+                            @if($page->is_footer_page)
+                            <li>
+                                <a href="{{ url('page/' . $page->slug) }}" target="_blank">{{ $locale == 'ar' ? $page->title_ar : $page->title }}</a>
+                            </li>
+                            @endif
+                        @endforeach
                     </ul>
                 </div>
             </div>
