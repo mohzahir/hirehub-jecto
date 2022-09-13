@@ -50,4 +50,10 @@ class JobPost extends Model
     {
         return $this->hasMany(JobApplication::class);
     }
+    public function getCreatedAtAttribute($created_at)
+    {
+        $dt = \Carbon\Carbon::now();
+        $dt2 = new \Carbon\Carbon($created_at);
+        return  $dt2->diffForHumans($dt);
+    }
 }

@@ -43,4 +43,12 @@ class Blog extends Model
     {
         return Blog::where('id', $this->id - 1)->first();
     }
+
+    public function getCreatedAtAttribute($created_at)
+    {
+        // $dt = \Carbon\Carbon::now();
+        // $dt2 = new \Carbon\Carbon($created_at);
+        // return  $dt2->diffForHumans($dt);
+        return date('F d,Y', strtotime($created_at, time()));
+    }
 }

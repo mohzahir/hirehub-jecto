@@ -77,7 +77,7 @@
                     <div class="row align-items-end">
                         <div class="col-lg-8">
                             <div class="left">
-                                <img src="{{ asset($running_workshop->workshop->img) }}" alt="Details">
+                                <img style="width: 76px; height: 103px" src="{{ asset($running_workshop->workshop->img) }}" alt="Details">
                                 <h2>{{ $locale == 'ar' ? $running_workshop->workshop->title_ar : $running_workshop->workshop->title }}</h2>
                                 <ul>
                                     <li>

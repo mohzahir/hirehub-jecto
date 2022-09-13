@@ -54,7 +54,7 @@
                                 </li>
                                 <li>
                                     <i class='bx bx-calendar'></i>
-                                    <span>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $blog->created_at ?? '1970-01-01')->format('M, d Y'); }}</span>
+                                    <span>{{ $blog->created_at ?? '1970-01-01' }}</span>
                                 </li>
                                 <li>
                                     <i class='bx bx-message-rounded-detail'></i>
@@ -119,7 +119,7 @@
                                 @if(App\Models\Blog::orderBy('id', 'desc')->latest()->first()->id != $blog->id)
                                 <div class="col-sm-6 col-lg-6">
                                     <div class="date-inner">
-                                        <span>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $blog->nextBlog()->created_at ?? '1970-01-01')->format('M, d Y'); }}</span>
+                                        <span>{{ $blog->nextBlog()->created_at ?? '1970-01-01'}}</span>
                                         <h4>{{ $locale == 'ar' ? $blog->nextBlog()->title_ar : $blog->nextBlog()->title}}</h4>
                                         <a href="{{ route('blog.details', ['blog' => $blog->nextBlog()->id]) }}">
                                             <i class='bx bx-right-arrow-alt'></i>
@@ -130,7 +130,7 @@
                                 @if(App\Models\Blog::orderBy('id', 'asc')->latest()->first()->id != $blog->id)
                                 <div class="col-sm-6 col-lg-6">
                                     <div class="date-inner">
-                                        <span>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $blog->previousBlog()->created_at ?? '1970-01-01')->format('M, d Y'); }}</span>
+                                        <span>{{ $blog->previousBlog()->created_at ?? '1970-01-01' }}</span>
                                         <h4>{{ $locale == 'ar' ? $blog->previousBlog()->title_ar : $blog->previousBlog()->title }}</h4>
                                         <a href="{{ route('blog.details', ['blog' => $blog->previousBlog()->id]) }}">
                                             <i class='bx bx-right-arrow-alt'></i>
@@ -236,7 +236,7 @@
                                         <img src="{{ asset($r_blog->photo) }}" alt="Details">
                                     </li>
                                     <li>
-                                        <span>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $r_blog->created_at ?? '1970-01-01')->format('M, d Y'); }}</span>
+                                        <span>{{ $r_blog->created_at ?? '1970-01-01' }}</span>
                                         <a href="{{ route('blog.details', ['blog' => $r_blog->id]) }}">{{ $locale == 'ar' ? $r_blog->title_ar : $r_blog->title }}</a>
                                         <p>{{ Str::limit($locale == 'ar' ? $r_blog->content_ar : $r_blog->content , '40') }}</p>
                                     </li>

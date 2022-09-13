@@ -14,7 +14,7 @@
       </nav>
   </x-slot>
   <x-slot name="title">
-    <i class="icon ion-ios-briefcase"></i>
+    <i class="icon ion-ios-paper-outline"></i>
     <div>
       <h4>تعديل صفحة</h4>
       <p class="mg-b-0">هنا يمكنك ادارة معلومات الصفحات والتعديل عليها</p>

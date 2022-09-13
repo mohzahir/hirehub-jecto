@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\CVApplicationController;
 use App\Http\Controllers\CVCategoryController;
 use App\Http\Controllers\CVSampleController;
@@ -109,6 +110,8 @@ Route::prefix('admin')->as('admin.')->middleware('auth:web')->group(function () 
     Route::get('/blog/{blog}/change-status', [BlogController::class, 'changeStatus'])->name('blog.change.status');
     Route::resource('page', PageController::class);
     Route::get('/page/{page}/change-status', [PageController::class, 'changeStatus'])->name('page.change.status');
+    Route::resource('company', CompanyController::class);
+    Route::get('/company/{company}/change-status', [CompanyController::class, 'changeStatus'])->name('company.change.status');
     // Route::resource('product', ProductController::class);
     // Route::get('/product/{product}/change-status', [ProductController::class, 'changeStatus'])->name('product.change.status');
     // Route::resource('employee', EmployeeController::class);

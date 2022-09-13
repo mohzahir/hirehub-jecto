@@ -25,6 +25,16 @@ class CitySeeder extends Seeder
                 'name' => 'Doha',
                 'name_ar' => 'الدوحة',
             ],
+            [
+                'country_id' => '3',
+                'name' => 'Makkah',
+                'name_ar' => 'مكة',
+            ],
+            [
+                'country_id' => '4',
+                'name' => 'Dubai',
+                'name_ar' => 'دبي',
+            ],
         ]);
     }
 }

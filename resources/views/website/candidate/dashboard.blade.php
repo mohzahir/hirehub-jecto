@@ -58,12 +58,12 @@
                                 {{ __('locale.CV Writing Requests') }}
                             </div>
                         </a> -->
-                        <a href="single-resume.html">
+                        <!-- <a href="single-resume.html">
                             <div class="profile-list">
                                 <i class='bx bx-note'></i>
                                 My Resume
                             </div>
-                        </a>
+                        </a> -->
                         <a href="{{ route('candidate.logout') }}">
                             <div class="profile-list">
                                 <i class='bx bx-log-out'></i>

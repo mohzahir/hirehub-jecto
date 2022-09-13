@@ -46,12 +46,7 @@
                                     </li>
                                     <li>
                                         <i class='bx bx-time'></i>
-                                        @php
-                                        $dt = \Carbon\Carbon::now();
-                                        $dt2 = new \Carbon\Carbon($job_post->created_at);
-                                        $time = $dt2->diffForHumans($dt)
-                                        @endphp
-                                        {{ __('locale.Posted Date') }}: {{ $time }}
+                                        {{ __('locale.Posted Date') }}: {{ $job_post->created_at }}
                                     </li>
                                 </ul>
                             </div>

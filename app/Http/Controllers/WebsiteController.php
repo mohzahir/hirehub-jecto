@@ -8,6 +8,7 @@ use App\Models\Blog;
 use App\Models\BlogComment;
 use App\Models\Candidate;
 use App\Models\Category;
+use App\Models\Company;
 use App\Models\Country;
 use App\Models\CVApplication;
 use App\Models\CVCategory;
@@ -34,9 +35,15 @@ class WebsiteController extends Controller
         return view('website.home', [
             'locale' => app()->getLocale(),
             'featured_job_posts' => JobPost::where('status', 'active')->where('is_featured', 1)->get(),
+            'workshops' => RunningWorkshop::where('shown', 1)->take(5)->get(),
             'categories' => Category::where('status', 'active')->orderBy('id', 'Desc')->get(),
             'countries' => Country::orderBy('id', 'Desc')->get(),
             'countries_has_jobs' => Country::has('jobPosts')->take(4)->get(),
+            'companies' => Company::where('status', 'active')->get(),
+            'blogs' => Blog::where('status', 'active')->where('is_featured', '1')->take(3)->get(),
+            'cv_categories' => CVCategory::where('status', 'active')->get(),
+            'cv_samples' => CVSample::all(),
+            'setting' => Setting::find(1),
         ]);
     }
 
@@ -68,7 +75,7 @@ class WebsiteController extends Controller
                     $q->whereIn('job_type', $request->job_type);
                 })
                 ->orderBy('id', 'Desc')->paginate(20),
-            'categories' => Category::where('status', 'active')->orderBy('id', 'Desc')->get(),
+            'categories' => Category::where('status', 'active')->where('type', 'job')->orderBy('id', 'Desc')->get(),
             'countries' => Country::orderBy('id', 'Desc')->get(),
         ]);
     }
@@ -273,7 +280,7 @@ class WebsiteController extends Controller
             'locale' => app()->getLocale(),
             'setting' => Setting::find(1),
             'cv_samples' => CVSample::all(),
-            'categories' => CVCategory::where('status', 'active')->get(),
+            'cv_categories' => CVCategory::where('status', 'active')->get(),
         ]);
     }
     public function cvWritingApplication(CVCategory $category)

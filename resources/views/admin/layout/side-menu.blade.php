@@ -52,13 +52,13 @@
         </ul>
       </li><!-- br-menu-item -->
       <li class="br-menu-item">
-        <a href="{{ route('admin.candidate.index') }}" class="br-menu-link {{ request()->routeIs('candidate.index') ? 'active' : '' }}">
+        <a href="{{ route('admin.candidate.index') }}" class="br-menu-link {{ request()->routeIs('admin.candidate.index') ? 'active' : '' }}">
           <i class="menu-item-icon icon ion-ios-people-outline tx-24"></i>
           <span class="menu-item-label">العملاء</span>
         </a><!-- br-menu-link -->
       </li><!-- br-menu-item -->
       <li class="br-menu-item">
-        <a href="#" class="br-menu-link with-sub {{ request()->is('admin/blog/*') || request()->routeIs('blog.index') ? 'active' : '' }}">
+        <a href="#" class="br-menu-link with-sub {{ request()->is('admin/blog/*') || request()->routeIs('admin.blog.index') ? 'active' : '' }}">
           <i class="menu-item-icon icon ion-android-clipboard tx-22"></i>
           <span class="menu-item-label">المقالات</span>
         </a><!-- br-menu-link -->
@@ -68,13 +68,19 @@
         </ul>
       </li><!-- br-menu-item -->
       <li class="br-menu-item">
-        <a href="{{ route('admin.page.index') }}" class="br-menu-link {{ request()->routeIs('page.index') ? 'active' : '' }}">
-          <i class="menu-item-icon icon ion-ios-people-outline tx-24"></i>
+        <a href="{{ route('admin.page.index') }}" class="br-menu-link {{ request()->routeIs('admin.page.index') ? 'active' : '' }}">
+          <i class="menu-item-icon ion-ios-paper-outline tx-24"></i>
           <span class="menu-item-label">الصفحات</span>
         </a><!-- br-menu-link -->
       </li><!-- br-menu-item -->
       <li class="br-menu-item">
-        <a href="{{ route('admin.setting.index') }}" class="br-menu-link {{ request()->routeIs('setting.index') ? 'active' : '' }}">
+        <a href="{{ route('admin.company.index') }}" class="br-menu-link {{ request()->routeIs('admin.company.index') ? 'active' : '' }}">
+          <i class="menu-item-icon icon ion-android-archive tx-24"></i>
+          <span class="menu-item-label">الشركات</span>
+        </a><!-- br-menu-link -->
+      </li><!-- br-menu-item -->
+      <li class="br-menu-item">
+        <a href="{{ route('admin.setting.index') }}" class="br-menu-link {{ request()->routeIs('admin.setting.index') ? 'active' : '' }}">
           <i class="menu-item-icon icon ion-ios-settings tx-24"></i>
           <span class="menu-item-label">الإعدادات</span>
         </a><!-- br-menu-link -->

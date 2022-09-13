@@ -31,4 +31,9 @@ class RunningWorkshop extends Model
     {
         return $this->hasMany(WorkshopApplication::class, 'running_workshop_id', 'id');
     }
+
+    public function getStartDateAttribute($start_date)
+    {
+        return date('Y-m-d H:i', strtotime($start_date));
+    }
 }

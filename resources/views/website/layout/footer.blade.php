@@ -11,19 +11,19 @@
                     </a>
                     <ul>
                         <li>
-                            <span>Address: </span>
+                            <span>{{ __('locale.Address') }}: </span>
                             {{ $setting->address1 }}
                         </li>
                         <li>
-                            <span>Message: </span>
+                            <span>{{ __('locale.Message') }}: </span>
                             {{ $setting->email1 }}
                         </li>
                         <li>
-                            <span>Phone: </span>
+                            <span>{{ __('locale.Phone') }}: </span>
                             <a href="tel:{{ $setting->phone1 }}">{{ $setting->phone1 }}</a>
                         </li>
                         <li>
-                            <span>Open: </span>
+                            <span>{{ __('locale.Open') }}: </span>
                             {{ $setting->opining_week_day }} - {{ $setting->closing_week_day }} / {{ $setting->opining_hour }} - {{ $setting->closing_hour }}
                         </li>
                     </ul>
@@ -33,25 +33,16 @@
         <div class="col-sm-6 col-lg-3">
             <div class="footer-item three">
                 <div class="footer-service">
-                    <h3>Our Services</h3>
+                    <h3>{{ __('locale.Our Services') }}</h3>
                     <ul>
                         <li>
-                            <a href="#" target="_blank">Accounting</a>
+                            <a href="{{ route('jobs') }}" target="_blank">{{ __('locale.Recruitment/Jobs') }}</a>
                         </li>
                         <li>
-                            <a href="#" target="_blank">Teachers</a>
+                            <a href="{{ route('cv.writing') }}" target="_blank">{{ __('locale.Curriculum Vitae (CV) Writing') }}</a>
                         </li>
                         <li>
-                            <a href="#" target="_blank">Customer Service</a>
-                        </li>
-                        <li>
-                            <a href="#" target="_blank">Digital Marketing</a>
-                        </li>
-                        <li>
-                            <a href="#" target="_blank">Web & Software Dev</a>
-                        </li>
-                        <li>
-                            <a href="#" target="_blank">Science & Analytics</a>
+                            <a href="{{ route('workshops') }}" target="_blank">{{ __('locale.Employment Clinic/Workshops') }}</a>
                         </li>
                         
                     </ul>
@@ -61,25 +52,16 @@
         <div class="col-sm-6 col-lg-2">
             <div class="footer-item three">
                 <div class="footer-service">
-                    <h3>Useful Links</h3>
+                    <h3>{{ __('locale.Useful Links') }}</h3>
                     <ul>
                         <li>
-                            <a href="privacy-policy.html" target="_blank">Privacy Policy</a>
+                            <a href="{{ route('about') }}" target="_blank">{{ __('locale.About') }}</a>
                         </li>
                         <li>
-                            <a href="terms-conditions.html" target="_blank">Terms & Conditions</a>
+                            <a href="{{ route('contact') }}" target="_blank">{{ __('locale.Contact') }}</a>
                         </li>
                         <li>
-                            <a href="jobs.html" target="_blank">Jobs</a>
-                        </li>
-                        <li>
-                            <a href="candidates.html" target="_blank">Candidates</a>
-                        </li>
-                        <li>
-                            <a href="blog.html" target="_blank">Blog</a>
-                        </li>
-                        <li>
-                            <a href="contact.html" target="_blank">Contact</a>
+                            <a href="{{ route('blog') }}" target="_blank">{{ __('locale.Blog') }}</a>
                         </li>
                         @foreach($pages as $page)
                             @if($page->is_footer_page)
@@ -95,12 +77,13 @@
         <div class="col-sm-6 col-lg-3">
             <div class="footer-item three">
                 <div class="footer-newsletter">
-                    <h3>Newsletter</h3>
-                    <p>Lorem ipsum dolor sit amet conscu adipiscing elit sed</p>
+                    <h3>{{ __('locale.Newsletter') }}</h3>
+                    <!-- <p>Lorem ipsum dolor sit amet conscu adipiscing elit sed</p> -->
                     <form class="newsletter-form" data-toggle="validator">
-                        <input type="email" class="form-control" placeholder="Your email*" name="EMAIL" required autocomplete="off">
+                        <input type="email" class="form-control" placeholder="{{ __('locale.Your Email') }}*" name="EMAIL" required autocomplete="off">
                         <button class="btn" type="submit">
-                            <i class="flaticon-send"></i>
+                            <!-- <i class="flaticon-send"></i> -->
+                            <i class="fa fa-paper-plane"></i>
                         </button>
                         <div id="validator-newsletter" class="form-result"></div>
                     </form>

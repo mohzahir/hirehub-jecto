@@ -25,8 +25,10 @@ class DatabaseSeeder extends Seeder
         $this->call(BlogSeeder::class);
         $this->call(BlogCommentSeeder::class);
         $this->call(CVSampleSeeder::class);
-        \App\Models\Workshop::factory(3)->create();
-        \App\Models\RunningWorkshop::factory(10)->create();
+        // \App\Models\Workshop::factory(3)->create();
+        // \App\Models\RunningWorkshop::factory(10)->create();
+        $this->call(WorkshopSeeder::class);
+        $this->call(RunningWorkshopSeeder::class);
         $this->call(PageSeeder::class);
     }
 }

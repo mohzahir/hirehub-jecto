@@ -16,8 +16,8 @@ class PageSeeder extends Seeder
     {
         Page::insert([
             [
-                'title' => 'Terms And Conditions',
-                'title_ar' => 'السياسات والأحكام',
+                'title' => 'Companies',
+                'title_ar' => 'الشركات',
                 'slug' => 'terms-and-conditions',
                 'content' => 'fdfdfdf',
                 'content_ar' => 'نص عربي نص عربي',
