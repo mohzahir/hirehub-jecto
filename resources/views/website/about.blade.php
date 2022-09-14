@@ -117,7 +117,8 @@
             <div class="row">
                 <div class="col-sm-6 col-lg-4">
                     <div class="work-item">
-                        <i class="flaticon-verify"></i>
+                        <!-- <i class="flaticon-verify"></i> -->
+                        <i class="fa fa-check"></i>
                         <span>01</span>
                         <h3>{{ $locale == "ar" ? $setting->feature1_title_ar : $setting->feature1_title }}</h3>
                         <p>{{ $locale == "ar" ? $setting->feature1_descr_ar : $setting->feature1_descr }}</p>
@@ -125,7 +126,8 @@
                 </div>
                 <div class="col-sm-6 col-lg-4">
                     <div class="work-item">
-                        <i class="flaticon-file"></i>
+                        <!-- <i class="flaticon-file"></i> -->
+                        <i class="fa fa-check"></i>
                         <span>02</span>
                         <h3>{{ $locale == "ar" ? $setting->feature2_title_ar : $setting->feature2_title }}</h3>
                         <p>{{ $locale == "ar" ? $setting->feature2_descr_ar : $setting->feature2_descr }}</p>
@@ -133,7 +135,8 @@
                 </div>
                 <div class="col-sm-6 col-lg-4">
                     <div class="work-item">
-                        <i class="flaticon-comment"></i>
+                        <!-- <i class="flaticon-comment"></i> -->
+                        <i class="fa fa-check"></i>
                         <span>03</span>
                         <h3>{{ $locale == "ar" ? $setting->feature3_title_ar : $setting->feature3_title }}</h3>
                         <p>{{ $locale == "ar" ? $setting->feature3_descr_ar : $setting->feature3_descr }}</p>
@@ -141,7 +144,8 @@
                 </div>
                 <div class="col-sm-6 col-lg-4">
                     <div class="work-item">
-                        <i class="flaticon-comment"></i>
+                        <!-- <i class="flaticon-comment"></i> -->
+                        <i class="fa fa-check"></i>
                         <span>04</span>
                         <h3>{{ $locale == "ar" ? $setting->feature4_title_ar : $setting->feature4_title }}</h3>
                         <p>{{ $locale == "ar" ? $setting->feature4_descr_ar : $setting->feature4_descr }}</p>
@@ -149,7 +153,8 @@
                 </div>
                 <div class="col-sm-6 col-lg-4">
                     <div class="work-item">
-                        <i class="flaticon-comment"></i>
+                        <!-- <i class="flaticon-comment"></i> -->
+                        <i class="fa fa-check"></i>
                         <span>05</span>
                         <h3>{{ $locale == "ar" ? $setting->feature5_title_ar : $setting->feature5_title }}</h3>
                         <p>{{ $locale == "ar" ? $setting->feature5_descr_ar : $setting->feature5_descr }}</p>
@@ -157,7 +162,8 @@
                 </div>
                 <div class="col-sm-6 col-lg-4">
                     <div class="work-item">
-                        <i class="flaticon-comment"></i>
+                        <!-- <i class="flaticon-comment"></i> -->
+                        <i class="fa fa-check"></i>
                         <span>06</span>
                         <h3>{{ $locale == "ar" ? $setting->feature6_title_ar : $setting->feature6_title }}</h3>
                         <p>{{ $locale == "ar" ? $setting->feature6_descr_ar : $setting->feature6_descr }}</p>
@@ -178,9 +184,10 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut tur incidunt laborequaerat voluptatem.</p>
                 <ul>
                     <li>
-                        <a class="left-btn" href="#">
-                            {{ __('locale.Upload Your Resume') }}
-                            <i class="flaticon-upload"></i>
+                        <a class="left-btn" href="{{ route('jobs') }}">
+                            {{ __('locale.Find A Job') }}
+                            <!-- <i class="flaticon-upload"></i> -->
+                            <i class="fa fa-briefcase"></i>
                         </a>
                     </li>
                     <li>

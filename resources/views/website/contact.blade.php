@@ -36,8 +36,8 @@
             <div class="row">
                 <div class="col-sm-6 col-lg-4">
                     <div class="info-item">
-                        <i class='bx bx-world'></i>
-                        <h3>San Francisco</h3>
+                        <i class='bx bx-phone'></i>
+                        <!-- <h3>San Francisco</h3> -->
                         <p>{{ $setting->address1 }}</p>
                         <ul>
                             <li>
@@ -51,8 +51,8 @@
                 </div>
                 <div class="col-sm-6 col-lg-4">
                     <div class="info-item">
-                        <i class='bx bx-world'></i>
-                        <h3>India Office</h3>
+                        <i class='bx bx-phone'></i>
+                        <!-- <h3>India Office</h3> -->
                         <p>{{ $setting->address2 }}</p>
                         <ul>
                             <li>
@@ -66,8 +66,8 @@
                 </div>
                 <div class="col-sm-6 offset-sm-3 offset-lg-0 col-lg-4">
                     <div class="info-item">
-                        <i class='bx bx-world'></i>
-                        <h3>UK Office</h3>
+                        <i class='bx bx-phone'></i>
+                        <!-- <h3>UK Office</h3> -->
                         <p>{{ $setting->address3 }}</p>
                         <ul>
                             <li>
@@ -105,20 +105,6 @@
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>
-                        <!-- <div class="col-sm-6 col-lg-6">
-                            <div class="form-group">
-                                <label>{{ __('locale.Phone') }}</label>
-                                <input type="text" name="phone_number" id="phone_number" required data-error="Please enter your number" class="form-control">
-                                <div class="help-block with-errors"></div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-6">
-                            <div class="form-group">
-                                <label>{{ __('locale.Subject') }}</label>
-                                <input type="text" name="msg_subject" id="msg_subject" class="form-control" required data-error="Please enter your subject">
-                                <div class="help-block with-errors"></div>
-                            </div>
-                        </div> -->
                         <div class="col-md-12 col-lg-12">
                             <div class="form-group">
                                 <label>{{ __('locale.Message') }}</label>
@@ -126,17 +112,6 @@
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>
-                        <!-- <div class="col-lg-12 col-md-12">
-                            <div class="form-group">
-                                <div class="form-check agree-label">
-                                    <input name="gridCheck" value="I agree to the terms and privacy policy." class="form-check-input" type="checkbox" id="gridCheck" required>
-                                    <label class="form-check-label" for="gridCheck">
-                                        Accept <a href="terms-condition.html">Terms & Conditions</a> And <a href="privacy-policy.html">Privacy Policy.</a>
-                                    </label>
-                                    <div class="help-block with-errors gridCheck-error"></div>
-                                </div>
-                            </div>
-                        </div> -->
                         <div class="col-md-12 col-lg-12">
                             <button type="submit" class="btn">
                                 {{ __('locale.Send Message') }}
@@ -149,6 +124,41 @@
             </div>
         </div>
     </div>
+    <!-- <div class="blog-details-area pb-100">
+        <div class="container">
+            <div class="details-item">
+                <div class="details-form">
+                    <h3>{{ __('locale.Leave A Comment') }}</h3>
+                    <form action="{{ route('contact.submit') }}" method="post">
+                        @csrf
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <i class='bx bx-user'></i>
+                                    <input type="text" name="name" value="{{ old('name') }}" class="form-control" placeholder="{{ __('locale.Name') }}*">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <i class='bx bx-mail-send'></i>
+                                    <input type="email" name="email" value="{{ old('email') }}" class="form-control" placeholder="{{ __('locale.Email') }}*">
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <i class='bx bx-mail-send'></i>
+                                    <textarea id="your-message" rows="10" name="message" class="form-control" placeholder="{{ __('locale.Write message') }}">{{ old('message') }}</textarea>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <button type="submit" class="btn">{{ __('locale.Post A Comment') }}</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div> -->
 
 
     <div class="map-area">

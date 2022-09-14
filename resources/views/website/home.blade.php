@@ -293,10 +293,10 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut tur incidunt laborequaerat voluptatem.</p>
                 <ul>
                     <li>
-                        <a class="left-btn" href="#">
-                            {{ __('locale.Upload Your Resume') }}
+                        <a class="left-btn" href="{{ route('jobs') }}">
+                            {{ __('locale.Find A Job') }}
                             <!-- <i class="flaticon-upload"></i> -->
-                            <i class="fa-solid fa-upload"></i>
+                            <i class="fa fa-briefcase"></i>
                         </a>
                     </li>
                     <li>
