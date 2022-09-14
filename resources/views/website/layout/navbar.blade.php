@@ -73,7 +73,7 @@
                         <!-- <i class="flaticon-enter"></i> -->
                         <!-- <i class='bx bxs-door-open'></i> -->
                         <i class="fa-solid fa-door-open"></i>
-                        {{ __('locale.Login') }}/{{ __('locale.Register') }}
+                        {{ __('locale.Login') }}
                     </a>
                     @endif
                     <a class="job-right" href="{{ route('jobs') }}">
@@ -161,7 +161,7 @@
                             <!-- <i class="flaticon-enter"></i> -->
                             <!-- <i class='bx bxs-door-open'></i> -->
                             <i class="fa-solid fa-door-open"></i>
-                            {{ __('locale.Login') }}/{{ __('locale.Register') }}
+                            {{ __('locale.Login') }}
                         </a>
                         @endif
                         <a class="job-right" href="{{ route('jobs') }}">

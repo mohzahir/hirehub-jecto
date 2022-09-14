@@ -9,7 +9,7 @@
         </nav>
     </x-slot>
     <x-slot name="title">
-        <i class="icon ion-android-notifications"></i>
+        <i class="icon ion-ios-calculator-outline"></i>
         <div>
             <h4>{{ $jobPost->title_ar }}</h4>
             <p class="mg-b-0">هنا يمكنك ادارة معلومات إعلانات الوظائف والتعديل عليها</p>

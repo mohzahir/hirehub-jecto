@@ -7,7 +7,7 @@
       </nav>
   </x-slot>
   <x-slot name="title">
-    <i class="icon ion-android-archive"></i>
+    <i class="icon ion-ios-bell-outline"></i>
     <div>
       <h4>إدارة الشركات</h4>
       <p class="mg-b-0">هنا يمكنك ادارة معلومات الشركات والتعديل عليها</p>

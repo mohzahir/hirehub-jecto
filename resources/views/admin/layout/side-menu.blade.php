@@ -20,7 +20,7 @@
       </li><!-- br-menu-item -->
       <li class="br-menu-item">
         <a href="#" class="br-menu-link with-sub {{ request()->is('admin/job/*') || request()->routeIs('admin.job.index') || request()->is('admin/jobPost/*') || request()->routeIs('admin.jobPost.index') || request()->is('admin/jobApplication/*') || request()->routeIs('admin.jobApplication.index') ? 'active' : '' }}">
-          <i class="menu-item-icon icon ion-ios-briefcase tx-22"></i>
+          <i class="menu-item-icon icon ion-ios-briefcase-outline tx-22"></i>
           <span class="menu-item-label">الوظائف</span>
         </a><!-- br-menu-link -->
         <ul class="br-menu-sub">
@@ -31,7 +31,7 @@
       </li><!-- br-menu-item -->
       <li class="br-menu-item">
         <a href="#" class="br-menu-link with-sub {{ request()->is('admin/job/*') || request()->routeIs('admin.workshop.index') || request()->is('admin/running_workshop/*') || request()->routeIs('admin.running_workshop.index') || request()->is('admin/workshopApplication/*') || request()->routeIs('admin.workshopApplication.index') ? 'active' : '' }}">
-          <i class="menu-item-icon icon ion-ios-briefcase tx-22"></i>
+          <i class="menu-item-icon icon ion-ios-calculator-outline tx-22"></i>
           <span class="menu-item-label">ورش العمل</span>
         </a><!-- br-menu-link -->
         <ul class="br-menu-sub">
@@ -75,7 +75,7 @@
       </li><!-- br-menu-item -->
       <li class="br-menu-item">
         <a href="{{ route('admin.company.index') }}" class="br-menu-link {{ request()->routeIs('admin.company.index') ? 'active' : '' }}">
-          <i class="menu-item-icon icon ion-android-archive tx-24"></i>
+          <i class="menu-item-icon icon ion-ios-bell-outline tx-24"></i>
           <span class="menu-item-label">الشركات</span>
         </a><!-- br-menu-link -->
       </li><!-- br-menu-item -->
