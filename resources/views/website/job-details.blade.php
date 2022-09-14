@@ -189,7 +189,7 @@
                                 <li>
                                     <img src="{{ asset('jecto/default/assets/img/job-details-icon.png') }}" alt="Details">
                                     <h4>{{ __('locale.Posted Date') }}</h4>
-                                    <span>{{ $time }}</span>
+                                    <span>{{ $job_post->created_at }}</span>
                                 </li>
                                 <li>
                                     <img src="{{ asset('jecto/default/assets/img/job-details-icon.png') }}" alt="Details">

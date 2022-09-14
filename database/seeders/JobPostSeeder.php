@@ -98,7 +98,38 @@ class JobPostSeeder extends Seeder
                 <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true.</p>
                 </div>
                 ",
-                'descr_ar' => 'نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي',
+                'descr_ar' => "
+                <div class=\"details-inner\">
+                <h3>الوصف الوظيفي</h3>
+                <p>Lorem Ipsum هو ببساطة نص وهمي لصناعة الطباعة والتنضيد. كان Lorem Ipsum هو النص الوهمي القياسي في الصناعة منذ 1500s ، عندما أخذت طابعة غير معروفة مطبخا من النوع وسارعت به لصنع كتاب عينة من النوع. لقد نجت ليس فقط من خمسة قرون ، ولكن أيضا من القفزة في التنضيد الإلكتروني ، وبقيت دون تغيير جوهري.</p>
+                </div>
+                <div class=\"details-inner\">
+                <h3>شركتنا</h3>
+                <p>إنها حقيقة راسخة منذ فترة طويلة أن القارئ سوف يصرف انتباهه عن المحتوى القابل للقراءة للصفحة عند النظر إلى تخطيطها. الهدف من استخدام Lorem Ipsum هو أنه يحتوي على توزيع طبيعي إلى حد ما للحروف ، بدلا من استخدام المحتوى هنا ، المحتوى هنا.</p>
+                </div>
+                
+                <div class=\"details-inner\">
+                <h3>مسؤوليات الوظيفة</h3>
+                <ul>
+                <li>
+                <i class='bx bx-message-square-check'></i>
+                يريدون أن يعرفوا أنك لم تكن تكذب على سيرتك الذاتية بشأن المسؤوليات.
+                </li>
+                <li>
+                <i class='bx bx-message-square-check'></i>
+                إنهم يريدون التحقق مما إذا كانت مسؤوليات وظيفتك تتداخل مع الدور المعروض.
+                </li>
+                <li>
+                <i class='bx bx-message-square-check'></i>
+                إنهم يريدون أن يجعلوك مرتاحا. دعونا نواجه الأمر. إنه سؤال سهل.
+                </li>
+                <li>
+                <i class='bx bx-message-square-check'></i>
+                يريدونك أن تتوسع في النقاط التي أدرجتها في سيرتك الذاتية.
+                </li>
+                <li>
+                <i class
+                ",
                 'salary_from' => '2000',
                 'salary_to' => '3000',
                 'experience' => '2',
@@ -190,7 +221,38 @@ class JobPostSeeder extends Seeder
                 <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true.</p>
                 </div>
                 ",
-                'descr_ar' => 'نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي',
+                'descr_ar' => "
+                <div class=\"details-inner\">
+                <h3>الوصف الوظيفي</h3>
+                <p>Lorem Ipsum هو ببساطة نص وهمي لصناعة الطباعة والتنضيد. كان Lorem Ipsum هو النص الوهمي القياسي في الصناعة منذ 1500s ، عندما أخذت طابعة غير معروفة مطبخا من النوع وسارعت به لصنع كتاب عينة من النوع. لقد نجت ليس فقط من خمسة قرون ، ولكن أيضا من القفزة في التنضيد الإلكتروني ، وبقيت دون تغيير جوهري.</p>
+                </div>
+                <div class=\"details-inner\">
+                <h3>شركتنا</h3>
+                <p>إنها حقيقة راسخة منذ فترة طويلة أن القارئ سوف يصرف انتباهه عن المحتوى القابل للقراءة للصفحة عند النظر إلى تخطيطها. الهدف من استخدام Lorem Ipsum هو أنه يحتوي على توزيع طبيعي إلى حد ما للحروف ، بدلا من استخدام المحتوى هنا ، المحتوى هنا.</p>
+                </div>
+                
+                <div class=\"details-inner\">
+                <h3>مسؤوليات الوظيفة</h3>
+                <ul>
+                <li>
+                <i class='bx bx-message-square-check'></i>
+                يريدون أن يعرفوا أنك لم تكن تكذب على سيرتك الذاتية بشأن المسؤوليات.
+                </li>
+                <li>
+                <i class='bx bx-message-square-check'></i>
+                إنهم يريدون التحقق مما إذا كانت مسؤوليات وظيفتك تتداخل مع الدور المعروض.
+                </li>
+                <li>
+                <i class='bx bx-message-square-check'></i>
+                إنهم يريدون أن يجعلوك مرتاحا. دعونا نواجه الأمر. إنه سؤال سهل.
+                </li>
+                <li>
+                <i class='bx bx-message-square-check'></i>
+                يريدونك أن تتوسع في النقاط التي أدرجتها في سيرتك الذاتية.
+                </li>
+                <li>
+                <i class
+                ",
                 'salary_from' => '4000',
                 'salary_to' => '5000',
                 'experience' => '1',
@@ -282,7 +344,38 @@ class JobPostSeeder extends Seeder
                 <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true.</p>
                 </div>
                 ",
-                'descr_ar' => 'نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي',
+                'descr_ar' => "
+                <div class=\"details-inner\">
+                <h3>الوصف الوظيفي</h3>
+                <p>Lorem Ipsum هو ببساطة نص وهمي لصناعة الطباعة والتنضيد. كان Lorem Ipsum هو النص الوهمي القياسي في الصناعة منذ 1500s ، عندما أخذت طابعة غير معروفة مطبخا من النوع وسارعت به لصنع كتاب عينة من النوع. لقد نجت ليس فقط من خمسة قرون ، ولكن أيضا من القفزة في التنضيد الإلكتروني ، وبقيت دون تغيير جوهري.</p>
+                </div>
+                <div class=\"details-inner\">
+                <h3>شركتنا</h3>
+                <p>إنها حقيقة راسخة منذ فترة طويلة أن القارئ سوف يصرف انتباهه عن المحتوى القابل للقراءة للصفحة عند النظر إلى تخطيطها. الهدف من استخدام Lorem Ipsum هو أنه يحتوي على توزيع طبيعي إلى حد ما للحروف ، بدلا من استخدام المحتوى هنا ، المحتوى هنا.</p>
+                </div>
+                
+                <div class=\"details-inner\">
+                <h3>مسؤوليات الوظيفة</h3>
+                <ul>
+                <li>
+                <i class='bx bx-message-square-check'></i>
+                يريدون أن يعرفوا أنك لم تكن تكذب على سيرتك الذاتية بشأن المسؤوليات.
+                </li>
+                <li>
+                <i class='bx bx-message-square-check'></i>
+                إنهم يريدون التحقق مما إذا كانت مسؤوليات وظيفتك تتداخل مع الدور المعروض.
+                </li>
+                <li>
+                <i class='bx bx-message-square-check'></i>
+                إنهم يريدون أن يجعلوك مرتاحا. دعونا نواجه الأمر. إنه سؤال سهل.
+                </li>
+                <li>
+                <i class='bx bx-message-square-check'></i>
+                يريدونك أن تتوسع في النقاط التي أدرجتها في سيرتك الذاتية.
+                </li>
+                <li>
+                <i class
+                ",
                 'salary_from' => '2000',
                 'salary_to' => '3000',
                 'experience' => '2',
@@ -374,7 +467,79 @@ class JobPostSeeder extends Seeder
                 <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true.</p>
                 </div>
                 ",
-                'descr_ar' => 'نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي نص عربي',
+                'descr_ar' => "
+                <div class=\"details-inner\">
+                <h3>الوصف الوظيفي</h3>
+                <p>Lorem Ipsum هو ببساطة نص وهمي لصناعة الطباعة والتنضيد. كان Lorem Ipsum هو النص الوهمي القياسي في الصناعة منذ 1500s ، عندما أخذت طابعة غير معروفة مطبخا من النوع وسارعت به لصنع كتاب عينة من النوع. لقد نجت ليس فقط من خمسة قرون ، ولكن أيضا من القفزة في التنضيد الإلكتروني ، وبقيت دون تغيير جوهري.</p>
+                </div>
+                <div class=\"details-inner\">
+                <h3>شركتنا</h3>
+                <p>إنها حقيقة راسخة منذ فترة طويلة أن القارئ سوف يصرف انتباهه عن المحتوى القابل للقراءة للصفحة عند النظر إلى تخطيطها. الهدف من استخدام Lorem Ipsum هو أنه يحتوي على توزيع طبيعي إلى حد ما للحروف ، بدلا من استخدام المحتوى هنا ، المحتوى هنا.</p>
+                </div>
+                
+                <div class=\"details-inner\">
+                <h3>مسؤوليات الوظيفة</h3>
+                <ul>
+                <li>
+                <i class='bx bx-message-square-check'></i>
+                يريدون أن يعرفوا أنك لم تكن تكذب على سيرتك الذاتية بشأن المسؤوليات.
+                </li>
+                <li>
+                <i class='bx bx-message-square-check'></i>
+                إنهم يريدون التحقق مما إذا كانت مسؤوليات وظيفتك تتداخل مع الدور المعروض.
+                </li>
+                <li>
+                <i class='bx bx-message-square-check'></i>
+                إنهم يريدون أن يجعلوك مرتاحا. دعونا نواجه الأمر. إنه سؤال سهل.
+                </li>
+                <li>
+                <i class='bx bx-message-square-check'></i>
+                يريدونك أن تتوسع في النقاط التي أدرجتها في سيرتك الذاتية.
+                </li>
+                <li>
+                <i class='bx bx-message-square-check'></i>
+                إنهم يريدون أن يجعلوك مرتاحا. دعونا نواجه الأمر. إنه سؤال سهل.
+                </li>
+                <li>
+                <i class='bx bx-message-square-check'></i>
+                إنهم يريدون التحقق مما إذا كانت مسؤوليات وظيفتك تتداخل مع الدور المعروض.
+                </li>
+                <li>
+                <i class='bx bx-message-square-check'></i>
+                تريد منك التوسع في النقاط التي أدرجتها في سيرتك الذاتية.
+                </li>
+                </ul>
+                </div>
+                <div class=\"details-inner\">
+                <h3>مسؤوليات الوظيفة</h3>
+                <ul>
+                <li>
+                <i class='bx bx-message-square-check'></i>
+                القدرة على العمل تحت الضغط
+                </li>
+                <li>
+                <i class='bx bx-message-square-check'></i>
+                مهارات المشاريع وريادة الأعمال
+                </li>
+                <li>
+                <i class='bx bx-message-square-check'></i>
+                التفاوض والإقناع
+                </li>
+                <li>
+                <i class='bx bx-message-square-check'></i>
+                فهم من أين يأتي الشخص الآخر حتى تتمكن من الحصول على ما
+                </li>
+                </ul>
+                </div>
+                <div class=\"details-inner\">
+                <h3>رسالتنا</h3>
+                <p>Lorem Ipsum هو ببساطة نص وهمي لصناعة الطباعة والتنضيد. كان Lorem Ipsum هو النص الوهمي القياسي في الصناعة منذ 1500s ، عندما أخذت طابعة غير معروفة مطبخا من النوع وسارعت به لصنع كتاب عينة من النوع. لقد نجت ليس فقط من خمسة قرون ، ولكن أيضا من القفزة في التنضيد الإلكتروني ، وبقيت دون تغيير جوهري.</p>
+                </div>
+                <div class=\"details-inner\">
+                <h3>رؤيتنا</h3>
+                <p>هناك العديد من الاختلافات في مقاطع Lorem Ipsum المتاحة ، لكن الغالبية عانت من تغيير في شكل ما ، عن طريق الفكاهة المحقونة ، أو الكلمات العشوائية التي لا تبدو قابلة للتصديق قليلا. إذا كنت ستستخدم مقطعا من Lorem Ipsum ، فأنت بحاجة إلى التأكد من عدم وجود أي شيء محرج مخفي في منتصف النص. تميل جميع مولدات Lorem Ipsum على الإنترنت إلى تكرار أجزاء محددة مسبقا حسب الضرورة ، مما يجعل هذا هو أول شيء صحيح.</p>
+                </div>
+                ",
                 'salary_from' => '4000',
                 'salary_to' => '5000',
                 'experience' => '1',
