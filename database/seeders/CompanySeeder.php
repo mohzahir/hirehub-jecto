@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Country;
+use App\Models\Company;
 use Illuminate\Database\Seeder;
 
-class CountrySeeder extends Seeder
+class CompanySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +14,7 @@ class CountrySeeder extends Seeder
      */
     public function run()
     {
-        Country::insert([
+        Company::insert([
             [
                 'name' => 'company1',
                 'name_ar' => 'شركة1',
