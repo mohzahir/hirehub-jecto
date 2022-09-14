@@ -83,7 +83,7 @@ Route::get('/handle-payment/declined',  [WebsiteController::class, 'decline'])->
 Route::get('/login', [AuthController::class, 'showAdminLoginForm'])->name('admin.login.form');
 Route::post('/login', [AuthController::class, 'submitAdminLoginForm'])->name('admin.login.submit');
 Route::prefix('admin')->as('admin.')->middleware('auth:web')->group(function () {
-    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::post('/logout', [AuthController::class, 'adminLogout'])->name('logout');
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('category', CategoryController::class);
     Route::get('/category/{category}/change-status', [CategoryController::class, 'changeStatus'])->name('category.change.status');

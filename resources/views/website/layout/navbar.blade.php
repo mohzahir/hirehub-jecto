@@ -65,7 +65,7 @@
                     @if(auth()->guard('candidate')->check())
                     <a class="login-left" href="{{ route('candidate.dashboard') }}">
                         <!-- <i class="flaticon-enter"></i> -->
-                        <i class='bx bxs-dashboard'></i>
+                        <i class='fa fa-dashboard'></i>
                         {{ __('locale.Dashboard') }}
                     </a>
                     @else
@@ -76,10 +76,10 @@
                         {{ __('locale.Login') }}/{{ __('locale.Register') }}
                     </a>
                     @endif
-                    <!-- <a class="job-right" href="post-a-job.html">
-                        Post A Job
-                        <i class='bx bx-plus'></i>
-                    </a> -->
+                    <a class="job-right" href="{{ route('jobs') }}">
+                        {{ __('locale.Find A Job') }}
+                        <i class='fa fa-briefcase'></i>
+                    </a>
                 </div>
             </div>
         </nav>
@@ -153,7 +153,7 @@
                         @if(auth()->guard('candidate')->check())
                         <a class="login-left" href="{{ route('candidate.dashboard') }}">
                             <!-- <i class="flaticon-enter"></i> -->
-                            <i class='bx bxs-dashboard'></i>
+                            <i class='fa fa-dashboard'></i>
                             {{ __('locale.Dashboard') }}
                         </a>
                         @else
@@ -164,10 +164,10 @@
                             {{ __('locale.Login') }}/{{ __('locale.Register') }}
                         </a>
                         @endif
-                        <!-- <a class="job-right" href="post-a-job.html">
-                            Post A Job
-                            <i class='bx bx-plus'></i>
-                        </a> -->
+                        <a class="job-right" href="{{ route('jobs') }}">
+                            {{ __('locale.Find A Job') }}
+                            <i class='fa fa-briefcase'></i>
+                        </a>
                     </div>
                 </div>
             </nav>
