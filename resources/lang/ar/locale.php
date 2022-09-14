@@ -202,6 +202,12 @@ return [
     "More of workshops are waiting for you" => "المزيد من ورش العمل بانتظارك",
     "Browse All Workshops" => "تصفح جميع ورش العمل",
     "Employment Clinic Workshops" => "ورش عمل عيادة التوظيف",
+    "Testimonials" => "اراء العملاء",
+    "Our Trusted Clients" => "مايقوله عملائنا عننا",
+    "CV Writing Working Process" => "طريقة الحصول على سيرة زاتية",
+    "Contact And Sending CV" => "التواصل وارسال السيرة الذاتية",
+    "Contact And Sending CV Description" => "التواصل وارسال السيرة الذاتية",
+
 
 
 

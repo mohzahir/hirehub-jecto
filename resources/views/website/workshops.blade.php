@@ -12,7 +12,7 @@
                         <ul>
                             <li>
                                 <img src="{{ asset('jecto/default/assets/img/home-three/title-img-two.png') }}" alt="Image">
-                                <a href="index.html">{{ __('locale.Home') }}</a>
+                                <a href="{{ route('home') }}">{{ __('locale.Home') }}</a>
                             </li>
                             <li>
                                 <span>/</span>
@@ -120,25 +120,7 @@
                 </div>
                 @endforeach
             </div>
-            <div class="pagination-area">
-                <ul>
-                    <li>
-                        <a href="#">Prev</a>
-                    </li>
-                    <li>
-                        <a href="#">1</a>
-                    </li>
-                    <li>
-                        <a href="#">2</a>
-                    </li>
-                    <li>
-                        <a href="#">3</a>
-                    </li>
-                    <li>
-                        <a href="#">Next</a>
-                    </li>
-                </ul>
-            </div>
+            {{ $running_workshops->links() }}
         </div>
     </div>
 

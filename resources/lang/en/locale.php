@@ -201,4 +201,8 @@ return [
     "More of workshops are waiting for you" => "More of workshops are waiting for you",
     "Browse All Workshops" => "Browse All Workshops",
     "Employment Clinic Workshops" => "Employment Clinic Workshops",
+    "Testimonials" => "Testimonials",
+    "CV Writing Working Process" => "CV Writing Working Process",
+    "Our Trusted Clients" => "Our Trusted Clients",
+    "Contact And Sending CV" => "Contact And Sending CV",
 ];

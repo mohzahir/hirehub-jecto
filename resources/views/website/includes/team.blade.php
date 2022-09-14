@@ -21,10 +21,8 @@
                     </ul>
                     <div class="cmn-link">
                         <a href="single-resume.html">
-                            <!-- <i class="flaticon-right-arrow one"></i> -->
                             <i class="fa-solid fa-arrow-right-long one"></i>
                             View Resume
-                            <!-- <i class="flaticon-right-arrow two"></i> -->
                             <i class="fa-solid fa-arrow-right-long one"></i>
                         </a>
                     </div>

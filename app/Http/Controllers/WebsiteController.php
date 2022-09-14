@@ -61,6 +61,7 @@ class WebsiteController extends Controller
         // dd($request->all());
         return view('website.jobs', [
             'locale' => app()->getLocale(),
+            'setting' => Setting::find(1),
             'jobs' => JobPost::query()
                 ->when($request->search_text, function ($q) use ($request) {
                     $q->where('title', 'like', '%' . $request->search_text . '%')->orWhere('title_ar', 'like', '%' . $request->search_text . '%');
@@ -74,7 +75,7 @@ class WebsiteController extends Controller
                 ->when($request->job_type[0] ?? null, function ($q) use ($request) {
                     $q->whereIn('job_type', $request->job_type);
                 })
-                ->orderBy('id', 'Desc')->paginate(20),
+                ->orderBy('id', 'Desc')->paginate(10),
             'categories' => Category::where('status', 'active')->where('type', 'job')->orderBy('id', 'Desc')->get(),
             'countries' => Country::orderBy('id', 'Desc')->get(),
         ]);
@@ -223,7 +224,9 @@ class WebsiteController extends Controller
 
     public function contact()
     {
-        return view('website.contact');
+        return view('website.contact', [
+            'setting' => Setting::find(1),
+        ]);
     }
 
     public function SubmitContact(Request $request)

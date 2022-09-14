@@ -10,7 +10,7 @@
                         <ul>
                             <li>
                                 <img src="{{ asset('jecto/default/assets/img/home-three/title-img-two.png') }}" alt="Image">
-                                <a href="index.html">{{ __('locale.Home') }}</a>
+                                <a href="{{ route('home') }}">{{ __('locale.Home') }}</a>
                             </li>
                             <li>
                                 <span>/</span>
@@ -55,7 +55,7 @@
                     @foreach($jobs as $job)
                     <div class="employer-item">
                         <a href="{{ route('job.details', ['job_post' => $job->id]) }}">
-                            <img src="{{ asset('jecto/default/assets/img/home-one/job1.png') }}" alt="Employer">
+                            <img style="max-width: 61px; max-height: 71px;" src="{{ asset($setting->logo1) }}" alt="Employer">
                             <h3>{{ $locale == 'ar' ? $job->title_ar : $job->title }}</h3>
                             <ul>
                                 <li>
@@ -75,7 +75,7 @@
                     <p class="text-center text-danger">No Available Jobs</p>
                     @endif
                     
-                    {!! $jobs->links('website.layout.custom_pagination') !!}
+                    {!! $jobs->links() !!}
                 </div>
                 <div class="col-lg-4">
                     <div class="job-list-right">
@@ -185,11 +185,11 @@
                         @include('website.includes.job-alert', ['class' => 'mt-4'])
 
                         <div class="jecto-contact">
-                            <img src="{{ asset('jecto/default/assets/img/jecto-conatct.png') }}" alt="Jecto">
+                            <img style="max-height: 59px;max-width: 231px;" src="{{ asset($setting->logo1) }}" alt="hirehub">
                             <div class="bottom">
                                 <span>{{ __('locale.Contact Now') }}</span>
                                 <h3>
-                                    <a href="tel:+123987334">+123-987-334</a>
+                                    <a href="tel:{{ $setting->phone1 }}">{{ $setting->phone1 }}</a>
                                 </h3>
                             </div>
                         </div>

@@ -14,7 +14,7 @@
                         <ul>
                             <li>
                                 <img src="{{ asset('jecto/default/assets/img/home-three/title-img-two.png') }}" alt="Image">
-                                <a href="index.html">{{ __('locale.Home') }}</a>
+                                <a href="{{ route('home') }}">{{ __('locale.Home') }}</a>
                             </li>
                             <li>
                                 <span>/</span>
@@ -38,13 +38,13 @@
                     <div class="info-item">
                         <i class='bx bx-world'></i>
                         <h3>San Francisco</h3>
-                        <p>54 Hegmann Uninuo Apt. 890, New York, NY 10018, United States.</p>
+                        <p>{{ $setting->address1 }}</p>
                         <ul>
                             <li>
-                                <span>Mobile:</span> <a href="tel:+44457895789">(+44) - 45789 - 5789</a>
+                                <span>{{ __('locale.Phone') }}:</span> <a href="tel:{{ $setting->phone1 }}">{{ $setting->phone1 }}</a>
                             </li>
                             <li>
-                                <span>Email:</span> <a href="/cdn-cgi/l/email-protection#e38a8d858ca3898680978ccd808c8e"><span class="__cf_email__" data-cfemail="523b3c343d12383731263d7c313d3f">[email&#160;protected]</span></a>
+                                <span>{{ __('locale.Email') }}:</span> <a href="{{ $setting->email1 }}">{{ $setting->email1 }}</a>
                             </li>
                         </ul>
                     </div>
@@ -53,13 +53,13 @@
                     <div class="info-item">
                         <i class='bx bx-world'></i>
                         <h3>India Office</h3>
-                        <p>Sco 52, Sector 48, Near Gurudwara Chandigarh (258458)</p>
+                        <p>{{ $setting->address2 }}</p>
                         <ul>
                             <li>
-                                <span>Mobile:</span> <a href="tel:+23456783456">(+234) - 5678 - 3456</a>
+                                <span>{{ __('locale.Phone') }}:</span> <a href="tel:{{ $setting->phone2 }}">{{ $setting->phone2 }}</a>
                             </li>
                             <li>
-                                <span>Email:</span> <a href="/cdn-cgi/l/email-protection#2c44494040436c46494f5843024f4341"><span class="__cf_email__" data-cfemail="7c14191010133c16191f0813521f1311">[email&#160;protected]</span></a>
+                                <span>{{ __('locale.Email') }}:</span> <a href="{{ $setting->email2 }}">{{ $setting->email2 }}</a>
                             </li>
                         </ul>
                     </div>
@@ -68,13 +68,13 @@
                     <div class="info-item">
                         <i class='bx bx-world'></i>
                         <h3>UK Office</h3>
-                        <p>142 West newton, New York 19088 United States</p>
+                        <p>{{ $setting->address3 }}</p>
                         <ul>
                             <li>
-                                <span>Mobile:</span> <a href="tel:+10009871234">(+1) 000 - 987 - 1234</a>
+                                <span>{{ __('locale.Phone') }}:</span> <a href="tel:{{ $setting->phone3 }}">{{ $setting->phone3 }}</a>
                             </li>
                             <li>
-                                <span>Email:</span> <a href="/cdn-cgi/l/email-protection#22475a434f524e4762484741564d0c414d4f"><span class="__cf_email__" data-cfemail="d9bca1b8b4a9b5bc99b3bcbaadb6f7bab6b4">[email&#160;protected]</span></a>
+                                <span>{{ __('locale.Email') }}:</span> <a href="{{ $setting->email3 }}">{{ $setting->email3 }}</a>
                             </li>
                         </ul>
                     </div>
@@ -153,7 +153,7 @@
 
     <div class="map-area">
         <div class="container-fluid p-0">
-            <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59843174.53779285!2d62.17507173408571!3d23.728204508550363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3663f18a24cbe857%3A0xa9416bfcd3a0f459!2sAsia!5e0!3m2!1sen!2sbd!4v1599227927146!5m2!1sen!2sbd" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            <iframe id="map" src="{{ $setting->google_map_link }}" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
         </div>
     </div>
 

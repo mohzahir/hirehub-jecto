@@ -24,8 +24,24 @@ class CVCategorySeeder extends Seeder
                 'slug' => 'Normal',
                 'cv_price_sdg' => '1000',
                 'cv_price_dollar' => '200',
-                'features' => $faker->sentences(3, true),
-                'features_ar' => $faker->sentences(3, true),
+                'features' => "
+                <ul>
+                    <li>Unlimited Job Categories</li>
+                    <li>Unlimited Job Posting</li>
+                    <li>Unlimited proposals</li>
+                    <li>Resume database access</li>
+                    <li>Individually written job ads</li>
+                </ul>
+                ",
+                'features_ar' => "
+                <ul>
+                    <li>Unlimited Job Categories</li>
+                    <li>Unlimited Job Posting</li>
+                    <li>Unlimited proposals</li>
+                    <li>Resume database access</li>
+                    <li>Individually written job ads</li>
+                </ul>
+                ",
                 'status' => 'active',
             ],
             [
@@ -34,8 +50,24 @@ class CVCategorySeeder extends Seeder
                 'slug' => 'Golden',
                 'cv_price_sdg' => '2000',
                 'cv_price_dollar' => '400',
-                'features' => $faker->sentences(3, true),
-                'features_ar' => $faker->sentences(3, true),
+                'features' => "
+                <ul>
+                    <li>Unlimited Job Categories</li>
+                    <li>Unlimited Job Posting</li>
+                    <li>Unlimited proposals</li>
+                    <li>Resume database access</li>
+                    <li>Individually written job ads</li>
+                </ul>
+                ",
+                'features_ar' => "
+                <ul>
+                    <li>Unlimited Job Categories</li>
+                    <li>Unlimited Job Posting</li>
+                    <li>Unlimited proposals</li>
+                    <li>Resume database access</li>
+                    <li>Individually written job ads</li>
+                </ul>
+                ",
                 'status' => 'active',
             ],
             [
@@ -44,8 +76,24 @@ class CVCategorySeeder extends Seeder
                 'slug' => 'Premium',
                 'cv_price_sdg' => '3000',
                 'cv_price_dollar' => '600',
-                'features' => $faker->sentences(3, true),
-                'features_ar' => $faker->sentences(3, true),
+                'features' => "
+                <ul>
+                    <li>Unlimited Job Categories</li>
+                    <li>Unlimited Job Posting</li>
+                    <li>Unlimited proposals</li>
+                    <li>Resume database access</li>
+                    <li>Individually written job ads</li>
+                </ul>
+                ",
+                'features_ar' => "
+                <ul>
+                    <li>Unlimited Job Categories</li>
+                    <li>Unlimited Job Posting</li>
+                    <li>Unlimited proposals</li>
+                    <li>Resume database access</li>
+                    <li>Individually written job ads</li>
+                </ul>
+                ",
                 'status' => 'active',
             ],
             [
@@ -54,8 +102,24 @@ class CVCategorySeeder extends Seeder
                 'slug' => 'Silver',
                 'cv_price_sdg' => '4000',
                 'cv_price_dollar' => '800',
-                'features' => $faker->sentences(3, true),
-                'features_ar' => $faker->sentences(3, true),
+                'features' => "
+                <ul>
+                    <li>Unlimited Job Categories</li>
+                    <li>Unlimited Job Posting</li>
+                    <li>Unlimited proposals</li>
+                    <li>Resume database access</li>
+                    <li>Individually written job ads</li>
+                </ul>
+                ",
+                'features_ar' => "
+                <ul>
+                    <li>Unlimited Job Categories</li>
+                    <li>Unlimited Job Posting</li>
+                    <li>Unlimited proposals</li>
+                    <li>Resume database access</li>
+                    <li>Individually written job ads</li>
+                </ul>
+                ",
                 'status' => 'active',
             ],
         ]);

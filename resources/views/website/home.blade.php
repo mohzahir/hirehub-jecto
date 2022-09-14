@@ -458,26 +458,6 @@
     </section>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-    @include('website.includes.cv-writing-samples')
-    
-
-
-
-
-
-
     <section class="location-area pb-70 ">
         <div class="container-fluid">
             <div class="row">
@@ -501,6 +481,10 @@
     </section>
 
 
+    @include('website.includes.cv-writing-samples', ['class' => 'pb-0'])
+
+
+    @include('website.includes.testimonials')
 
     <!-- <section class="testimonial-area pb-100">
         <div class="container">
@@ -575,6 +559,8 @@
             </div>
         </div>
     </section>
+
+
 
 
     <div class="register-area">

@@ -1,4 +1,4 @@
-<section class="company-area pb-70">
+<section class="company-area pb-70 {{ $class }}">
 
     <div class="container">
         <div class="row align-items-center">

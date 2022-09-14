@@ -14,7 +14,7 @@
                         <ul>
                             <li>
                                 <img src="{{ asset('jecto/default/assets/img/home-three/title-img-two.png') }}" alt="Image">
-                                <a href="index.html">{{ __('locale.Home') }}</a>
+                                <a href="{{ route('home') }}">{{ __('locale.Home') }}</a>
                             </li>
                             <li>
                                 <span>/</span>
@@ -195,7 +195,7 @@
     </section>
 
 
-    @include('website.includes.team', ['class' => 'pt-100'])
+    @include('website.includes.testimonials')
 
 
 
