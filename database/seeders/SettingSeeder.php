@@ -64,6 +64,7 @@ class SettingSeeder extends Seeder
             'youtube_link' => 'www.youtube.com',
             'logo1' => 'https://www.hirehub-sd.com/photos/1/logo.png',
             'logo2' => 'https://www.hirehub-sd.com/photos/1/logo.png',
+            'account_number' => '12345678',
         ]);
     }
 }

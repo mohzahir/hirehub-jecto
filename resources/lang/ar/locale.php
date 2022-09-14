@@ -207,6 +207,7 @@ return [
     "CV Writing Working Process" => "طريقة الحصول على سيرة زاتية",
     "Contact And Sending CV" => "التواصل وارسال السيرة الذاتية",
     "Contact And Sending CV Description" => "التواصل وارسال السيرة الذاتية",
+    "please send fees to the following account number and attach the transaction Image bellow" => "يرجى إرسال الرسوم إلى رقم الحساب التالي وإرفاق صورة المعاملة أدناه",
 
 
 

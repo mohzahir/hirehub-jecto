@@ -498,6 +498,14 @@
               <input class="form-control" name="ceo_video_link"value="{{ $setting->ceo_video_link }}" >
             </div><!-- col-8 -->
           </div><!-- row -->
+          <div class="row no-gutters">
+            <div class="col-5 col-sm-4">
+              رقم الحساب البنكي
+            </div><!-- col-4 -->
+            <div class="col-7 col-sm-8">
+              <input class="form-control" name="account_number"value="{{ $setting->account_number }}" >
+            </div><!-- col-8 -->
+          </div><!-- row -->
         </div>
       </div><!-- card-body -->
       <div class="card-footer">

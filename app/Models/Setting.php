@@ -55,5 +55,6 @@ class Setting extends Model
         'youtube_link',
         'logo1',
         'logo2',
+        'account_number',
     ];
 }

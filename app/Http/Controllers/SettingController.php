@@ -98,6 +98,7 @@ class SettingController extends Controller
             'instagram_link' => $request->instagram_link,
             'google_map_link' => $request->google_map_link,
             'ceo_video_link' => $request->ceo_video_link,
+            'account_number' => $request->account_number,
         ]);
         return redirect()->back()->with('success', 'تم تحديث البيانات بنجاح');
     }

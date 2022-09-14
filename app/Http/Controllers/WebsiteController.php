@@ -472,7 +472,7 @@ class WebsiteController extends Controller
     {
         return redirect('/');
     }
-    public function decline()
+    public function decline(Request $request)
     {
         $telrManager = new \TelrGateway\TelrManager();
         $telrManager->handleTransactionResponse($request);

@@ -74,6 +74,7 @@ class AddSettingRequest extends FormRequest
             'youtube_link' => 'nullable',
             'instagram_link' => 'nullable',
             'google_map_link' => 'required',
+            'account_number' => 'required',
         ];
     }
 }

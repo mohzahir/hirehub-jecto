@@ -205,4 +205,5 @@ return [
     "CV Writing Working Process" => "CV Writing Working Process",
     "Our Trusted Clients" => "Our Trusted Clients",
     "Contact And Sending CV" => "Contact And Sending CV",
+    "please send fees to the following account number and attach the transaction Image bellow" => "please send fees to the following account number and attach the transaction Image bellow",
 ];

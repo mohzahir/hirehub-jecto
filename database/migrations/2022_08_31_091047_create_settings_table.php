@@ -64,6 +64,7 @@ class CreateSettingsTable extends Migration
             $table->string('youtube_link')->nullable();
             $table->string('logo1');
             $table->string('logo2');
+            $table->string('account_number');
             $table->timestamps();
         });
     }

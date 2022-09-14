@@ -142,7 +142,7 @@
                                     </div>
                                     <div id="bank" class="col-lg-12" style="display: none">
                                         <div class="form-group">
-                                            <label class="text-danger">{{ __('locale.please send fees to the following account number (12345678) and attach the transaction Image bellow') }}</label>
+                                            <label class="text-danger">{{ __('locale.please send fees to the following account number and attach the transaction Image bellow') }} ({{ $setting->account_number }})</label>
                                             <input type="file" name="payment_photo" class="form-control" placeholder="{{ __('locale.CV') }}">
                                         </div>
                                     </div>
