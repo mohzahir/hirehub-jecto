@@ -35,6 +35,16 @@ class CountrySeeder extends Seeder
                 'name_ar' => 'شركة4',
                 'logo' => 'jecto/default/assets/img/home-two/support4.png',
             ],
+            [
+                'name' => 'company5',
+                'name_ar' => 'شركة5',
+                'logo' => 'jecto/default/assets/img/home-two/support5.png',
+            ],
+            [
+                'name' => 'company6',
+                'name_ar' => 'شركة6',
+                'logo' => 'jecto/default/assets/img/home-two/support6.png',
+            ],
         ]);
     }
 }
