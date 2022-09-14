@@ -30,5 +30,6 @@ class DatabaseSeeder extends Seeder
         $this->call(WorkshopSeeder::class);
         $this->call(RunningWorkshopSeeder::class);
         $this->call(PageSeeder::class);
+        $this->call(CompanySeeder::class);
     }
 }
